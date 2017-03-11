@@ -18,3 +18,76 @@ El motivo por el cual del lado del cliente las aplicaciones web son Graphical Us
 2 Manejo de eventos- Entra un loop (5) esperando por eventos a que ocurran (6) y empieza a invocar manejadores de eventos.
 El ciclo de vida de una aplicacion termina cuando el usuario cierra y se va de la pagina (7).
 Ahora vamos a ver un ejemplo de una aplicacion web con simple UI que reacciona a las acciones del usuario: Cada vez que el usuario mueve el mouse o cliquea la pagina. un mensaje sera desplegado. Vamos a utilizar esta aplicacion durante este capitulo.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lifeCycle</title>
+    <style>
+        #first {color: green;}
+        #second {color: red;}
+    </style>
+</head>
+<body>
+    <ul id="first"></ul>
+
+<script>
+function addMessage(element, message) {
+    var messageElement = document.createElement('li');
+    messageElement.textContent = message;
+    element.appendChild(messageElement);
+}
+
+var first = document.getElementById("first");
+addMessage(first, "Page loading");
+</script>
+    <ul id="second"></ul>
+
+<script>
+document.body.addEventListerner("mousemove", function() {
+    var second = document.getElementById("second");
+    addMessage(second, "Event: mousemove");
+});
+
+document.body.addEventListerner('click', function() {
+    
+});
+
+</script>
+</body>
+</html>
+
+En el ejemplo anterior primero se definen las reglas css #first, #second, eso especifica el color de los elementos con los id's first y second (para que podamos distingir facilmente entre ellas) Despues continuamos definiendo una lista de elementos con el id first:
+<ul id="first"></ul>
+Despues definimos una funcion addMessage, que la invocamos, crea una nueva lista de elementos, ingresa el contexto texto, y hace un append en el elemento existente
+
+function addMessage(element, message) {
+    var messageElement = document.createElement("li");
+    messageElement.textContent = message;
+    element.appendChild(messageELement);
+}
+
+Seguimos esto usando built-in getElementById metodo para traer un elemento con el ID first del documento, y agregando un mensaje que nos notifique de que la pagina esta cargando
+
+var first = document.getElementById("first");
+addMessage(first, "Page Loading");
+
+Despues definimos otro elemento lista, ahora con el atributo ID second
+<ul id="second"></ul>
+
+Finalmente adjunataos dos eventos al body de la pagina, empezamos con el mousemove event que se ejecuta cada vez que el usuario mueve el mouse, y agrega un mensajge "EventL mousemove" al segundo elemento de la lista del elemento llamando la funcion addMessage
+
+document.body.addEventListener("mousemove", function() {
+    var second = document.getElementById("second");
+    addMessage(second, "Event: mousemove");
+});
+
+Tambien registramos un evento click, que, sin importar donde se le de click a la pagina, registra un mensaje "Event: click" tambien al segundo elemento
+
+document.body.addEventListener("click", function() {
+    var second = document.getElementById("second");
+    addMessage(second, "Event: click");
+});
+
+Vamos a utilizar este ejemplo y ilustrar las diferencias entre las diferentes fases del ciclo de vida de la aplicacion. Vamos a empezar con la fase de la construccion de la pagina.

@@ -1,0 +1,17 @@
+THE PAGE BUILDING PHASE
+
+Antes que una aplicacion web pueda interactuaro y aun desplegar informacion, la pagina tiene que construirse de la informacion en la respuesta recivida del servidor (usualmente HTML, CSS y Javascript). El objetivo de la fase de la construccion de la pagina es la de preparar el UI de la aplicacion web, y esto se hace en dos pasos distintos.
+
+    1- Se recorre todas las partes de el HTML y se construye el DOM
+    2- Ejecutando el codigo Javascript
+
+El paso numero 1 es ejecutado cuando el browser esta procesando los nodos del HTML, y el paso 2 es ejecutado siempre que un elemento especial de HTML llamado la etiqueta script (que contiene y se refiere al codigo Javascript). Durante la fase de la construcion de la pagina, el browser puede cambiar en alguna de estos dos pasos las veces que sea necesario.
+
+1 El usuario Ingresa una URL
+2 El browser Genera un request y lo envia al server
+3 El server ejecuta aciones o obtiene recursos; y envia una respuesta al cliente
+4 El browser procesa el HTML, CSS y Javascript
+    - Se parsea el HTML y se construe el DOM
+    - Se ejecuta el codigo javascript cada vez que haya una etiqueta script
+
+La fase the construccion de la pagina empieza cuando el browser recive el codigo de la pagina. Se ejecuta en dos pasos: pasear el HTML y construir el DOM y Ejecutando codigo Javascript

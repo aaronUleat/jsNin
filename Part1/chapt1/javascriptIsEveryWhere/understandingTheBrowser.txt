@@ -1,0 +1,18 @@
+ENTENDIENDO EL BROWSERS
+
+En estos dias, aplicaciones javascript pueden ser ejecutadas en muchos ambientes. Pero en el ambiente donde todo empezo fue en el browser, es el ambiente de donde todos los demas ambientes tomaron sus ideas.
+Los browser proveen varios conceptos y APIs que exploraremos a fondo.
+
+Nos vamos concentrar en lo siguiente
+    * The document Object Model (DOM). El DOM es representacion de estructura de la UI en el lado del cliente en las aplicaciones web, por lo menos al inicio, construir de HTML codigo de aplicacion web. Para desarrollar grandes aplicaciones, usted no necesita solo tener un entendimiento profundo del nucleo de la mecanica de Javascript, pero tambien estudia como el DOM es construido y como escribir codigo efectivo para manipular el DOM. Esto va aponer en creacion de UI's avansados
+
+    * Eventos - Una gran mayoria de aplicaciones javascript son manejadas por eventos, significando que la mayoria del codigo se ejecuta en un contexto de una respuesta a un evento en particular. Ejemplo de eventos seria, mouse move, keyboard press. Por esta razon vamos a explorar profundamente la mecanica detras de los eventos. Vamos a prestar atencion a timmers, que frecuentemente son un misterio pero nos dan entrada a codigo complexo como largos periodos de computaciones y animaciones fluidas
+
+    * Browser API- Para ayudar a interactuar con el mundo, el browser, ofrece una API que nos permite accesar a informacion acerca devices, almacenar data localmente, o comunicarse con servers remotes. Vamos a explorar algunas de estas API's a lo largo del libro.
+
+
+Perfeccionar nuestro codigo Javascript y tener conocimiento profundo de la API ofrecida por el browser nos va a llevar lejos. Pero tarde o temprano, se va a correr dentro de las incocistencias. En un mundo perfecto, todos los browsers serian bug-free y soportarian estandars web en cosistencia.
+La calidad de los browsers ha mejorado grandemiente, pero todos ellos continuan teniendo bugs, perdiendo API's, y los caprichos con los que tenemos que lidear. Desarrollar una estrategia comprensiva para abordar los problemas del browser y volverse inmediatamente familiar con sus diferentes caprichos, podemos al menos una importante capacidad en Javascript si mismo.
+
+Cuando estamos escribiendo aplicaciones de browser o librerias de javascript, escoger que browser se van a soportar es una consideracion importante. Nos gustaria soportar todos ellos, pero las limitaciones de desarrollo y recursos de test dictan lo controrio. Por esta razon, vamos a explorar profundamente estrategias de cross-browser.
+Desarrollar efectivamente, cross-browser codigo puede depender significativamente en la habilidad y experiencia de los desarrolladores. Este libro esta destinado a aumentar ese nivel de habilidad

@@ -1,0 +1,17 @@
+PARSING THE HTML AND BUILDING THE DOM
+
+La fase de construccion de la pagina empieza cuando el browser recive el codigo HTML, el cual es usado como base desde arriba en la cual el browser construye el UI de la Pagina. El browser hace esto cuando parsea el codigo HTML, un elemento HTML a la vez, y construyendo el DOM, estructurado la representacion de la pagina HTML en la que cada elemento HTML es representado como un nodo. 
+Noten como los nodos en la figura 2.4 estan organizados tales que cada nodo excepto el primero html (el nodo ruta es el html) tiene exactamente un padre. Por ejemplo la etiqueta head tiene la etiqueta html como su padre. Al mismo tiempo un no puede tener cualquier numero de hijos. Por ejemplo, el nodo html tiene dos hijos: el nodo head y el nodo body. Los hijos de un mismo elemento son llamados siblings. (El nodo head y el nodo body son siblings(hermanos)).
+Es importante enfatizar a pesar de que el HTML y el DOM estan cercamente vinculados, con el DOM siendo construido del HTML, no son uno o el mismo.
+Usted deberia pesar del codigo HTML es una guia que el browser sigue cuando esta construyendo el DOM -- la UI -- de la pagina. El browser puede resolver problemas que encuentre en la guia del HTML en orden de crear un DOM valido. Considere el ejemplo de la figura 2.5.
+La figura 2.5 da un simple ejemplo de un HTML erroneo en el que la etiqueta p estan dentro de la etiqueta head. La intencion de la etiqueta head es la de proveer informacion general de la informacion de la pagina. Esto es un error pero el browser silenciosamente arregla y construyel el nodo p dentro del nodo body donde el elemento deberia estar.
+
+
+
+ver la figura 2.4
+ver la figura 2.5
+
+La especificacion presente al dia de de HTML es HTML5, la cual su especificacion puede ser vista en https://html.spec.whatwg.org. Si se necesita algo mas confiable se recomienda la guia de mozilla para HTML5 https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
+El DOM por otro lado en evolucionado mas lento. La version al dia de hoy es el DOM3, que su especificacion puede ser accesda en https://dom.spec.whatwg.org De nuevo mozilla ha preparado un reporte que puede ser encontrado eh https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_model
+
+Durante la construnccion de la pagina el browser se puede encontrar un tipo especial elemento especial HTML, el elemento script, el que es incluido para ingresar codigo Javascript. Cuando esto pasa, el browser pausa la construccion del DOM del codigo HTML y empieza a ejecutar el codigo javascript

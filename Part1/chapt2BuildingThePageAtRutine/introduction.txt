@@ -1,0 +1,11 @@
+THIS CHAPTER COVERS
+    - Los pasos en el ciclo de vida en una aplicacion web
+    - Procesar HTML code para producir una pagina web
+    - Orden de ejecucion del codigo Javascript
+    - Lograr interactividad con eventos
+    - El evento loop
+
+Nuestra exploracion de Javascript es realizada en el contexto del lado del cliente en aplicaciones web y el browser como motor que ejecuta Javascript. En order de tener una base fuerte en la que se continue explorando Javascript como una lengua y el browser como una plataforma, primero tenemos que entender el cyclo de vida de una aplicacion web, y especialmente como nuestro codigo Javascript encaja en el ciclo de vida.
+
+En este Capitulo, vamos a explorar la el ciclo de vida en lado del cliente en una aplicacion web desde el momento que la pagina hace el request, hasta varias interacciones realizadas por el usuario, hasta que la pagina sea totalmente cerrada. Primero exploraremos como la pagina es construida mientras el codigo HTML es procesado. Luego nos enfocaremos en la ejecucion del codigo Javascript, Que agrega dinamicidad a nuestras paginas. Y finalmente vamos a ver dentro como los eventos son manejados en order de desarrollar interactividad en las aplicaciones que responden a acciones de los usuarios.
+Durante este proceso, vamos a explorar alguna aplicaciones web fundamentales tales como el DOM (una representacion de una pagina web) y el evento loop (determina como los eventos son manejados por las aplicaciones)
