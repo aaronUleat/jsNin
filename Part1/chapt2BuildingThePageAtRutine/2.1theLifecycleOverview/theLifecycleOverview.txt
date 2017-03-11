@@ -1,0 +1,20 @@
+THE LIFECYCLE OVERVIEW
+
+El ciclo de vida de una aplicacion web del lado del cliente inicia cual el usuario ingresan el URL en el browser. Vamos a decir que vamos a buscar un termino en el homepage de Google. Entonces ingresamos la URL www.google.com, 
+
+1 Se ingresa la URL
+2 Se genera un request y es enviado al server
+3 Realiza acciones o obtiene recursos y envia una respuesta al cliente
+4 Se procesa el HTML, CSS y Javascript y contruye el resulta de la pagina
+5 Se supervisa la cola de eventos, procesando eventos uno a la vez.
+6 El usuario interactua con los eventos y estos eventos se buscan el la cola de eventos
+7 Se cierra la aplicacion web
+
+El ciclo de vida del lado del cliente inicia cuando se especifica la URL o se hace click en un link y termina cuando el usuario se va del sitio web, Se compone de dos pasos: construccion de la pagina, y manejo de eventos.
+
+En favor del usuario el browser formula un request que es enviado al servidor(2), el cual procesa el request (3) y formula una repuesta que usualmente esta compuesta de HTML, CSS y Javascript. En el momento que el browser recive la respuesta (4) es cuando del lado del cliente la aplicacion web verdaderamente empieza a tomar vida.
+El motivo por el cual del lado del cliente las aplicaciones web son Graphical User Interface(GUI), el ciclo de vida sigue fases similares como otras aplicaciones (GUI) las cuales siguen los siguientes dos pasos.
+1 Construccion de la Pagina - Se establece la interface del usuario.
+2 Manejo de eventos- Entra un loop (5) esperando por eventos a que ocurran (6) y empieza a invocar manejadores de eventos.
+El ciclo de vida de una aplicacion termina cuando el usuario cierra y se va de la pagina (7).
+Ahora vamos a ver un ejemplo de una aplicacion web con simple UI que reacciona a las acciones del usuario: Cada vez que el usuario mueve el mouse o cliquea la pagina. un mensaje sera desplegado. Vamos a utilizar esta aplicacion durante este capitulo.
