@@ -1,0 +1,6 @@
+Dominar Javascript y comprender cross-browser problemas de codigo son partes importantes para volverse un exporteo en aplicaciones web, pero no son toda la imagen. Para entrar en los mas grandes lenguages, se necesita exibir las caracteristicas del codigo. Estas caracteristicas son conocidas como best practices, y en adicion para dominar esa lengua se deben incluir
+    * Habilidades para debuguiar
+    * Testeo
+    * Analisis de performance
+
+Es de vital importancia aderir a estas practicas cuando codear, and vamos usar durante todo el libro
