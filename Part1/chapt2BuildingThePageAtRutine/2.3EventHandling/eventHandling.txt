@@ -1,0 +1,3 @@
+EVENT HANDLING
+
+Las aplicaciones del lado de cliente son aplicaciones GUI, que quiere decir que reacionan a diferentes tipos de eventos: movimientos del mouse, clicks, precion de teclas, y mas. Por esta razon, el codigo Javascript ejecuta durante la fase de construccion de la pagina, en adicion a influenciar la estado de la aplicacion global y modificar el DOM, tambien puede registar eventos que escuchan (o manejadores (handlers)): funciones que son ejecutadas por el browser cuando un evento ocurre. Con estos manejadores de eventos, podemos proveer interactividad a nuestras aplicaciones. Pero antes de hablar de eso vamos a ver  mas de cerca al registro de event handlers, vamos a ver las ideas generales detras de event handling.
