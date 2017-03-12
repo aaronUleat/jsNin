@@ -1,0 +1,8 @@
+UNDERSTANDING FUNCTIONS
+
+Ahora que esta mentalmente preparado y entiendoel ambien en el cual codigo Javascript es ejecutado, usted ya aprendio los fundamentos de las caracteristicas de Javascript.
+En el Capitulo 3 usted va a aprender todo acerca los conceptos basicos de Javascript: no, no los objetos si no mas bien las funciones. Este capitulo nos va a ensenar a entender que las funciones en Javascript son la llave para abrir los secretos de la lengua.
+El capitulo 4 continua nuestra exploracion de las funciones estudiando como las funciones son invocadas, a lo largo de los ins y outs de parametros implicitos que son accesibles cuando el codigo de la funcion.
+El capitulo 5 toman las funciones a otro nivel con clousures, probablemente uno de temas mas incomprendidos y ni siquiera bien sabido del Lenguaje de Javascript. Como van a ver, clousures estan atadas cercamente a scopes. En este capitulo en adicion de clousures, vamos a poner un espcial cuidado a mecanimos de scoping en Javascript.
+Nuestra exploracion de funciones va a estar completada en el capitulo 6, donde vamos a discutir un completo new tipo de funcion - the-generator-function - que tiene propiedades especiales y es especial cuando se esta lideando con codigo asincronico
+

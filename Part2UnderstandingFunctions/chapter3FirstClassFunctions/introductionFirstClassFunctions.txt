@@ -1,0 +1,12 @@
+FIRST CLASS FUNCTIONS PARA LOS NOVATOS: DEFINICION Y ARGUMENTOS
+
+Este capitulo va a cubrir
+    - Por que entender funciones es crucial
+    - Como las funciones son objectos first-class
+    - Las formas de definir una funcion
+    - Los secretos de como los parametros son asignados
+
+Usted talvez se sorprenda, sobre volver a esta parte del libro dedicada a los fundamentos de Javascript, para ver el primer tema a discucion son las funciones en vez de objetos. Vamos a ponerle mas antecion a los objetos en la parter 3 de este libro, pero cuando se trata de Javascript, lo que hace la diferencia para entender la lenguna es entender que Javascript es un lenguaje funcional. El nivel de sofisticacion de todo el codigo que usted alguna vez va a escribir en Javasccript depende de funciones.
+Si usted esta leyendo este libro, usted no es un total novato. Asumimos que usted sabe lo suficiente acerca fundamento de objetos para entender(y vamos a hablar de objetos mas avanzados en el capitulo 7), pero entender realmente funciones en Javascript es la arma mas importante que se puede empunar. Es por esto que los siguientes capitulos que los siguientes 3 capitulos los vamos a dedicar a funciones.
+Mas importante, en Javascript, las funciones son objetos first-class, o ciudados first-class como son llamados muchas veces. Ellos coexisten entre ellos, y pueden se tratados como cuales, como cualquier otro Objeto Javascript. Como el mas mundano tipo de dato en Javascript, ellos pueden ser referenciado como variables, declarada con literales, y pasados como parametros en una funcion. En este capitulo vamos a ver primero la diferencia que esta orientacion a funciones trae, y usted vera como esto nos puede ayudar a escribir codigo mas compacto y entendible, nos va a permitir definir funciones en el momentoque lo necesitemos. Tambien vamos a explorar como tomar ventaja de las funciones objetos first-class en orden de escribir mejores funciones a ejecutarse. Usted va a ver varias formas de definir funciones, incluidos algunos nuevos tipos, tales como la funcion arrow, que nos va a ayudar a escribir codigo mas elegante. Finalmente vamos a ver la diferencia entre parametros en la funcion y argumentos en la funcion, con especial atencion en ES6, tales como el rest y default parametro.
+Camos a empezar en los beneficon de la programcion funcional.

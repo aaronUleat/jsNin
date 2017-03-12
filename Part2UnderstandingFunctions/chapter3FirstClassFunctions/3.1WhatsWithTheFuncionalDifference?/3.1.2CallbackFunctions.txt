@@ -1,0 +1,36 @@
+CALLBACK FUNCTIONS
+
+Cuando preparamos una funciones llamada en algun momento posterior, si el browser en la fase de event-handling o por otro codigo, estamos preparando un callback. El termino establece como hecho que vamos a establecer una funcion que otro codigo la va a llamar "call back" en el momento apropiado un punto de ejecucion.
+Los callbacks son una parte escencial para utilizar Javascript efectivamente, y estamos dispuestos en apostar que usted ya sabe como sabe utilizarlos en mucho de su codigo - ya sea ejecutando el codigo en un boton al ser cliqueado, recibiendo data del servidor, o animando partes de la UI.
+En esta seccion, estamos cerca de ver como manejar callbacks para manejar eventos o para facilmente ordenar una coleccion - ejemplos en el mundo real como los callbacks son usados. pero es un poco complejo, entonces antes de entrar en esto, vamos a demostrar el concepto de callback completamente desnudo y examinar en la forma mas simple. Vamos a empezar con un ejemplo iluminativo de un completo inutil, una funcion que acepta una referencia de otras funciones como un parametro y llama una funcion como un callback
+
+function useless(ninjaCallback) {
+    return ninjaCallback();
+}
+
+Esta funcion inutil, nos demuestra la abilidad de pasar una funcion como un argumento a otra funcion, y despues invoca esa funcion a travez del parametro pasado.
+Esto lo podemos testear con el siguiente codigo inutil
+LISTING 3.1 Un simple de ejemplo callback
+
+var text = "Domo arigato";
+report("Before defining funcionts");
+
+
+// Define una funcion que toma un callback 
+// function y invocarlos inmediatamente
+
+function useless(ninjaCallback) {
+    report("In useless function");
+    return ninjaCallback();
+}
+
+//Define una simple funcion
+// retorna una variable global
+
+function getText() {
+    report("In getText function");
+    return text;
+}
+
+
+
