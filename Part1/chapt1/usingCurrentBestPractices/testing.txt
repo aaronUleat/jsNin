@@ -1,11 +1,17 @@
-A lo largo de este libro, se van aplicar tecnicas de testeo para asegurar que el ejemplo de codigo opere de manera correcta. La primer herramienta que utilizaremos para testear es una funcion afirmativa, que su proposito es afirmar que la premisa es verdadera o falsa. Al especificar afirmaciones, podemos chequear si el codigo se esta comportando como lo esperabamos.
+A lo largo de este libro, se van aplicar tecnicas de testeo para asegurar que el 
+ejemplo de codigo opere de manera correcta. La primer herramienta que utilizaremos 
+para testear es una funcion afirmativa, que su proposito es afirmar que la premisa 
+es verdadera o falsa. Al especificar afirmaciones, podemos chequear si el codigo 
+se esta comportando como lo esperabamos.
 La forma general de esta funcion es la siguiente
 
 assert(condition, message);
 
-Este primer parametro es una condicion que deberia ser verdad, y la segunda es un mensaje  que se va a desplegar si no es asi.
+Este primer parametro es una condicion que deberia ser verdad, y 
+la segunda es un mensaje  que se va a desplegar si no es asi.
 Considere el siguiente ejemplo
 
 assert(a === 1, "Disaster! a is not 1!")
 
-Si el valor de variable no es igual a 1, la afirmacion falla y el como se despliega en el mensaje.
+Si el valor de variable no es igual a 1, la afirmacion falla y 
+el como se despliega en el mensaje.

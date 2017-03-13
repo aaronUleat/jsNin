@@ -1,6 +1,12 @@
 DEBUGING
 
-Debuggin Javascript solia significar usar alertas para verificar el valor de las variables. Afortunadamente la habilidad de debuguiar en javascript ha mejorado dramaticamente, con erramientas como FireBug o chrome DeveTools.
-Como se puede ver la mayoria de los browsers principales mas usados ofrecen erramientas developer para debuguiar.
-Todas estas herramientas  son basadas en ideas similares, que fueron introucidas pro primeras vez por firebug. Explorando el DOM, debugging Javascript editar CSS, tracker eventos del network, y otras funciones. Cualquiera de ellas hacen un buen trabajo.
-En adicion, se puede usar algunas de ellas, como chrome dev tools, para debuguear otras aplicaciones como node 
+Debuggin Javascript solia significar usar alertas para verificar el valor de las variables. 
+Afortunadamente la habilidad de debuguiar en javascript ha mejorado dramaticamente, 
+con erramientas como FireBug o chrome DeveTools.
+Como se puede ver la mayoria de los browsers principales mas usados ofrecen erramientas 
+developer para debuguiar.
+Todas estas herramientas  son basadas en ideas similares, que fueron introucidas por 
+primeras vez por firebug. Explorando el DOM, debugging Javascript editar CSS, tracker 
+eventos del network, y otras funciones. Cualquiera de ellas hacen un buen trabajo.
+En adicion, se puede usar algunas de ellas, como chrome dev tools, para debuguear 
+otras aplicaciones como node 

@@ -1,6 +1,9 @@
 THE LIFECYCLE OVERVIEW
 
-El ciclo de vida de una aplicacion web del lado del cliente inicia cual el usuario ingresan el URL en el browser. Vamos a decir que vamos a buscar un termino en el homepage de Google. Entonces ingresamos la URL www.google.com, 
+El ciclo de vida de una aplicacion web del lado del 
+cliente inicia cual el usuario ingresan el URL en el browser. Vamos a 
+decir que vamos a buscar un termino en el homepage de Google. 
+Entonces ingresamos la URL www.google.com, 
 
 1 Se ingresa la URL
 2 Se genera un request y es enviado al server
@@ -10,14 +13,25 @@ El ciclo de vida de una aplicacion web del lado del cliente inicia cual el usuar
 6 El usuario interactua con los eventos y estos eventos se buscan el la cola de eventos
 7 Se cierra la aplicacion web
 
-El ciclo de vida del lado del cliente inicia cuando se especifica la URL o se hace click en un link y termina cuando el usuario se va del sitio web, Se compone de dos pasos: construccion de la pagina, y manejo de eventos.
+El ciclo de vida del lado del cliente inicia cuando se especifica la URL o 
+se hace click en un link y termina cuando el usuario se va del sitio web, 
+Se compone de dos pasos: construccion de la pagina, y manejo de eventos.
 
-En favor del usuario el browser formula un request que es enviado al servidor(2), el cual procesa el request (3) y formula una repuesta que usualmente esta compuesta de HTML, CSS y Javascript. En el momento que el browser recive la respuesta (4) es cuando del lado del cliente la aplicacion web verdaderamente empieza a tomar vida.
-El motivo por el cual del lado del cliente las aplicaciones web son Graphical User Interface(GUI), el ciclo de vida sigue fases similares como otras aplicaciones (GUI) las cuales siguen los siguientes dos pasos.
+En favor del usuario el browser formula un request que es enviado al servidor(2), 
+el cual procesa el request (3) y formula una repuesta que usualmente esta compuesta 
+de HTML, CSS y Javascript. En el momento que el browser recive la respuesta (4) es 
+cuando del lado del cliente la aplicacion web verdaderamente empieza a tomar vida.
+El motivo por el cual del lado del cliente las aplicaciones web son 
+Graphical User Interface(GUI), el ciclo de vida sigue fases similares 
+como otras aplicaciones (GUI) las cuales siguen los siguientes dos pasos.
 1 Construccion de la Pagina - Se establece la interface del usuario.
-2 Manejo de eventos- Entra un loop (5) esperando por eventos a que ocurran (6) y empieza a invocar manejadores de eventos.
-El ciclo de vida de una aplicacion termina cuando el usuario cierra y se va de la pagina (7).
-Ahora vamos a ver un ejemplo de una aplicacion web con simple UI que reacciona a las acciones del usuario: Cada vez que el usuario mueve el mouse o cliquea la pagina. un mensaje sera desplegado. Vamos a utilizar esta aplicacion durante este capitulo.
+2 Manejo de eventos- Entra un loop (5) esperando por eventos a que 
+ocurran (6) y empieza a invocar manejadores de eventos.
+El ciclo de vida de una aplicacion termina cuando el usuario cierra y 
+se va de la pagina (7).
+Ahora vamos a ver un ejemplo de una aplicacion web con simple UI que reacciona a 
+las acciones del usuario: Cada vez que el usuario mueve el mouse o cliquea la pagina. 
+un mensaje sera desplegado. Vamos a utilizar esta aplicacion durante este capitulo.
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,9 +72,14 @@ document.body.addEventListerner('click', function() {
 </body>
 </html>
 
-En el ejemplo anterior primero se definen las reglas css #first, #second, eso especifica el color de los elementos con los id's first y second (para que podamos distingir facilmente entre ellas) Despues continuamos definiendo una lista de elementos con el id first:
+En el ejemplo anterior primero se definen las reglas css #first, #second, 
+eso especifica el color de los elementos con los id's first y second 
+(para que podamos distingir facilmente entre ellas) Despues 
+continuamos definiendo una lista de elementos con el id first:
 <ul id="first"></ul>
-Despues definimos una funcion addMessage, que la invocamos, crea una nueva lista de elementos, ingresa el contexto texto, y hace un append en el elemento existente
+Despues definimos una funcion addMessage, que la invocamos, 
+crea una nueva lista de elementos, ingresa el contexto texto, y 
+hace un append en el elemento existente
 
 function addMessage(element, message) {
     var messageElement = document.createElement("li");
@@ -68,7 +87,9 @@ function addMessage(element, message) {
     element.appendChild(messageELement);
 }
 
-Seguimos esto usando built-in getElementById metodo para traer un elemento con el ID first del documento, y agregando un mensaje que nos notifique de que la pagina esta cargando
+Seguimos esto usando built-in getElementById metodo para traer un 
+elemento con el ID first del documento, y agregando un mensaje que 
+nos notifique de que la pagina esta cargando
 
 var first = document.getElementById("first");
 addMessage(first, "Page Loading");
@@ -76,18 +97,25 @@ addMessage(first, "Page Loading");
 Despues definimos otro elemento lista, ahora con el atributo ID second
 <ul id="second"></ul>
 
-Finalmente adjunataos dos eventos al body de la pagina, empezamos con el mousemove event que se ejecuta cada vez que el usuario mueve el mouse, y agrega un mensajge "EventL mousemove" al segundo elemento de la lista del elemento llamando la funcion addMessage
+Finalmente adjunataos dos eventos al body de la pagina, empezamos 
+con el mousemove event que se ejecuta cada vez que el usuario mueve 
+el mouse, y agrega un mensajge "EventL mousemove" al segundo 
+elemento de la lista del elemento llamando la funcion addMessage
 
 document.body.addEventListener("mousemove", function() {
     var second = document.getElementById("second");
     addMessage(second, "Event: mousemove");
 });
 
-Tambien registramos un evento click, que, sin importar donde se le de click a la pagina, registra un mensaje "Event: click" tambien al segundo elemento
+Tambien registramos un evento click, que, sin importar 
+donde se le de click a la pagina, registra un mensaje "Event: click" 
+tambien al segundo elemento
 
 document.body.addEventListener("click", function() {
     var second = document.getElementById("second");
     addMessage(second, "Event: click");
 });
 
-Vamos a utilizar este ejemplo y ilustrar las diferencias entre las diferentes fases del ciclo de vida de la aplicacion. Vamos a empezar con la fase de la construccion de la pagina.
+Vamos a utilizar este ejemplo y ilustrar las diferencias entre las 
+diferentes fases del ciclo de vida de la aplicacion. Vamos a empezar 
+con la fase de la construccion de la pagina.

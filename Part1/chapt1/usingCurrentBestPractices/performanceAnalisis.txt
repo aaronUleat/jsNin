@@ -1,4 +1,6 @@
-Otra importante practica es el analisis del perfornace. Los motores de javascript han ido en pasos agrandados en el performance de javascript, pero eso no es excusa para escribir codigo no solido o codigo ineficiente.
+Otra importante practica es el analisis del perfornace. Los motores de javascript han 
+ido en pasos agrandados en el performance de javascript, pero eso no es excusa para escribir 
+codigo no solido o codigo ineficiente.
 
 Vamos a utilizar codigo como el siguiente para colectar informacion de performance del codigo
 
@@ -10,8 +12,16 @@ for(var n = 0; n < maxCount; n++) {      /// hace la operacion multiples
 
 console.timeEnd("My Operation"); /// termina el timer
 
-Aqui agrupamos la ejecucion del codigo para ser medida con dos llamadas time y timeEnd metodos del console object.
+Aqui agrupamos la ejecucion del codigo para ser medida con dos llamadas time y timeEnd 
+metodos del console object.
 
-Antes de que la operacion inicie la ejecucion, la llamada a console.time empieza un timer con un nombre en este caso (My operation). Despues corremos el codigo dentro del for loop una cierta cantidad de veces. Por que una sola operacion pasa muy rapido para medirlo seguramente, necesitamos realizar el codigo un numero de veces para tener una medida. Frecuentementem esta cuenta puede estar en decenas de cientos, o millones, dependiendo en la naturaleza del codigo.
-Una pequena prueba y errores no dejan escoger un valor rasonable.
-Cuando la operacion finaliza, podemos llamar la funcion console.timeEnd metodo con el mismo nombre. Esto causa que el browser emita el tiempo transcurrido desde cuando el timer inicio.
+Antes de que la operacion inicie la ejecucion, la llamada a console.time empieza un timer con 
+un nombre en este caso (My operation). Despues corremos el codigo dentro del for loop una cierta 
+cantidad de veces. Por que una sola operacion pasa muy rapido para medirlo seguramente, necesitamos 
+realizar el codigo un numero de veces para tener una medida. Frecuentementem esta 
+cuenta puede estar en decenas de cientos, o millones, dependiendo en la naturaleza del codigo.
+Una pequena prueba y errores no dejan escoger un 
+valor rasonable.
+Cuando la operacion finaliza, podemos llamar la funcion console.timeEnd 
+metodo con el mismo nombre. Esto causa que el browser emita el tiempo 
+transcurrido desde cuando el timer inicio.

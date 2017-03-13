@@ -1,7 +1,14 @@
 PART 1
 WARMING UP
 
-Esta parte del libro va a setear un escenario para nuestro entrenamiento ninja en javascript. En el capitulo 1, vamos a ver al dia de hoy javascript funciona, algunos de los ambientes de codigo javascript pueden ser ejecutados. Vamos a enforcarnos en el ambiente que es donde todo comienza -- el browswer -- y vamos a discutir algunas de las practicas cuando se desarrollan aplicaciones javascript
-Por nuestra exploracion de javascript que va ser hecha en el contexto del browser, en el capitulo 2, vamos a ensenar el ciclo de vida del lado del cliente de las aplicaciones web, y como el codigo javascript encaja en este ciclo de vida.
-Cuando se termina este parte del libro, vamos a estar listos para embarcar nuestro training como javascript ninjas
+Esta parte del libro va a setear un escenario para nuestro entrenamiento 
+ninja en javascript. En el capitulo 1, vamos a ver al dia de hoy javascript 
+funciona, algunos de los ambientes de codigo javascript pueden ser ejecutados. 
+Vamos a enforcarnos en el ambiente que es donde todo comienza -- el browswer -- 
+y vamos a discutir algunas de las practicas cuando se desarrollan aplicaciones javascript
+Por nuestra exploracion de javascript que va ser hecha en el contexto del browser, 
+en el capitulo 2, vamos a ensenar el ciclo de vida del lado del cliente de 
+las aplicaciones web, y como el codigo javascript encaja en este ciclo de vida.
+Cuando se termina este parte del libro, vamos a estar listos para embarcar nuestro 
+training como javascript ninjas
 

@@ -1,22 +1,41 @@
 CALLBACK FUNCTIONS
 
-Cuando preparamos una funciones llamada en algun momento posterior, si el browser en la fase de event-handling o por otro codigo, estamos preparando un callback. El termino establece como hecho que vamos a establecer una funcion que otro codigo la va a llamar "call back" en el momento apropiado un punto de ejecucion.
-Los callbacks son una parte escencial para utilizar Javascript efectivamente, y estamos dispuestos en apostar que usted ya sabe como sabe utilizarlos en mucho de su codigo - ya sea ejecutando el codigo en un boton al ser cliqueado, recibiendo data del servidor, o animando partes de la UI.
-En esta seccion, estamos cerca de ver como manejar callbacks para manejar eventos o para facilmente ordenar una coleccion - ejemplos en el mundo real como los callbacks son usados. pero es un poco complejo, entonces antes de entrar en esto, vamos a demostrar el concepto de callback completamente desnudo y examinar en la forma mas simple. Vamos a empezar con un ejemplo iluminativo de un completo inutil, una funcion que acepta una referencia de otras funciones como un parametro y llama una funcion como un callback
+Cuando preparamos una funciones llamada en algun momento posterior, si el browser en
+la fase de event-handling o por otro codigo, estamos preparando un callback. El
+termino establece como hecho que vamos a establecer una funcion que otro codigo
+la va a llamar "call back" en el momento apropiado un punto de ejecucion.
+Los callbacks son una parte escencial para utilizar Javascript efectivamente, y
+estamos dispuestos en apostar que usted ya sabe como sabe utilizarlos en mucho de su
+codigo - ya sea ejecutando el codigo en un boton al ser cliqueado, recibiendo data
+del servidor, o animando partes de la UI.
+En esta seccion, estamos cerca de ver como manejar callbacks para manejar
+eventos o para facilmente ordenar una coleccion - ejemplos en el mundo real como
+los callbacks son usados. pero es un poco complejo, entonces antes de entrar en
+esto, vamos a demostrar el concepto de callback completamente desnudo y examinar
+en la forma mas simple. Vamos a empezar con un ejemplo iluminativo de un
+completo inutil, una funcion que acepta una referencia de otras funciones como
+un parametro y llama una funcion como un callback
 
 function useless(ninjaCallback) {
     return ninjaCallback();
 }
 
-Esta funcion inutil, nos demuestra la abilidad de pasar una funcion como un argumento a otra funcion, y despues invoca esa funcion a travez del parametro pasado.
+Esta funcion inutil, nos demuestra la abilidad de pasar una funcion como un argumento a otra 
+funcion, y despues invoca esa funcion a travez del parametro pasado.
 Esto lo podemos testear con el siguiente codigo inutil
 LISTING 3.1 Un simple de ejemplo callback
+
+assert(condition, message);
+
+function report(message) {
+    console.log(message);
+}
 
 var text = "Domo arigato";
 report("Before defining funcionts");
 
 
-// Define una funcion que toma un callback 
+// Define una funcion que toma un callback
 // function y invocarlos inmediatamente
 
 function useless(ninjaCallback) {
@@ -32,5 +51,31 @@ function getText() {
     return text;
 }
 
+report("Before making all the calls");
 
+assert(useless(getText) === text,
+        "The useless function works! " + text);
+report("After the calls have been made");
 
+En esta lista usamos una funcion personalizada llamada report() para la emision
+de mensajes como nuestro codigo ha sido ejecutado, de esta manera podemos
+trackear la ejecucion del programa. Tambien usamos la funcion assert para
+testear la funcion. La funcion assert usualmente toma dos argumentos. El primero
+es una exprecion que su premisa es arsertada, en este caso, queremos establecer
+si el resultado invocado  de la funcion useless con el argumento getText retorna
+un valor que es igual al valor de la variable text(useless(getText) === text).
+Si el primer argumento se evalua como true, la asertacion pasa, de otra manera
+es considerado una falla. El segundo argumento es el mensaje de asociacion
+que usualmente registra con un apropiado pass/fail indicador. en el Appendix C
+discutimos de como hacer testing en general, y tambien nuestra pequena implemetacion
+de la funcion assert y la funcion report.
+
+Cuando corremos el codigo, terminamos con el resultado mostrado en la figura
+3.1. Como usted puede ver, llamando a la funcion useless con nuestra getText
+callback function como un argumento retorna un el valor esperado.
+Tambien podemos ver de como exactamente este simple callback ejemplo ejecuta
+En la figura 3.2, nos muestra que pasamos la funcion getText a la funcion
+useless como un argumento. Esto significa que dentro del body de la funcion
+useless, la funcion getText puede ser referenciada a travez del parametro callback.
+Despues haciendo llamada callback(), causamos la ejecucion de la funcion getText
+la cual pasamos como argumento, es llamada en la funcion useless
