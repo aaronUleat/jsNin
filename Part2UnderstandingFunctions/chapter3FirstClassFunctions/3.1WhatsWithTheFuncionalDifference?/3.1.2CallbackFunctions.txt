@@ -79,3 +79,68 @@ useless como un argumento. Esto significa que dentro del body de la funcion
 useless, la funcion getText puede ser referenciada a travez del parametro callback.
 Despues haciendo llamada callback(), causamos la ejecucion de la funcion getText
 la cual pasamos como argumento, es llamada en la funcion useless
+
+var text = "Domo arigato";
+
+function useless(ninjaCallback) {
+	return ninjaCallback();
+}
+
+function getText() {
+	return text;
+}
+// Llamando a la funcion useless(getText) va a ejecutar
+// la funcion useless, la cual ejecutara, en su momento
+// la ejecucion de la funcion getText
+console.assert(useless(getText) === text,
+			"The useless function work " + text);
+
+El flow de ejecucion cuando se hace el llamado a la funcion useless(getText).
+La funcion es llamada con getText como un argumento. En el cuerpo de la funcion 
+useless es una llamada la funcion pasada, que en este caso dispara la ejecucion
+de la funcion getText (hemos llamado a la funcion getText).
+
+
+
+Esto es facil, por que javascript es funcional en su naturaleza vamos lidiar con funciones
+de primera clase objetos. Podemos incluso llevar todo un paso mas adelante, al reescribir 
+nuestro coidgo de la siguiente manera
+
+var text = "Domo Arigato";
+
+function useless(ninjaCallback) {
+	return ninjaCallback();
+}
+// Se define una funcion callback directamente como argumento
+assert(useless(function() {return text;}) === text,
+	"The useless function works! "+ text);
+
+Uno de los mas importantes features de javascript es la avilidad de crear 
+funciones en el codigo de todos modos una exprecion puede aparecer donde sea.
+En adicion para hacer el codigo mas compactoy mas facil de entender (poniendo
+definiciones de funciones cerca donde ellas son usadas), Esta caracteristica
+tambien puede eliminar la necesidad de contaminar el namespace global con
+nombres innecesarios cuando una funcion no va ser referenciaada de multiples lugares
+dentro del codigo.
+
+En el siguiente codigo de un callback, vamos a llamar nuestro propio callback,
+Pero los callbacks tambien pueden ser llamado por el browser. Piense en el
+capitulo 2 el cual tiene un ejemplo con el siguiente snippet:
+
+document.body.addEventListener("mousemove", function() {
+	var second = document.getElementById("second");
+	addMessasge(second, "Event: mousemove");
+});
+
+Esa tambien es una funciones callback, una que define como un event-handler
+para el mousemove evento, y va a ser llamado por el browser cuando ese vento
+ocurra
+
+NOTA: Esta seccion introduce callback functions que otro codigo mas tarde llamara
+a un punto apropiado de ejecucion. You ha visto un ejemplo en el cual nuestro 
+codigo inmediatamente llama al callback proveido (el ejemplo de la funcion
+useless), tambien como un ejemplo en el cual el browser hace el llamado (el ejemplo
+del mousemove event), siempre que un evento particular pase. Es importante
+notar eso, diferente a, a como otra gente cree esa callback debe ser llamada asincronicamente
+ y por eso mismo el primer ejemplo no es solo un callback. Mencionamos que esto
+ solo es en caso tropieze sobre una discucion.
