@@ -144,3 +144,36 @@ del mousemove event), siempre que un evento particular pase. Es importante
 notar eso, diferente a, a como otra gente cree esa callback debe ser llamada asincronicamente
  y por eso mismo el primer ejemplo no es solo un callback. Mencionamos que esto
  solo es en caso tropieze sobre una discucion.
+
+ SORTING WITH A COMPARATOR
+Tan pronto como coleccionemos la data, las posibilidades de que vayamos a necesisar
+un ordenamiento. Vamos a decir que tenemos un array en orden desordenado: 0,3,5,7,8,1.
+Ese orden talvez este bien, pero las probabilideades, es que tarde un temprano, vamos 
+a tener que arreglarlo de nuevo. Usualmente, implementar algoritmos de ordenamiento
+no es algo muy trivial en las tareas de programacion, tenemos que seleccionar un algoritmo
+, implementarlo, adaptarlo a nuestra necesidad (para que todo los items sean ordenados
+en algun orden particular), y ser cuidadoso de no de introducir bugs. Fuera de esta tarea, 
+la unica aplicacion especifica es la clasificacion ordenada. Afortunadamente, todos los 
+arrays en Javascript tiene acceso a ordenamientos que requiren a definir algoritmos de comparacion
+y decirle al algoritmo como tienen que ser ordenados.
+Aqui es donde los callabcks figuran. En vez de dejar al algoritmo de sort que decida que valores
+van antes que otros valores. Vamos a proveer una funcion que ejecute una comparacion.
+Vamos a darle al algoritmo accso a la funcion callback, Y el algoritmo va a llamar al callback retorna
+lo esperado para retonar un numero positivo si el orden del valor pasado deveria ser reservado, si es un
+numero negativo o no y cero si el valor es igual; substrayendo los valores comparados, el deseo es 
+retornar al array de ordenamiento
+
+var values = [0,3,2,5,7,8,1,6];
+
+
+No hay necesidad en pensar en programacion de bajo nivel a la or de hacer
+un algoritmo de ordenamiento (o incluso que algoritmo de ordenamiento se debe usar).
+Nosotros enviamos el callback que el motor de Javascript que deberia llamar cada vez
+que se necesite comparar dos valores.
+El enfoque funcional nos permite crear funciones como entidades autonomas,
+como tratarias otro tipo de objeto, y que tipo de parametro deberia aceptar,
+tal como otro tipo de objeto. Es donde ese funcion de primera clase entra en
+juego.
+
+
+

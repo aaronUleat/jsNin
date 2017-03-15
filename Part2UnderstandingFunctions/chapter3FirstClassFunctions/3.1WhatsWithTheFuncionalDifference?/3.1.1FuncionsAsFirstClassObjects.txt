@@ -1,5 +1,7 @@
-Las funciones en Javascript poseen capacidades de objetos y en de esa manera tratadas como cualquier 
-otro objeto en el Lenguaje. Decimos que las funciones first-class objetos, que tambien pueden ser:
+Las funciones en Javascript poseen capacidades de objetos y en de esa manera tratadas 
+como cualquier 
+otro objeto en el Lenguaje. Decimos que las funciones first-class objetos, 
+que tambien pueden ser:
     - Creadas por literales
     function ninjaFunction() {};
 
