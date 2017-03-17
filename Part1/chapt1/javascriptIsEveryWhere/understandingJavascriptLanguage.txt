@@ -1,40 +1,80 @@
 UNDERSTANDING THE JAVASCRIPT LANGUAGE
 
-A como avancemos en la carrera, muchos desarrolladores javascript como Bob, y Ann, llegan al punto donde ellos activamente usan un basto numero de elementos que forman muchas lenguas. En muchos casos, sin embargo, esas habilidades no son tomados mas aya de los fundamentos de javascript. Muchas veces suponemos que javacript usa C-like sintax, y eso nos parece familiar.
-La gente muchas veces sienten que si saven C# o java, ellos ya tienen una base solida de como javascript funciona. Pero es una trampa. Cuando se compara a otras lenguas javascript es mas orientada a lo funcional. Algunos conceptos de javascript difieren fundamentalmente de aquellas otras lenguas.
+A como avancemos en la carrera, muchos desarrolladores javascript como Bob, y Ann, 
+llegan al punto donde ellos activamente usan un basto numero de elementos que forman muchas 
+lenguas. En muchos casos, sin embargo, esas habilidades no son tomados mas aya de los fundamentos 
+de javascript. Muchas veces suponemos que javacript usa C-like sintax, y eso nos parece familiar.
+La gente muchas veces sienten que si saven C# o java, ellos ya tienen una base solida de como 
+javascript funciona. Pero es una trampa. Cuando se compara a otras lenguas javascript es mas 
+orientada a lo funcional. Algunos conceptos de javascript difieren fundamentalmente de aquellas otras lenguas.
 
 // Javascript esta orientada a lo funcional, Javascript no tiene nada que ver como C o Java.
 
 Estas son algunas de las diferencias:
-    * Las funciones son en primera clase objetos (first-class objects) -- En javascript, las funciones coexisten con, y pueden ser tratadas como tales, como otro objeto javascript. Ellas pueden ser creadas a traves de literales, referenciadas por variables, pasadas alrededor de un argumento de la funcion,y incluso puede ser retornada como una funcion que retorna valores. Vamos a debotar mas en el capitulo 3. como algunos de los beneficios de utilizar funciones de primera clase, todo lo que los objectos traen al codigo Javascript
+    * Las funciones son en primera clase objetos (first-class objects) -- En javascript, 
+    las funciones coexisten con, y pueden ser tratadas como tales, como otro objeto javascript. 
+    Ellas pueden ser creadas a traves de literales, referenciadas por variables, pasadas 
+    alrededor de un argumento de la funcion,y incluso puede ser retornada como una funcion 
+    que retorna valores. Vamos a debotar mas en el capitulo 3. como algunos de los beneficios de 
+    utilizar funciones de primera clase, todo lo que los objectos traen al codigo Javascript
 
-    * Cierre de funciones (Funciont Closures) - El concepto de cierre de funciones (function clousures) is por lo general pobremente entendido, pero al mismo tiempo es fundamental y irrebocablemente ejempleficado la importancia de las funciones de Javascript. Por ahora, es suficiente saber que las funciones como un cierre cuando activamente mantiene ("closes over") las variables externas usadas en el body. No se preocupe por ahora si usted no ve los muchos beneficios de los cierres, Lo vamos a explicar en el Chapter5. En adicion a los cierres, vamos a explorar los muchos aspectos de las funciones en si mismas en el capitutolo 3 y 4, y tambien como identificador el ambito en capitulo 5.
+    * Cierre de funciones (Funciont Closures) - El concepto de cierre de funciones 
+    (function clousures) is por lo general pobremente entendido, pero al mismo tiempo es fundamental 
+    y irrebocablemente ejempleficado la importancia de las funciones de Javascript. Por ahora, 
+    es suficiente saber que las funciones como un cierre cuando activamente mantiene ("closes over") 
+    las variables externas usadas en el body. No se preocupe por ahora si usted no ve los muchos 
+    beneficios de los cierres, Lo vamos a explicar en el Chapter5. En adicion a los cierres, vamos a 
+    explorar los muchos aspectos de las funciones en si mismas en el capitutolo 3 y 4, y tambien 
+    como identificador el ambito en capitulo 5.
 
-    *Scopes Hasta recientemente, Javascript no tenia block-level variables (como otra C-like lenguage) en vez de eso, teniamos que confiar en varialbes globales y funciones al nivel de las funciones
+    *Scopes Hasta recientemente, 
+    Javascript no tenia block-level variables (como otra C-like lenguage) en vez de eso, 
+    teniamos que confiar en varialbes globales y funciones al nivel de las funciones
 
-    *Base prototypica (Prototype-based) para la orientacion de objetos, A diferencia de otros lenguages de programacion como C# o Java o Ruby, que usan clases basadas en orientacion a objetos, Javascript usa prototipos, Amenudo los desarrolladores vienen a Javascript tratando de utilizar la sintaxis de otros lenguages para recrear objetos, despues por alguna razon, se sorprenden cuando los resultados no son los mismos. Por esto vamos a profundizar en prototipos, como la base prototipica a la orientacion de objectos funciona y como implemtarlo en javascript
+    *Base prototypica (Prototype-based) para la orientacion de objetos, 
+    A diferencia de otros lenguages de programacion como C# o Java o Ruby, 
+    que usan clases basadas en orientacion a objetos, Javascript usa prototipos, 
+    Amenudo los desarrolladores vienen a Javascript tratando de utilizar la sintaxis 
+    de otros lenguages para recrear objetos, despues por alguna razon, se sorprenden 
+    cuando los resultados no son los mismos. Por esto vamos a profundizar en prototipos, 
+    como la base prototipica a la orientacion de objectos funciona y como implemtarlo en javascript
 
 
-Javascript consiste en una relacion muy cercana entre objectos y prototipos, y funciones y clousures. Entendiendo la relacion de estos conceptos pueden mejorar bastante la forma como programemos en Javascript, Ofrecindo una base solida de programar cualquier aplicaciones, si importar de cualquier tipo de codigo javascript, ya sea que vaya ser implementado en una pagina web, en una aplicacion, o en un servidor.
+Javascript consiste en una relacion muy cercana entre objectos y prototipos, y funciones 
+y clousures. Entendiendo la relacion de estos conceptos pueden mejorar bastante la forma como 
+programemos en Javascript, Ofrecindo una base solida de programar cualquier aplicaciones, 
+si importar de cualquier tipo de codigo javascript, ya sea que vaya ser implementado 
+en una pagina web, en una aplicacion, o en un servidor.
 
-Agregando a estos conceptos, otras caracteristicas de javascript pueden ayudar a escribir el codigo mas elegante y mas eficiente. Algunos de estas caracteristicas que ayudan a los programadores, nos vamos a enfocar en:
+Agregando a estos conceptos, otras caracteristicas de javascript pueden ayudar a escribir 
+el codigo mas elegante y mas eficiente. Algunos de estas caracteristicas que 
+ayudan a los programadores, nos vamos a enfocar en:
 
-    * Generadores, que son funciones que pueden generar valores multiples por solicitud y como pueden suspender la ejecucion entre las solicitudes
+    * Generadores, que son funciones que pueden generar valores 
+    multiples por solicitud y como pueden suspender la ejecucion entre las solicitudes
 
-    * Promesas: Que nos dan un mejor control sobre  el codigo asincronico
+    * Promesas: Que nos dan un mejor control sobre  
+    el codigo asincronico
 
     * Proxies, que nos permiten control a acceso a ciertos objectos
 
-    * Metodos avanazados para arrays, Que pueden hacer el manejo de arrays mas elegante.
+    * Metodos avanazados para arrays, Que pueden hacer 
+    el manejo de arrays mas elegante.
 
-    * Mapas, que nos pueden permitir crear colecciones de diccionarios, y conjuntos, que nos permiten a nosotros a lidiear con colecciones items unicos.
+    * Mapas, que nos pueden permitir crear colecciones de diccionarios, 
+    y conjuntos, que nos permiten a nosotros a lidiear con colecciones items unicos.
 
     * Exprecciones Regulares, Que nos permiten simplificar lo que seria muy complicado con otro codigo.
 
-    * Modulos, Que nos puedan ayudar a separar el codigo en mas pequenos, relativamente contenidas asi mismas que hacen los projectos mas manejables
+    * Modulos, Que nos puedan ayudar a separar el codigo en mas pequenos, 
+    elativamente contenidas asi mismas que hacen los projectos mas manejables
 
 
-Teniendo un entendimiento profundo de los fundamentos de javascript y aprender como utilizar las caracteristicas avanzadas de Javascript nos pueden ayudar a realizar un codigo mas elegante. Afilando nuestras habilidades para unificar estos conceptos y caracteristicas juntas nos daran un nivel de entendimiento que nos ponen en posicion de poder crear Javascript para cualquier aplicacion.
+Teniendo un entendimiento profundo de los fundamentos de javascript y aprender 
+como utilizar las caracteristicas avanzadas de Javascript nos pueden ayudar a 
+realizar un codigo mas elegante. Afilando nuestras habilidades para unificar 
+estos conceptos y caracteristicas juntas nos daran un nivel de entendimiento 
+que nos ponen en posicion de poder crear Javascript para cualquier aplicacion.
 
 
 

@@ -1,22 +1,46 @@
 EXECUTING JAVASCRIPT CODE
 
-Todo el codigo Javascript contenido en el elemento script es ejecutado por el motor JavaScript que contiene el browser. Firefox Spidermonkey, Chrome y Opera V8 or Edge's(IE's) Chakra. Por que el primer proposito del codigo Javascript es el de proveer dinamicidad a la pagina, el browser provee un API mediante un objeto Global que puede ser utilizado en el motor Javascript para interactuar y modificar la pagina.
+Todo el codigo Javascript contenido en el elemento script es ejecutado por el motor 
+JavaScript que contiene el browser. Firefox Spidermonkey, Chrome y Opera V8 or 
+Edge's(IE's) Chakra. Por que el primer proposito del codigo Javascript es el de 
+proveer dinamicidad a la pagina, el browser provee un API mediante un objeto 
+Global que puede ser utilizado en el motor Javascript para interactuar y modificar la pagina.
 
 OBJETOS GLOBALES EN JAVASCRIPT
 
-El primer objeto global que el browser expone al motor Javascript es el objeto window, el cual representa el window donde la pagina esta contenida. El objeto window es el objeto global a travez del cual todos los otros objetos globales, las variables globales (inclusive las variables definidas por el usuario), y browser API's son accesibles. Una de las propiedades mas importantes del objeto window global es el objeto document, que representa el DOM de la pagina actual. Al usar este objeto, el codigo javascript puede alterar el DOM de la pagina a cualquier grado, al modificar y eleminar elementos existentes, inclusive se pueden crear y insertar nuevos.
+El primer objeto global que el browser expone al motor Javascript es el objeto window, 
+el cual representa el window donde la pagina esta contenida. El objeto window es el 
+objeto global a travez del cual todos los otros objetos globales, las variables 
+globales (inclusive las variables definidas por el usuario), y browser API's son accesibles.
+Una de las propiedades mas importantes del objeto window global es el objeto document, 
+que representa el DOM de la pagina actual. Al usar este objeto, el codigo javascript 
+puede alterar el DOM de la pagina a cualquier grado, al modificar y eleminar 
+elementos existentes, inclusive se pueden crear y insertar nuevos.
 
 var first = document.getElementById("first");
 
-Este ejemplo utiliza el objeto global document para seleccionar un elemento con el ID first del DOM y asigna a una variable llamada first. Podemos despues utilizar el codigo Javascript para hacer todo tipo de modificaciones al elemento, tal como cambiar el texto, modificar atributos, dinamicanente agregar nuevos children a el, y tambien remover el elemento del DOM.
+Este ejemplo utiliza el objeto global document para seleccionar un elemento 
+con el ID first del DOM y asigna a una variable llamada first. 
+Podemos despues utilizar el codigo Javascript para hacer todo tipo de modificaciones 
+al elemento, tal como cambiar el texto, modificar atributos, dinamicanente agregar 
+nuevos children a el, y tambien remover el elemento del DOM.
 
 BROWSER APIs
-A lo largo del libro, vamos a usar un numero de objetos incorporados(por ejemplo el objeto window y document). Desafortunadamente, cubrir todo lo que soporta el browser yase mas alla del alcance de un libro de Javascript. Afortunadamente mozilla maneja la documentacion en https://developer.mozilla.org/en-US/docs/Web/API, donde se puede encontrar el estado al corriente de la API.
+A lo largo del libro, vamos a usar un numero de objetos incorporados 
+(por ejemplo el objeto window y document). Desafortunadamente, 
+cubrir todo lo que soporta el browser yase mas alla del alcance de 
+un libro de Javascript. Afortunadamente mozilla maneja la documentacion 
+en https://developer.mozilla.org/en-US/docs/Web/API, donde se 
+puede encontrar el estado al corriente de la API.
 
-Con este entendimiento basicodel objeto global proveido por el browser, vamos a ver dos diferentes tipos de codigos javascript que definen exactamente cuando el codigo es ejecutado.
+Con este entendimiento basicodel objeto global proveido por el browser, 
+vamos a ver dos diferentes tipos de codigos javascript que definen exactamente
+ cuando el codigo es ejecutado.
 
 DIFERENTES TIPOS DE CODIGO JAVASCRIPT
-Nosotros en general diferenciamos entre dos tipos diferentes de codigo Javascript: codigo global y codigo de funciones. La siguiente lista ayudara a entender las diferencia entre estos dos tipos de codigo
+Nosotros en general diferenciamos entre dos tipos diferentes de codigo Javascript: 
+codigo global y codigo de funciones. La siguiente lista ayudara a entender las 
+diferencia entre estos dos tipos de codigo
 <script>
 function addMessage(element, message) {
     var messageElement = document.createElement("li");
@@ -30,13 +54,24 @@ addMessage(first, "Page Loading");
 
 </script>
 
-La diferencia entre estos dos tipos de codigo es su colocacion: el codigo contenido dentro de una funcion es llamado codigo de funcion, y todo el codigo afuera de una funcion es llamado codigo global.
-Estos dos tipos de codigo difieren en su ejecucion (van a ver alguna diferencias adicionales mas adelante, especialmente en el capitulo 5). El codigo Global es ejecutado automaticamente por el motor Javascript del browser, lo va a ejecutar de una manera inmediata, linea por linea, que se vaya encontrando como global. Por ejemplo, en el ejemplo 2.2, las piezas de codigo global que definen la funcion addMessage usa un metodo construido getElementById para buscar el elementocon el ID first y llama la funcion addMEssage, ellos son ejecutados uno tras el otro a medida que se encuentran, como se muestra en la figura 2.6.
-En la otra mano, el codigo de funcion, es ordenado a ejecutarse, tiene que ser llamado por algo mas: ya sea por codigo global ( por ejemplo, addMessage function es llamado en el codigo global que ejecuta la llamada addMessage), por alguna otra funcion, o por el browser.
+La diferencia entre estos dos tipos de codigo es su colocacion: el codigo contenido dentro 
+de una funcion es llamado codigo de funcion, y todo el codigo afuera de una funcion es llamado 
+codigo global.
+Estos dos tipos de codigo difieren en su ejecucion (van a ver alguna diferencias adicionales 
+mas adelante, especialmente en el capitulo 5). El codigo Global es ejecutado automaticamente 
+por el motor Javascript del browser, lo va a ejecutar de una manera inmediata, linea por linea, 
+que se vaya encontrando como global. Por ejemplo, en el ejemplo 2.2, las piezas de codigo global 
+que definen la funcion addMessage usa un metodo construido getElementById para buscar el elementocon 
+el ID first y llama la funcion addMEssage, ellos son ejecutados uno tras el otro a medida 
+que se encuentran, como se muestra en la figura 2.6.
+En la otra mano, el codigo de funcion, es ordenado a ejecutarse, tiene que ser llamado por 
+algo mas: ya sea por codigo global ( por ejemplo, addMessage function es llamado en el 
+codigo global que ejecuta la llamada addMessage), por alguna otra funcion, o por el browser.
 
 
 EJECUTANDO CODIGO JAVASCRIPT EN LA FASE PAGE-BUILDING
-Cuando el browser alcanza el nodo script in la fase de page-building, pausa la construccion del DOM basado en el codigo HTML y empieza e ejecutar el codigo javascript en vez de eso.
+Cuando el browser alcanza el nodo script in la fase de page-building, pausa la construccion 
+del DOM basado en el codigo HTML y empieza e ejecutar el codigo javascript en vez de eso.
 
 <script>
 function addMessage(element, message) {
@@ -49,8 +84,11 @@ addMessage(first, "Page loading");
 </script>
 
 La ejecucion del programa fulye cuando se ejecuta el codigo Javascript.
-Esto significa que ejecutar el codigo global Javascript contenido en el nodo script (y funciones llamadas por el codigo global tambien es ejecutado).
-La figura 2.7 nos muestra el estado del DOM despues de que el codigo Javascript global ha sido ejecutado. Camos a ver mas despacio su ejecucion, Primero la funcion addMessage es definida
+Esto significa que ejecutar el codigo global Javascript contenido en el nodo 
+script (y funciones llamadas por el codigo global tambien es ejecutado).
+La figura 2.7 nos muestra el estado del DOM despues de que el codigo 
+Javascript global ha sido ejecutado. Camos a ver mas despacio su ejecucion, 
+Primero la funcion addMessage es definida
 
 function addMessage(element, message) {
     var messageElement = document.createElement("li");
@@ -58,7 +96,8 @@ function addMessage(element, message) {
     element.appendChild(messageElement);
 }
 
-Despues un elemento existente es buscado del DOM al usar el objeto global document lo obtiene por el metodo getElementById
+Despues un elemento existente es buscado del DOM al usar el 
+objeto global document lo obtiene por el metodo getElementById
 
 var first = document.getElementById("first");
 
@@ -66,11 +105,33 @@ Esto es seguido por el llamdo the la funcion addMessage
 
 addMessage(first, "Page loading");
 
-que causa la creacion de un nuevo li elemento, la modificacion del contendi del texto, y finalmente la insercion dentro del DOM.
-En este ejemplo, el codigo javascript modifica el DOM al corriente creando un nuevo element y insertandolo en el DOM. Pero en general, Javascript codigo puede modificar el DOM en cualquier grado. Puede crear nuevos nodos y modificar or remover elementos del DOM existentes. Pero tambien hay algunas cosas que no puede hacer, tales como seleccionar y modificar elementos que no hayan sido creados. Por ejemplo, podemos selecionar and modificar el element ul con el ID second, por que ese elemento se encuentra despues de el script node al corriente y no ha sido alcanzado o creado. Esa es una de las razones por que la gente tiende a poner la etiqueta script como ultimo elemento del body. De ese modo no tenemos que preocuparnos acerca si un element particular HTML ha sido creado o no.
-Una vez que el motor Javascript ejecuta la ultima linea de codigo javascript en el elemento Javascript (ver figura 2.5, esto significar retornar de el addMessage function), el browser existe el modo ejecucion de Javascript y continua construyendo los nodos del Node procesando el HTML remanente, Si durante ese procesamiento, el browser de nuevo encuentra un elemento script, el la creacion del DOM del HTML codigo es de nuevo pausado, y la rutina Javascript empieza a ejecutarse el codigo Javasdcript. Es importante notar que el elemento Global estado de la aplicacion Javascript persiste al mismo tiempo. Todos los user-defined variables globales creadas durante la ejecucion del codigo Javascript es un elemento script es normalmente accesible al codigo Javascript en otros scripts elements. Esto pasa por que el objeto global window, que guarda todas las variables gloables Javascript, estan vivas y accesibles durante tdoo el ciclo de vida de la pagina, en estos dos pasos
+que causa la creacion de un nuevo li elemento, la modificacion del contendi 
+del texto, y finalmente la insercion dentro del DOM.
+En este ejemplo, el codigo javascript modifica el DOM al corriente creando 
+un nuevo element y insertandolo en el DOM. Pero en general, Javascript codigo 
+puede modificar el DOM en cualquier grado. Puede crear nuevos nodos y modificar 
+or remover elementos del DOM existentes. Pero tambien hay algunas cosas que no puede 
+hacer, tales como seleccionar y modificar elementos que no hayan sido creados. 
+Por ejemplo, podemos selecionar and modificar el element ul con el ID second, 
+por que ese elemento se encuentra despues de el script node al corriente y 
+no ha sido alcanzado o creado. Esa es una de las razones por que la gente 
+tiende a poner la etiqueta script como ultimo elemento del body. De ese modo no tenemos que 
+preocuparnos acerca si un element particular HTML ha sido creado o no.
+Una vez que el motor Javascript ejecuta la ultima linea de codigo javascript 
+en el elemento Javascript (ver figura 2.5, esto significar retornar de el addMessage function), 
+el browser existe el modo ejecucion de Javascript y continua construyendo los nodos del Node procesando 
+el HTML remanente, Si durante ese procesamiento, el browser de nuevo encuentra un elemento script, 
+el la creacion del DOM del HTML codigo es de nuevo pausado, y la rutina Javascript empieza a 
+ejecutarse el codigo Javasdcript. Es importante notar que el elemento Global estado de 
+la aplicacion Javascript persiste al mismo tiempo. Todos los user-defined variables globales 
+creadas durante la ejecucion del codigo Javascript es un elemento script es normalmente accesible 
+al codigo Javascript en otros scripts elements. Esto pasa por que el objeto global window, que 
+guarda todas las variables gloables Javascript, estan vivas y accesibles durante tdoo el 
+ciclo de vida de la pagina, en estos dos pasos
 
  1 Construyendo el DOM del HTML
  2 Ejecutando el Codigo Javascript
 
-Finalmente cuando el browser corre los elementos HTML a procesar, el page-building fase es completada. El browser despues se mueve en la segunda parte del cciclo de vida de la aplicacion: manejo de de eventos(event handling)
+Finalmente cuando el browser corre los elementos HTML a procesar, el page-building fase 
+es completada. El browser despues se mueve en la segunda parte del cciclo de vida de 
+la aplicacion: manejo de de eventos(event handling)

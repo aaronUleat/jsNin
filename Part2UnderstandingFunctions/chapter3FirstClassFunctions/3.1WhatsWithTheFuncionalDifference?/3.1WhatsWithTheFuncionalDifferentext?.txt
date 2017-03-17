@@ -1,7 +1,17 @@
 WHATS WITH THE FUNCIONAL DIFFERENCE?
 
-Una de las razones por la cual las funciones son funcionales son importantes en Javascript es que las funciones son unidades primarias modulares de ejecucion. Excepto por el Global Javascript codigo ejecutado en el la fase page-building, todo el codigo que escribimos en nuestras paginas va ser dentro funciones.
-Por que la mayoria de nuestro codigo va a correr como resultado de una invocacion de una funcion, usted va a ver que tener funciones que son versatiles y poderosas constructores nos da una gran flexibilidad en la forma de balancear el codigo. Significativos pedasos de este libro explican como la naturaleza de las funciones de primera-clase objetos pueden ser explotadas para nuestro beneficio. Pero primero, vamos a tomar una mirada de las acciones que podemos tomar con objetos. En javascript, los objetos disfrutan ciertas capacidades
+Una de las razones por la cual las funciones son funcionales son 
+importantes en Javascript es que las funciones son unidades primarias 
+modulares de ejecucion. Excepto por el Global Javascript codigo ejecutado 
+en el la fase page-building, todo el codigo que escribimos en nuestras paginas 
+va ser dentro funciones.
+Por que la mayoria de nuestro codigo va a correr como resultado de una invocacion 
+de una funcion, usted va a ver que tener funciones que son versatiles y poderosas 
+constructores nos da una gran flexibilidad en la forma de balancear el codigo. 
+Significativos pedasos de este libro explican como la naturaleza de las 
+funciones de primera-clase objetos pueden ser explotadas para nuestro beneficio. 
+Pero primero, vamos a tomar una mirada de las acciones que podemos tomar con objetos. 
+En javascript, los objetos disfrutan ciertas capacidades
     - Pueden ser creadas via literales: {}
     - Pueden ser asignados a variables, entries de arrays, y propiedades de otros objetos.
 
@@ -29,4 +39,5 @@ Por que la mayoria de nuestro codigo va a correr como resultado de una invocacio
     var ninja = {};
     ninja.name = "Hanzo"; 
 
-Resulta que, diferente a muchos lenguages de programacion, en Javascript podemos hacer casi todas las cosas con funciones tambien.
+Resulta que, diferente a muchos lenguages de programacion, 
+en Javascript podemos hacer casi todas las cosas con funciones tambien.

@@ -1,6 +1,14 @@
-El comite de ECMAScript, que estan a cargo de estandarizar el lenguage, ha finalizado el ES7/ES2016 version de javascript. La version ES7 es relativamente pequena para Javascript.(al menos comparado con ES6), por que el goal del comite es enfocarse en pequenos, y cambios incrementales para Javascript.
-En este libro vamos a explorar ES6 pero tambien nos vamos a enfocar en caracteristicas de ES7, tales como la funcion async, que nos va ayudar a lidiar con codigo asincronico (discutido en el capitulo 6).
+El comite de ECMAScript, que estan a cargo de estandarizar el lenguage, ha finalizado el ES7/ES2016 
+version de javascript. La version ES7 es relativamente pequena para Javascript.(al menos comparado con ES6), 
+por que el goal del comite es enfocarse en pequenos, y cambios incrementales para Javascript.
+En este libro vamos a explorar ES6 pero tambien nos vamos a enfocar en caracteristicas de ES7, 
+tales como la funcion async, que nos va ayudar a lidiar con codigo asincronico (discutido en el capitulo 6).
 
-Incrementos anuales para actualizaciones a Javascript son exelentes noticias, pero esto no significa que los desarrolladres tienen acceso inmediatamente hasta que la especificacion sea lanzada. Codigo Javascript tiene que ser ejecutado por algun motor de javascript.
+Incrementos anuales para actualizaciones a Javascript son exelentes noticias, 
+pero esto no significa que los desarrolladres tienen acceso inmediatamente 
+hasta que la especificacion sea lanzada. Codigo Javascript tiene que ser ejecutado 
+por algun motor de javascript.
 
-Para vericar cuales actualizacione se pueden utilizar se puede ir a los siguiente web sites https://kangax.github.io/compat-table/es/, http://kangax.github.io/compat-table/es2016plus y https://kangax.github.io/compat-table/esnext/
+Para vericar cuales actualizacione se pueden utilizar se puede ir 
+a los siguiente web sites https://kangax.github.io/compat-table/es/,
+ http://kangax.github.io/compat-table/es2016plus y https://kangax.github.io/compat-table/esnext/

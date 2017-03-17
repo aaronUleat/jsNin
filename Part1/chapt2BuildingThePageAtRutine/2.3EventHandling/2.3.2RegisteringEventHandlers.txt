@@ -1,16 +1,32 @@
 REGISTERING EVENT HANDLERS
-Como ya hemos mencionado, los evento handlers son funciones que podemos ejecutar  cuando algun evento en particular pase. En order para que esto pase, tenemos que notificar al browser que estamos intersados en realizar un evento. Esto es llamdno como event-handler-registration. En el lado del cliente las aplicaciones web, hay dos formas de registrar eventos.
+Como ya hemos mencionado, los evento handlers son funciones que podemos ejecutar  
+cuando algun evento en particular pase. En order para que esto pase, tenemos que 
+notificar al browser que estamos intersados en realizar un evento. Esto es 
+llamdno como event-handler-registration. En el lado del cliente las aplicaciones web, 
+hay dos formas de registrar eventos.
     - Asignando funciones a propiedades especiales.
     - Utilizando los metodos ya construidos addEventoListener
 
-Por ejemplo, escribiendo el siguiente codigo asigna una funcion a la propiedad especial onload del objeto window
+Por ejemplo, escribiendo el siguiente codigo asigna una funcion a la propiedad especial 
+onload del objeto window
 
 window.onload = function(){};
 
-Un event-handler para el evento load(cuando el DOM esta listo y totalmente construido) se registra. (No se preocupe si la notificacion al lado derecho del operador a asignador se ve un poco mal, vamos a hablar de un gran cantidad acerca de funciones mas tarde). Similarmente, si nosotros queremos registrar un handler para el evento click en el body del DOM, podemos escribir algo como esto:
+Un event-handler para el evento load(cuando el DOM esta listo y totalmente construido) 
+se registra. (No se preocupe si la notificacion al lado derecho del operador a 
+asignador se ve un poco mal, vamos a hablar de un gran cantidad acerca de funciones mas tarde). 
+Similarmente, si nosotros queremos registrar un handler para el evento click en el body del DOM, 
+podemos escribir algo como esto:
 document.body.onclick = function() {};
 
-Asignando funciones a propiedades especiales es un modo facil y directo de registrar event-handlers, y usted probablemente ya hace esto. Pero nosotros no recomendamos que se registren event-handlers de esta manera, proque hacerlo tiene una desventaja: Es solo posible registrar una funcion handler para un evento en particular. Esto significa que es facil de sobreescribir previos event-handlers, Lo cual puede ser muy frustrante. Lo bueno es que hay otra alternativa: el adEventListner metodo nos permite registrar tantos event-handlers como necesitemos. Para mostrar como funcione vea el siguiente ejemplo, que se remite al listing 2.1.
+Asignando funciones a propiedades especiales es un modo facil y directo de registrar
+ event-handlers, y usted probablemente ya hace esto. Pero nosotros no recomendamos 
+ que se registren event-handlers de esta manera, proque hacerlo tiene una desventaja: 
+ Es solo posible registrar una funcion handler para un evento en particular. 
+ Esto significa que es facil de sobreescribir previos event-handlers, Lo cual puede 
+ ser muy frustrante. Lo bueno es que hay otra alternativa: el adEventListner 
+ metodo nos permite registrar tantos event-handlers como necesitemos. 
+ Para mostrar como funcione vea el siguiente ejemplo, que se remite al listing 2.1.
 
 <script>
 document.body.addEventListener("mousemove", function() {
@@ -24,5 +40,13 @@ document.body.addEventListener("click", function() {
 });
 </script>
 
-Este ejemplo usa el metodo ya construido en Javascript addEventListener en un elemento HTML especificado al tipo de evento (mousemove o click) y a la funcion event-handler. Esto significa que donde quiera que el mouse sea movido en la pagina, el browser va a llamar a funcion que agregar el mensaje, "Event: mousemove", a elemento lista ul con el ID second (un mensaje similar "Event: click", es agregado cuando se le de click en cualquier lugar del body).
-Ahora que ya sabe como preparar un event-handler, vamos a recordar el diagrama de flujo que vimos antes y vamos a tomar un mirada a como los eventos son manejados.
+Este ejemplo usa el metodo ya construido en Javascript addEventListener 
+en un elemento HTML especificado al tipo de evento (mousemove o click) 
+y a la funcion event-handler. Esto significa que donde quiera que el mouse 
+sea movido en la pagina, el browser va a llamar a funcion que agregar el mensaje, 
+"Event: mousemove", a elemento lista ul con el ID second 
+(un mensaje similar "Event: click", es agregado cuando se le de click 
+en cualquier lugar del body).
+Ahora que ya sabe como preparar un event-handler, 
+vamos a recordar el diagrama de flujo que vimos antes y vamos a tomar 
+un mirada a como los eventos son manejados.

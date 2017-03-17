@@ -1,4 +1,7 @@
-Las funciones en Javascript poseen capacidades de objetos y en de esa manera tratadas como cualquier otro objeto en el Lenguaje. Decimos que las funciones first-class objetos, que tambien pueden ser:
+Las funciones en Javascript poseen capacidades de objetos y en de esa manera tratadas 
+como cualquier 
+otro objeto en el Lenguaje. Decimos que las funciones first-class objetos, 
+que tambien pueden ser:
     - Creadas por literales
     function ninjaFunction() {};
 
@@ -33,9 +36,21 @@ Las funciones en Javascript poseen capacidades de objetos y en de esa manera tra
     var ninjaFunction = function(){};
     ninjaFunction.name = "Hanzo";
 
-Cualquier cosa que podamos hacer con objetos, podemos hacerlo con funciones tambien. Funciones son objetos, solo con una capacidad adicional de ser invocables: Las funciones pueden ser llamadas o invocadas en order de ejecutar una accion.
+Cualquier cosa que podamos hacer con objetos, podemos hacerlo con funciones tambien. 
+Funciones son objetos, solo con una capacidad adicional de ser invocables: 
+Las funciones pueden ser llamadas o invocadas en order de ejecutar una accion.
 
 FUNCIONAL PROGRAMMING IN JAVASCRIPT
-Tener first-class funciones objetos es el primer paso hacia la programcion funcional, un estilo de programacion que se enfoca en resolver problemas componiendo funciones (en vez de especificar una secuencia de pasos, como una corriente mas de programacion imperativa). Programacion Funcional nos puede ayudar a escribir codigo que es mas facil de testear, extender, y modularizar. Pero es un tema muy grande, y en este libro solo vamos a verlo por encina por ejemplo en el capitulo 9. Si usted esta interesado en aprender como tomar ventaja de los conceptos de programacion funcional y aplicarlos a programas, recomendamos Funcional Programming in Javascript by Luis Atencio (Mannin, 2016);
+Tener first-class funciones objetos es el primer paso hacia la programcion funcional, 
+un estilo de programacion que se enfoca en resolver problemas componiendo funciones 
+(en vez de especificar una secuencia de pasos, como una corriente mas de programacion imperativa). 
+Programacion Funcional nos puede ayudar a escribir codigo que es mas facil de testear, extender, 
+y modularizar. Pero es un tema muy grande, y en este libro solo vamos a verlo por encina por 
+ejemplo en el capitulo 9. Si usted esta interesado en aprender como tomar ventaja de los conceptos 
+de programacion funcional y aplicarlos a programas, recomendamos Funcional Programming in 
+Javascript by Luis Atencio (Mannin, 2016);
 
-Una de las caracteristicas de los objetos first-class es que ellos pueden ser pasados a funciones como argumentos. En el caso de funciones, esto significa que pasamos funciones como un argumento a otra funcion que quizas, en un punto despues en aplicaion y ejecucion, llama a funcion que fue pasada. Este es un ejemplo de un concepto general llamdo como callback functions. Vamos a Explorar este concepto.
+Una de las caracteristicas de los objetos first-class es que ellos pueden ser pasados a funciones como 
+argumentos. En el caso de funciones, esto significa que pasamos funciones como un argumento a otra funcion 
+que quizas, en un punto despues en aplicaion y ejecucion, llama a funcion que fue pasada. 
+Este es un ejemplo de un concepto general llamdo como callback functions. Vamos a Explorar este concepto.

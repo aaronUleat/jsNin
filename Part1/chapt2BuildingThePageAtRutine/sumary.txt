@@ -1,6 +1,17 @@
 SUMARY
--El codigo HTML recivido por el browser es unsado como una guia para crear el DOM y internamente repersta la estructura en el lado del cliente de las aplicaciones web.
--Usamos codigo Javascript para dinamicamente modificar el DOM y traer dinamicidad a las aplicaciones web.
+-El codigo HTML recivido por el browser es unsado como una guia para crear el 
+DOM y internamente repersta la estructura en el lado del cliente de las 
+aplicaciones web.
+-Usamos codigo Javascript para dinamicamente modificar el DOM y traer dinamicidad 
+a las aplicaciones web.
 - La ejecucion del lado delicnte en aplicaciones web es ejecutada en dos fases
-    * La fase page-building - el codigo HTML es procesado para crear el DOM, y el codigi global javascript es ejecutado cuando nodos scripts son encontrados. Durante esta ejecucion, el codigo Javascript puede modificar el DOM al corriente a cualquier grado y puede registrar event-handlers- funciones que son ejecutadas cuando un evento en particular ocurra (por ejemplo un click o precionasr una tecla). Registrar event-handlers es facil, utilizando el metodo addEventListener.
-    * Event-handling- Varios eventos son procesados uno a la vez, in el orden in el cual son generados, la fase event-handling depende fuertemente en el queue de eventos, in el cual los eventos son almacenados en el orden en el cual ocurren. El evento loop siempre chequea el inicio del queue para ver eventos, y si un evento es encontrado, el event-handler que encaje va ser invocado
+    * La fase page-building - el codigo HTML es procesado para crear el DOM, 
+    y el codigi global javascript es ejecutado cuando nodos scripts son encontrados.
+     Durante esta ejecucion, el codigo Javascript puede modificar el DOM al corriente a 
+     cualquier grado y puede registrar event-handlers- funciones que son ejecutadas cuando 
+     un evento en particular ocurra (por ejemplo un click o precionasr una tecla). 
+     Registrar event-handlers es facil, utilizando el metodo addEventListener.
+    * Event-handling- Varios eventos son procesados uno a la vez, in el orden in el cual son generados, 
+    la fase event-handling depende fuertemente en el queue de eventos, in el cual los eventos son 
+    almacenados en el orden en el cual ocurren. El evento loop siempre chequea el inicio del queue 
+    para ver eventos, y si un evento es encontrado, el event-handler que encaje va ser invocado

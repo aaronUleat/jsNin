@@ -1,24 +1,58 @@
 EVENT HANDLING OVERVIEW
 
-El ambiente de ejecucion en el browser, y su core, basado en la idea que un solo pedazo de codigo puede ser ejecutado en seguida: el llamado single-threaded model de ejecucion en Javascript. Piense en una linea en el banco. Todo el mundo esta dentro una sola linea y tiene que esperar su turno para ser procesado por los cajeros. Pero con Javascript, solo un cajero esta abilitado (cuando la venta esta abierta). Los eventos del customer son procesados uno a la vez, hasta que cada uno tenga su turno. Todo es tomado por una sola persona.
-Cuando un evento ocurre, el browser deberia ejecutar el event-handler asociado. Pero no hay garantia de que tengamos pasiencia extrema en el cliente que espara un monto apropiado de tiempo para disparar otro evento. Por esta razon el browser necesita una manera de rastrear los eventos que han ocurrido pero que todavian tienen que  ser procesados, Para hacer esto, el browser usa un EVENT-QUEUE que se muestra en la figura 2.8.
+El ambiente de ejecucion en el browser, y su core, basado en la idea que un solo 
+pedazo de codigo puede ser ejecutado en seguida: el llamado single-threaded model 
+de ejecucion en Javascript. Piense en una linea en el banco. Todo el mundo esta dentro 
+una sola linea y tiene que esperar su turno para ser procesado por los cajeros. 
+Pero con Javascript, solo un cajero esta abilitado (cuando la venta esta abierta). 
+Los eventos del customer son procesados uno a la vez, hasta que cada uno tenga 
+su turno. Todo es tomado por una sola persona.
+Cuando un evento ocurre, el browser deberia ejecutar el event-handler asociado. 
+Pero no hay garantia de que tengamos pasiencia extrema en el cliente que espara 
+un monto apropiado de tiempo para disparar otro evento. Por esta razon el browser 
+necesita una manera de rastrear los eventos que han ocurrido pero que todavian 
+tienen que  ser procesados, Para hacer esto, el browser usa un EVENT-QUEUE 
+que se muestra en la figura 2.8.
 
-Todos los eventos generados (no importa si son generados por el usuario, como mouse move, o precionar una tecla, o generados por el servidor, como eventos ajax) son puestos en el mismo queue de eventos, in order in el cual son detectados por el browser. Como se mostro en le medio de la firgura 2.8, el proceso event-handling puede ser describido con un simple flowchart:
+Todos los eventos generados (no importa si son generados por el usuario, 
+como mouse move, o precionar una tecla, o generados por el servidor, como eventos ajax) 
+son puestos en el mismo queue de eventos, in order in el cual son detectados por el 
+browser. Como se mostro en le medio de la firgura 2.8, el proceso event-handling 
+puede ser describido con un simple flowchart:
     - EL browser chequea la cabeza del queue de eventos
     - Si no hay eventos, el browser sigue chequeando
-    - Si hay un evento en la cabeza el queue de eventos, el browser tomay ejecueta los handlers asociandos (si alguno existe). Durante la ejecucion el resto de los eventos pacientemente esperan en el queue de eventos por su turno de ser procesados
+    - Si hay un evento en la cabeza el queue de eventos, el browser tomay ejecueta 
+    los handlers asociandos (si alguno existe). Durante la ejecucion el resto de los eventos 
+    pacientemente esperan en el queue de eventos por su turno de ser procesados
 
-Por el motivo de que un solo evento es ejecutado al momento, tenemos que ser muy cuidadosos acerca del tiempo necesitado para manejar eventos, escribir event handlers que tomen mucho tiempo para ser ejecutados lleva a crear aplicaciones no responsivas.
-Es importante anotar que el mecanismo del browser que pone los eventos en el queue es externo a la fase del page-building y la fase del event-handling. El procesamientoque es necesario para determinar cuando los eventos tienen que ocurrir y que los empuja dentro del queue de eventos no participa en el hilo que llevan los event handlers
+Por el motivo de que un solo evento es ejecutado al momento, tenemos que ser muy cuidadosos 
+acerca del tiempo necesitado para manejar eventos, escribir event handlers que tomen mucho 
+tiempo para ser ejecutados lleva a crear aplicaciones no responsivas.
+Es importante anotar que el mecanismo del browser que pone los eventos en el queue 
+es externo a la fase del page-building y la fase del event-handling. El procesamientoque es 
+necesario para determinar cuando los eventos tienen que ocurrir y que los empuja dentro del 
+queue de eventos no participa en el hilo que llevan los event handlers
 
 LOS EVENTOS SON ASINCRONICOS
-Los eventos, cuando suceden, pueden ocurrir en tiempos inpredecibles y en un orden inpredecible (es enganoso forsar a usuarios a precionar teclas o que clicken en un order particular). Decimos que los manejen o realicen eventos, y por eso la invocacion de la funcion que lo maneja, es asincronomo.
+Los eventos, cuando suceden, pueden ocurrir en tiempos inpredecibles y en un orden 
+inpredecible (es enganoso forsar a usuarios a precionar teclas o que clicken en un 
+order particular). Decimos que los manejen o realicen eventos, y por eso la 
+invocacion de la funcion que lo maneja, es asincronomo.
 Los siguientes tipos de eventos pueden ocrrir, entre otros:
- - Eventos del browser, tales como cuando pagina termina de cargar o cuando se esta descargando.
- - Eventos network, tales como respuestas que vengan de un servidor (eventos ajax, eventos del lado de servidor).
+ - Eventos del browser, tales como cuando pagina termina de cargar o cuando se 
+ esta descargando.
+ - Eventos network, tales como respuestas que vengan de un servidor 
+ (eventos ajax, eventos del lado de servidor).
  - Eventos de usuarios, tales como clicks, moviemientos de mouse, y precion de teclas.
- - Eventos de tiempo, tales como un tiempo determinado termina o un intervalo de tiempo interviene y desencadene un evento.
+ - Eventos de tiempo, tales como un tiempo determinado termina o un intervalo 
+ de tiempo interviene y desencadene un evento.
 
 La vasta mayoria de codigo que se ejecuta como resultado de tales eventos.
-El concepto de manejar eventos es central para las aplicaciones web, y el algo que va a ver de nuevo y de nuevo a travez de los ejemplos en este libro: El codigo es preparado en avance y el orden de ejecucion un tiempo despues. Excepto por el codigo global, la vasta mayoria del codigo del codigo que vamos a escribir se va a ejecutar por algun evento.
-Antes que un evento pueda ser manejado, nuestro codigo necesita ser notificado al browser que estamos interesados en particular algun tipo  de evento. Vamos a ver como registrar event handlers.
+El concepto de manejar eventos es central para las aplicaciones web, y el 
+algo que va a ver de nuevo y de nuevo a travez de los ejemplos en este libro: 
+El codigo es preparado en avance y el orden de ejecucion un tiempo despues. 
+Excepto por el codigo global, la vasta mayoria del codigo del codigo que vamos 
+a escribir se va a ejecutar por algun evento.
+Antes que un evento pueda ser manejado, nuestro codigo necesita ser notificado 
+al browser que estamos interesados en particular algun tipo  de evento. Vamos a ver 
+como registrar event handlers.

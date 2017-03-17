@@ -1,7 +1,33 @@
 HANDLING EVENTS
-La idea central detras de event-handling es que cuando un evento ocurra, el browser llame al event-handler asociado. Como ya hemos mencionado, debido al sigle-threaded-execution-model, solo un solo event-halnder puede ser ejecutado a la vez. Cualquier otro evento a llamarse despues solo es ejecutado cuando a la ejecucion del evento al corriente aya sido completada. Volvamos a ver la figura 2.1. La figura 2.9 nos muestra un ejemplo de ejecucion en el cual un usuario a movido el mouse y ha hecho click.
+La idea central detras de event-handling es que cuando un evento ocurra, 
+el browser llame al event-handler asociado. Como ya hemos mencionado, 
+debido al sigle-threaded-execution-model, solo un solo event-halnder 
+puede ser ejecutado a la vez. Cualquier otro evento a llamarse 
+despues solo es ejecutado cuando a la ejecucion del evento al corriente 
+aya sido completada. Volvamos a ver la figura 2.1. La figura 2.9 nos 
+muestra un ejemplo de ejecucion en el cual un usuario a movido el mouse y ha hecho click.
 
-Vamos a examinar que es lo que pasa aqui. Como respuesta a estas acciones del usuario, el browser pone los ventos mousemove y click, dentro del queue de eventos en el orden en el cual hayan ocurrido: primero el mousemove event y despues el click event. (1)
-En la fase de event-handling, el evento loop despues chequea el queue, ve que hay un evento mousemove en la parte delantera del queue, y ejecuta el event-handler asociado (2). Al mismo tiempo el en mousemove handler esta siendo procesado, el evento click espera en el queue por su turno. Cuando el ultimo pedazo de linea de la funcion del mousemove handlder haya terminado y el motor de Javascript salga de la funcion handler, el evento mousemove fue totalmente procesado. (3), y el evento loop para chequear el queue es ejecutado de nuevo. Esta vez, al inicio del queue, el evento loop encuentra un evento click que debe procesar. Una vez que el evento click haya terminado de ejecutarse, no hay nuevos eventos en el queue, y el evento loop sigue buscando, esperando por nuevos eventos a manejar. Este loop va a continuar ejecutandose hasta que el usuario cierre la aplicacion web.
-Aahora que tenemos sentido general de los pasos a seguir cuando se esta en la fase de event-handling, vamos a ver como esta ejecucion influencia el DOM. En la figura 2.10, el handler mousemove selecciona el segundo ID al usar el addMEssage function, agrega una nuevo list item element (1) con el texto "Event: mousemove". Una vez que la ejecucion del Mousemove hadler haya terminado, el evento loop del Browser Enginee ejecuta el click event, que nos lleva ala creacion de otro list item (2) que tambien es agregado dentro del nodo con el ID second.
-Armados con este solido entendimiento del ciclo de vida del lado del cliente de aplicaciones web, en la siguiente parte de este libro, vamos a empezar a enfocarnos en el lenguaje de javascript, aprendiendo los ins y outs de las funciones en Javascript
+Vamos a examinar que es lo que pasa aqui. Como respuesta a estas acciones del usuario, 
+el browser pone los ventos mousemove y click, dentro del queue de eventos en el 
+orden en el cual hayan ocurrido: primero el mousemove event y despues el click event. (1)
+En la fase de event-handling, el evento loop despues chequea el queue, ve que hay 
+un evento mousemove en la parte delantera del queue, y ejecuta el event-handler 
+asociado (2). Al mismo tiempo el en mousemove handler esta siendo procesado, el evento 
+click espera en el queue por su turno. Cuando el ultimo pedazo de linea de la 
+funcion del mousemove handlder haya terminado y el motor de Javascript salga 
+de la funcion handler, el evento mousemove fue totalmente procesado. (3), y el 
+evento loop para chequear el queue es ejecutado de nuevo. Esta vez, al inicio del queue, 
+el evento loop encuentra un evento click que debe procesar. Una vez que el evento click 
+haya terminado de ejecutarse, no hay nuevos eventos en el queue, y el evento loop sigue 
+buscando, esperando por nuevos eventos a manejar. Este loop va a continuar ejecutandose 
+hasta que el usuario cierre la aplicacion web.
+Aahora que tenemos sentido general de los pasos a seguir cuando se esta en la fase de 
+event-handling, vamos a ver como esta ejecucion influencia el DOM. En la figura 2.10, 
+el handler mousemove selecciona el segundo ID al usar el addMEssage function, 
+agrega una nuevo list item element (1) con el texto "Event: mousemove". 
+Una vez que la ejecucion del Mousemove hadler haya terminado, el evento loop del Browser 
+Enginee ejecuta el click event, que nos lleva ala creacion de otro list item (2) 
+que tambien es agregado dentro del nodo con el ID second.
+Armados con este solido entendimiento del ciclo de vida del lado del cliente de 
+aplicaciones web, en la siguiente parte de este libro, vamos a empezar a enfocarnos 
+en el lenguaje de javascript, aprendiendo los ins y outs de las funciones en Javascript
