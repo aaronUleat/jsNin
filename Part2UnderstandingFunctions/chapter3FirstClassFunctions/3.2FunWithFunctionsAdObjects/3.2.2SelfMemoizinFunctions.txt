@@ -1,0 +1,47 @@
+SELF-MEMOIZING FUNCTIONS
+Como notamos anteriormente, memoization (no es una palabra mal escrita) es el 
+proceso de construir una funcion que es capaz de recordar sus previos
+valores calculados. Es un cascaron que cuando quiera una funcion calcula su resultado
+junto a los argumentos de la funcion. De este modo, cuando otra invocacion ocurre por el
+conjunto de argumentos, podemos retonar el resultado anterior que fue almacenado, en vez
+de hacer de calcularlo en uno nuevo. Esto puede marcadamente incrementar el performance
+al evitar incesarios calculos incesesarios que ya fueron ejecutados. Memoization es muy util
+cuando se estan ejecutando calculos para animaciones, cuando se esta buscando data que muy
+a menudo no cambia, o algun calculo matematico que consume mas tiempo.
+Como ejemplo, vamos a ver de una manera simple (y ciertamente no uno particularmente eficiente)
+un algoritmo para calcular numeros primos. A pesar de que este ejemplo de un calculo complejo
+esta tecnica es facilmente aplicada a otros calculos costosos (como la derivacion de MD5 hash
+para strings) que son tan complejos para presentarlos aqui.
+Desde fuera, la funcion aparece ser una funcion normal, pero por debajo construye en una respuesta
+acumulada (answer cache) in la cual la funcion va a salvar las funciones a los calculos que
+ejecute
+
+(Subrepticiamente es lo que se insinúa por debajo, a escondidas, lo que se hace o se dice en forma oculta o de modo solapado. Por ejemplo quien juega a las cartas haciendo trampas, mueve subrepticiamente una carta sin que lo noten los demás.)
+
+LISTING 3.3 Memoizing Previously computed values
+
+function isPrime(value) {
+	if(!isPrime.answers) {
+		isPrime.answer = {};
+	}
+	if(isPrime.answer[value] !== undefined) {
+		return isPrime.answer[value];
+	}
+
+	var prime = value ! == 1; // 1 is not a prime
+
+	for(var i = 2; i < value; i++) {
+		if(value % i === 0) {
+			prime = false;
+			break;
+		}
+	}
+	return isPrime.answer[value] = prime;
+}
+
+console.assert(isPrime(5), "5 is prime !");
+console.assert(isPrime.answer[5], "The answer was cashed");
+
+
+
+
