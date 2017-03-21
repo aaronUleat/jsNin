@@ -1,0 +1,102 @@
+FUNCTION DECLARATIONS AND FUNCTION EXPRESSIONS
+
+Los dos son las maneras mas comunes de definir funciones en Javascript
+son usando function declarations y function expressions. Estas dos tecnicas
+son muy similares que muchas veces no notamos la distincion entre ellas
+pero como vamos a ver hay diferencias sutiles entre ellas.
+
+FUNCTION DECLARATIONS
+La forma mas basica de definir una funcion en Javascript es usando function declrations
+Como vamos a ver, cada function declaration empieza con una palabra clave FUNCTION, seguida
+por el nombre que le vamos a poner a la funcion y una lista de pametros dividos por coma, dentro
+de un parantesis. El cuerpo de la funcion, que potencialmente puede ser una lista vacia de declaraciones
+estan dentro un corchetes. En adicion a esta forma, que cada declaracion de funcion debe satisfacer,
+hay una condicion mas: Una function declaration ser puesta asi misma, como una declaracion separada de
+javascript (pero puede ser contenida dentro otra funcion o bloque de codigo; usted va a ver que significa).
+
+Estas son un par de function declarations ejemplos en el siguiente listing
+
+LISTING 3.4 EXAMPLES OF FUNCTION DECLARATIONS
+
+function samurai() {
+    return "samurai here";
+}
+
+function ninja() {
+    function hiddenNinja() {
+        return "ninja here"
+    };
+
+    return hiddenNinja();
+}
+
+En Javascript, esto es perfectamente normal, y lo enfatisamos aqui para que se vea la importancia
+de las funciones en javascript
+
+NOTE Teniendo funciones contenidas en toras funciones puede que levante algunas preguntas hacerca
+scope y identificaciones de resoluciones, pero los salva por aahora, por que vamos a ver este
+caso en el capitulo 5.
+
+
+
+FUNCTION EXPRESSIONS
+
+Como ya mencionamos multiples vecs, las funciones en javascript son objetos first-class, en el cual,
+dentro de otra cosas, significa que pueden ser creadas via literales, asignadas a variables y
+propiedades, y usadas como argumentos y retornadas como valores de una a otra funcion. Por que las
+funciones son constructores fundamentales, Javascript nos permite a tratar las funciones tal
+como otras expresiones. Tal como podemos usar numeros literales, por ejemplo
+
+var a = 3;
+myFunction(4);
+
+Asi tambien podemos usar funciones literales, en la misma localizacion
+
+var a = function() {};
+myFunction(function(){});
+
+Tales funciones que siempre son una parte de otro statement(por ejemplo, como el lado derecho de la
+asignacion de la expression, o como el argumento de otra funcion) son llamados funtion expressions.
+Function expressions son geniales porq ue nos permiten definir las funciones exactamente cuando
+las necesitamos, en el proceso de hacerlas en nuestro codigo faciles de entender.
+El siguiente listing nos muestra la diferencia entre function declaration y function expressions
+
+LISTING 3.5
+
+//Function declaration autonoma
+function myFunctionDeclaration() {
+    function innerFunction(){};
+}
+
+// Function expression como parte de una variable
+// declarada como asignacion
+
+var myFunc = function() {};
+
+// function expression como argumento de
+// un function call
+
+myFunc(function() {
+    // Function expression como una funcion
+    // que devuelve un valor
+    return function(){};
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
