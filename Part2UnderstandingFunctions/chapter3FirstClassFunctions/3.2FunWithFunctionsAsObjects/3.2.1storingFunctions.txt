@@ -1,0 +1,70 @@
+ALMACENANDO FUNCIONES
+
+En ciertos casos (por ejemplo, cuando necesitatos manejar
+las colecciones de callbacks que deberia ser invocados cuando
+ciertos eventos ocurren), queremos almacenar colecciones de
+funciones unicas. Cuando agregamos funciones a esa coleccion,
+podemos enfrentar un desafio que es determinar que funciones
+son nuevas a la coleccion y deberia ser agregada, y las cuales
+ya fueron agregadas no deberian ser agraguedas. En general, cuando
+manejamos colecciones de callbacks, no queremos duplicar, por que
+un solo evento resultaria en llamados multiples al mismo callback.
+Una obvia o ingenua tecnica es la de almacenar todas las funciones
+en un array y hacer un loop a lo largo del array, chequeando por
+funciones duplicadas. Desafortunadamente, esta tecnica se ejecuta
+de una manera muy pobre, y como un ninja, queremos hacer que las cosas
+funcionen bien, no que solamente funcionen. Podemos usar propieades en
+las funciones para lograr esto en un nivel apropiado y ademas sofisticado,
+como se muestra en el siguiente listing
+
+Listin 3.2
+
+var store = {
+    nextId = 1, // Sigue la  pista del siguiente ID disponible para ser asignado
+    cache: { // Crea un objeto que sirve como cache en el cual se van a guardar las funciones
+        if(!fn.id) {                // Agrega funciones al cashe, pero solo si son unicos
+            fn.id = this.nextId++;
+            this.cache[fn.id] = fn;
+            return true
+        }
+    }
+};
+function ninja(){};
+assert(store.add(ninja),
+        "Function was safely added. ");
+assert(!store.add(ninja),
+    "But it was only added once. ");
+
+En este listing, hemos creado un objeto asignado a una variable store
+en el que que va almacenar un set de funciones unicas. Este objeto
+tiene dos propieades data: one que almacena el siguiente ID avilidatdo,
+y una donde se guarda el cashe donde se almacenan las funciones. Funciones
+son agregadas a este cache via el metodo add()
+
+add: function() {
+    if(!fn.id) {
+        fn.id = this.nextId++;
+        this.cache[fn.id] = fn;
+        return true;
+    }
+}
+
+Dentro de la funcion add, chequeamos primero si la funcion ya existe
+si ya fue agregada a la coleccion buscando por si existe por la
+propiead id. Si la funcion al corriente tiene una propiead id, y ese
+id ya existe la funcion en el cache no va a pasar por el if que agrega
+las funciones.
+De otra manera, asignamos un propiedad id a la funcion (incrementando el
+nextId a lo largo de la funcion) y la funcion add como una propiedad del cache
+, usando el valor id tiene la propiedad del nombre. Cuando se retuna el valor
+como true, asi de esta manera podemos decirle a funcion que fue agregada despues
+ de una llamada al add();
+
+ Corriendo el script en el browser muestra que cuando nuestro test trata the
+ agregar una funcion ninja() dos veces, la funcion es agregada solo una vez, como
+ se muestra en la figura 3.3 en el Capitulo 9 muestra y con una tecnica mejor
+ para trabajar con colecciones de items unicos que utilizan sets, un nuevo de
+ objeto avilitado en ES6.
+ Otro truco util es cuando se esta usando function properties es darle a la
+ funcion la abilidad de modificarse a si misma.
+ Esta tecnica puede ser usada para recordar valores calculados previos.

@@ -1,0 +1,27 @@
+DIVERSION CON FUNCIONES COMO OBJETOS
+En esta seccion vamos a examinar formas de explotar
+las similitudes que las funciones comparten con otra
+clase de tipos de objetos. Una capacidad que talvez
+sorprenda es que nada nos puede dentener de agregar
+propieades a una funcion
+
+
+// Se crea un objeto y sele asigna una propiedad
+var ninja   = {};
+ninja.name  = "Hitsuke";
+
+// Se crea una funcion y se le asigna una propiedad
+
+var wieldSword = function(){};
+wieldSword.swordType = "Katana";
+
+Vamos a ver un par de ejemplos que nos pueden demostrar
+estas capacidades
+    * Almacenar funciones en una coleccion nos permite
+    a manejar facilmente funciones relacionadas -- por
+    ejemplo , callbacks que tengan que invocar cuando
+    algo interesante pase
+
+    * Memoization permite que la funcion recuerde caculos
+    previos, de este modo mejora el rendimiento de invocaciones
+    que vayan hacer ejecutadas despues.
