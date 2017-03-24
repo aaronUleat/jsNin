@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="419db802-4a62-433a-9af8-09b64588bb06" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.2FunWithFunctionsAsObjects/3.2.1storingFunctions.txt" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.2FunWithFunctionsAsObjects/3.2.2Self-Memoizing-Functions.txt" />
@@ -11,6 +12,9 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.2FunWithFunctionsAsObjects/storing.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
+=======
+    <list default="true" id="40d1053d-0155-4d51-9ad5-181c41ed3dc7" name="Default" comment="" />
+>>>>>>> dfb1000b2eb7e2a1c773186bd23486d2045e0e31
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,11 +28,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< HEAD
       <file leaf-file-name="definintFunctionsIntro.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/definintFunctionsIntro.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="845">
               <caret line="41" column="18" lean-forward="false" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+=======
+      <file leaf-file-name="3.3.1FunctionDeclarationsAndFunctionExpressions.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/3.3.1FunctionDeclarationsAndFunctionExpressions.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="721">
+              <caret line="80" column="28" lean-forward="false" selection-start-line="80" selection-start-column="28" selection-end-line="80" selection-end-column="28" />
+>>>>>>> dfb1000b2eb7e2a1c773186bd23486d2045e0e31
               <folding />
             </state>
           </provider>
@@ -42,6 +54,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.2FunWithFunctionsAsObjects/introduction.txt" />
         <option value="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.2FunWithFunctionsAsObjects/storing.html" />
         <option value="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.2FunWithFunctionsAsObjects/storing.js" />
@@ -50,6 +63,10 @@
         <option value="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.2FunWithFunctionsAsObjects/memozing.js" />
         <option value="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.2FunWithFunctionsAsObjects/3.2.2Self-Memoizing-Functions.txt" />
         <option value="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/definintFunctionsIntro.txt" />
+=======
+        <option value="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/defaningFunctionsIntro.txt" />
+        <option value="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/3.3.1FunctionDeclarationsAndFunctionExpressions.txt" />
+>>>>>>> dfb1000b2eb7e2a1c773186bd23486d2045e0e31
       </list>
     </option>
   </component>
@@ -61,9 +78,16 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
     <option name="x" value="2326" />
     <option name="width" value="960" />
     <option name="height" value="1080" />
+=======
+    <option name="x" value="1920" />
+    <option name="y" value="27" />
+    <option name="width" value="1920" />
+    <option name="height" value="1053" />
+>>>>>>> dfb1000b2eb7e2a1c773186bd23486d2045e0e31
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -80,17 +104,28 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scope" />
       <pane id="Scratches" />
+=======
+>>>>>>> dfb1000b2eb7e2a1c773186bd23486d2045e0e31
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="javascriptNinja" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="javascriptNinja" />
+=======
+              <option name="myItemId" value="jsNin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsNin" />
+>>>>>>> dfb1000b2eb7e2a1c773186bd23486d2045e0e31
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -100,11 +135,19 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="javascriptNinja" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="javascriptNinja" />
+=======
+              <option name="myItemId" value="jsNin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsNin" />
+>>>>>>> dfb1000b2eb7e2a1c773186bd23486d2045e0e31
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -118,11 +161,19 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="javascriptNinja" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="javascriptNinja" />
+=======
+              <option name="myItemId" value="jsNin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsNin" />
+>>>>>>> dfb1000b2eb7e2a1c773186bd23486d2045e0e31
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -140,16 +191,29 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="javascriptNinja" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="javascriptNinja" />
+=======
+              <option name="myItemId" value="jsNin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsNin" />
+>>>>>>> dfb1000b2eb7e2a1c773186bd23486d2045e0e31
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
+=======
+      <pane id="Scratches" />
+      <pane id="Scope" />
+>>>>>>> dfb1000b2eb7e2a1c773186bd23486d2045e0e31
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -160,6 +224,46 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
   <component name="RunManager">
+<<<<<<< HEAD
+=======
+    <configuration default="true" type="ErlangApplicationRunConfiguration" factoryName="Erlang Application" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="debugOptions">
+        <ErlangDebugOptions>
+          <option name="autoUpdateModulesNotToInterpret" value="true" />
+          <option name="modulesNotToInterpret">
+            <set />
+          </option>
+        </ErlangDebugOptions>
+      </option>
+      <option name="erlFlags" value="" />
+      <option name="moduleAndFunction" value="" />
+      <option name="params" value="" />
+      <option name="useTestCodePath" value="false" />
+      <option name="workDirectory" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="ErlangUnitRunConfigurationType" factoryName="Erlang Eunit" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="debugOptions">
+        <ErlangDebugOptions>
+          <option name="autoUpdateModulesNotToInterpret" value="true" />
+          <option name="modulesNotToInterpret">
+            <set />
+          </option>
+        </ErlangDebugOptions>
+      </option>
+      <option name="workDirectory" />
+      <module />
+      <option name="functionNames">
+        <set />
+      </option>
+      <option name="kind" value="MODULE" />
+      <option name="moduleNames">
+        <set />
+      </option>
+      <method />
+    </configuration>
+>>>>>>> dfb1000b2eb7e2a1c773186bd23486d2045e0e31
     <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
       <config-file value="" />
       <node-interpreter value="project" />
@@ -187,6 +291,7 @@
       <PhpTestRunnerSettings />
       <method />
     </configuration>
+<<<<<<< HEAD
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -194,6 +299,15 @@
       <tasks />
       <arguments />
       <envs />
+=======
+    <configuration default="true" type="RebarEunitRunConfigurationType" factoryName="Erlang Rebar Eunit" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="command" value="eunit" />
+      <option name="skipDependencies" value="true" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+>>>>>>> dfb1000b2eb7e2a1c773186bd23486d2045e0e31
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -222,6 +336,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="419db802-4a62-433a-9af8-09b64588bb06" name="Default" comment="" />
       <created>1489732575072</created>
       <option name="number" value="Default" />
@@ -230,10 +345,20 @@
       <workItem from="1489732579892" duration="31000" />
       <workItem from="1489878880636" duration="14064000" />
       <workItem from="1489988441169" duration="4741000" />
+=======
+      <changelist id="40d1053d-0155-4d51-9ad5-181c41ed3dc7" name="Default" comment="" />
+      <created>1490027884987</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1490027884987</updated>
+      <workItem from="1490027886485" duration="689000" />
+      <workItem from="1490046756960" duration="8556000" />
+>>>>>>> dfb1000b2eb7e2a1c773186bd23486d2045e0e31
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="18836000" />
   </component>
   <component name="ToolWindowManager">
@@ -241,12 +366,25 @@
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18541667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+    <option name="totallyTimeSpent" value="9245000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1920" y="27" width="1920" height="1053" extended-state="7" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25320512" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> dfb1000b2eb7e2a1c773186bd23486d2045e0e31
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5088282" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33040616" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+>>>>>>> dfb1000b2eb7e2a1c773186bd23486d2045e0e31
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -270,14 +408,22 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.2FunWithFunctionsAsObjects/3.2.2Self-Memoizing-Functions.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1537">
           <caret line="53" column="12" lean-forward="false" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="12" />
+=======
+    <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/defaningFunctionsIntro.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+>>>>>>> dfb1000b2eb7e2a1c773186bd23486d2045e0e31
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.1WhatsWithTheFuncionalDifference?/callback3.1.2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -339,6 +485,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="845">
           <caret line="41" column="18" lean-forward="false" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+=======
+    <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/Screenshot from 2017-03-20 17-17-30.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/3.3.1FunctionDeclarationsAndFunctionExpressions.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="721">
+          <caret line="80" column="28" lean-forward="false" selection-start-line="80" selection-start-column="28" selection-end-line="80" selection-end-column="28" />
+>>>>>>> dfb1000b2eb7e2a1c773186bd23486d2045e0e31
           <folding />
         </state>
       </provider>

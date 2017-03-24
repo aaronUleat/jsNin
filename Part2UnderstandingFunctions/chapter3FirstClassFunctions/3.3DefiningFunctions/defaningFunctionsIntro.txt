@@ -1,0 +1,77 @@
+DEFINING FUNCTIONS
+
+Las funciones en Javascript son definidas usualmente
+usando una funcion literal que crear un valor de la misma
+manera que por ejemplo, una literal numerica crea un valor
+numerico. Recuerde que los objetos first-class, las funciones
+son valores que pueden ser usados en la lengua tal como otros
+values, tales como strings y numeros. Y si usted se dio cuenta
+ha estado haciendo eso a largo del tiempo.
+
+Javascript provee un par de formas para definir las funciones,
+que puede ser dividos en 4 grupos
+    * Function declarations and functions expressions -- Los dos
+    mas comunues, pero sutilmente diferentes a la hora de definarlas
+    Muchas veces la gente no las considera por separado, pero como usted
+    va a ver, hay que estar informado de sus diferencias que nos pueden ayudar
+    a entender cuando nuestras funciones estan avilitadas para una invocacion.
+
+    function myFunc(){return 1;}
+
+    * Arrow Functions (muchas veces llamadas lambda functions) -- Es una adicion
+    reciente de ES6 al stard de Javascript que nos permite  definir funciones
+    con menos desorden sintactico. Resuelven un problema comun con los callbacks
+    functions, pero mas de ello mas adelante
+
+    myArg => myArg*2
+
+    *Functions constructors -- No son muy usadas usualmente para definir funciones
+    nos permitan a nosotros dinamicante a construir una nueva funcion de un string
+    que tambien pueda crearse dinamicamente. Este ejemplo dinamicamente crea una funcion
+    con dos parametros, a y b, que nos retornan la suma de esos parametros
+
+    new Function('a', 'b', 'return a + b');
+
+    * Generator Functions -- Este es una adicion de ES6 que nos permite crear funciones
+     que, a diferencia de funciones normales, pueden ser dejadas y despues reentrar de nuevo
+     en la ejecucion de la aplicacion, mientras se mantenga los valores de sus variables
+     a lo largo estos re ingresos. Podemos definir versiones generadoras de function declarations,
+     function expressions, function constructors
+
+     function* myGen(){yield 1;}
+
+Es importante que usted entienda estas diferencias, por que la manera en la cual una funcion
+es definida influencia significativamente cuando la funcion esta avilitada a ser invocada
+y como se comporta, tambien como en los objetos, una funcion puede ser invocada.
+En este capitulo, vamos a explorar function declarations, function expressions, y arrow
+functions. Va a aprender sus sintaxis y como funcionan, y vamos a volver a ellas en multiples
+ocaciones a lo largo del libro para explorar sus especificos. Generator function, en la otra mano,
+son particularmente diferentes del estandar de las funciones. Vamos a verlo detallamdamente en el
+capitulo 6.
+Esto nos deja con funciones constructuras, un feature de javascript que vamos omitir enteramente.
+Aunque tiene aplicaciones interesantes, especialmente cuando dinamicamente estamos creando y evaluando
+el codigo, consideramos unma esquina de una caracteristica del lenguage Javascript. Si usted quiere saber
+mas de funciones constructuras puede ir a http://mng.bz/ZN8e.
+Vamos a empezar con la manera mas simple, la forma mas tradicional para definir funciones: function declarations y
+function expressions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
