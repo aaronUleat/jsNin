@@ -1,0 +1,63 @@
+REST PARAMETERS
+
+Nota: Los rest parameters fueron agregados con el ES6 standard
+
+Para nuestro siguiente ejemplo, construieremos una funcion con multiples, el primer argumento
+mas largo que el resto de argumentos. Esto probablemente no es algo particularmente aplicable
+en nuetras aplicaciones, pero es un ejemplo de mas tecnicas para tratar con argumentos dentro una
+funcion.
+Esto talvez parezca los suficientemente simple: Tomaremos el primer argumento y lo multiplicaremos por
+el mayor de los restantes valores de los argumentos. En la version vieja Javascript, esto requeria
+una solucion alternativa(que lo veremos en el siguiente capitulo). Por suerte, en el Es6, no necesitamos
+malavares. Podemos usar el rest parametro, como se muestra en el siguiente Listing
+
+LISTING 3.7 USING REST PARAMETERS
+
+function multiMax(first, ...remainingNumbers) {
+    var sorted = remainingNumbers.sort(function (a, b) {
+        return b - a;
+    });
+    return first * sorted[0];
+}
+
+assert(multimax(3,1,2,3) === 9 ,
+        "3*3=9 (First arg, by largest)");
+
+Anteponiendo el last-named argumento de una funcion con una ellipsis(...), nos turnamos dentro
+un array llamado the rest parameters, que contiene el remanente de argumentos pasados.
+
+function multiMax(first, ...remainingNumbers) {
+    ...
+}
+
+Por ejemplo, en este caso, la funcion multiMax es llamada con cuatro argumentos,
+multiMax(3,1,2,3). En el cuerpo de la funcion multiMax, el valor del primer argumento, 3
+es asignado al primer multiMax parametro de la funcion, llamado first. Por el motivo que
+el segundo parametro de la funcion es el rest parametro, todos los argumentos remanentes
+(1,2,3) son puestos en un nuevo array: remainingNumbers. Despues obtenemos el numero mayor
+haciendo un sorgint en el array en orden descendente (note lo simple que es cambiar el sorting orden)
+y escoger el numero mas grande, el cual es el primer lugar de nuestro sorted array. (Esto esta lejos
+de la forma mas eficiente de determinar el numero mas grande, pero por que no tomar ventaja de las habilidades
+aprendidas anteriormente en este capitulo? )
+
+Note que solo que el ultimo parametro de la funcion puede puede ser un parametro rest. Tratando de poner el
+ellipsis en frente de cualquier parametro que 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
