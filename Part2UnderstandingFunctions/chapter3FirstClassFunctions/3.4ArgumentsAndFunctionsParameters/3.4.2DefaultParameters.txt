@@ -1,0 +1,120 @@
+DEFAULT PARAMATERS
+
+Muchos componentes UI (especialmente Jquery Plugins) pueden ser
+configurados. Por ejemplo, si estamos desarrollando un componente
+slider, talvez queramos darle la opcion al usuario para que especifique
+un intervalo de tiempo despues de que un objeto sea remplazado por
+otro, tambien una animacion que va ser usada cuando el cambio ocurra.
+Al mismo tiempo, talvez algunos usuarios no les importa y estan felices
+en usar cualquier setting le ofrezcamos. Los parametros por defecto
+son ideales para tales situaciones.
+Nuestro pequeno ejemplo con el componente slider es solo un 
+caso especifico de una situacion en la cual casi todas los llamados
+a funciones usan el mismo valor para un parametro en particular (note
+el empazis en casi todo). Condidere un caso mas simple en el cual la
+mayoria de los ninjas estan usando skulking alrededor, pero no un 
+Yagyu, que le importa solo las cosas simples.
+
+function performAction(ninja, action) {
+    return ninja + " " + action; 
+}
+
+performAction("Fuma", "skulking");
+performAction("Yoshi", "skulking");
+performAction("Hattori", "skulking");
+performAction("Yagyu", "sneaking");
+
+No es tedioso tener que siempre repetir el mismo argumento, skulking, 
+simplemente por que Yagyu es obstinado y reusa a actuar como un 
+verdadero ninja?
+
+En otros lenguages de programacion , este problema por lo general es 
+resuelto con una sobrecarga de una funcion (especificando funciones
+adicionales con el mismo nombre pero un set diferente de parametros)
+Desafortunadamente Javascript no soporta sobrecargas de funciones, entonces
+cuando nos enfrentamos a esta situancion en el pasado, desarrolladores por
+lo general hacian un reordenamiento como el siguiente listing
+
+LISTING 3.8 Tackling default parameters before ES6
+
+function perforAction(ninja, action) {
+    action = typeof action === 'undefined' ? 'skulking' : action;
+    return ninja + " " + action;
+}
+
+assert(performAction("Fuma") === "Fuma skulking",
+"The default value is used for Fula");
+
+assert(performAction("Yoshi") === "Yoshi skulking",
+"The default value is used for yoshi" )
+
+assert(peformAction("Hattori") === "Hattori skulking",
+ "The default value is used for Hattori");
+
+ assert( performAction("Yagyu", "sneaking") === "Yagyu sneaking",
+ "Yagyu can do whatever he pleases, even sneak" )
+
+ Aqui definimos una funcion performAction, que chequea si el valor de la
+ accion del parametro es undefined (al suar typeof operator), y si lo es
+ la funcion coloca el valor de la ciones de la variable skulking.
+
+ NOTAl: El operador typeof retorna un string indicando el tipo de operador
+ y Si el operando no es definido (por ejemplo, si no hemos suministra un 
+ argumento que calce para el parametro de la funcion), el valor que retorna
+ es la string undefined.
+
+ Este es un patro que muy corrientemente pasa, un codigo que es tedioso
+ para escribir, entonces en ES6 standard ha agregado suporte para 
+ paramentros defaults, como mostramos en el siguiente listing.
+
+ LISTING 3.9 TACKING DEFAULT PARAMETROS IN ES6
+
+ function performAction(nina, action = "skulking") {
+    return ninja + " " + action;
+ }
+
+ assert( performAction("Fuma") === "Fuma skulking",
+ "The default value is used for fuma" );
+
+ assert( performAction("Yoshi") === "Yoshi skulking",
+ "The default value is used for Yoshi" );
+
+ assert( performAction("Hattori") === "Hatori skulking",
+ "The default value is used for Hattori" );
+
+ assert( performAction("Yagyu", "sneaking") === "Yagyu sneaking",
+"Yagyu can do whatever he pleases, even sneak" );
+
+Aqui usted puede ver la sintaxis de un paramentro default en una funcion
+en Javascript. Para crear un parametro default, asignamos un valor al 
+parametro de la funcion
+
+function performAction(ninja, action = "skulking") {
+    return ninja + " " + action;
+}
+
+Despues, podemos hacer una llamada a la funcion y si el argumento hace un 
+match con el argumento, como con fuma, yoshi y hattori, el valor por 
+default en este caso va ser skulking.
+
+Podemos asignar cualquier valor al parametro default, simple, valores
+primitovs tales como los numeros o strings, pero tambien tipos complejos
+como los objetos, arrays y tambien las funciones. Los valores
+son evaluados en cada llamada a la funcion. de izquierda a derecha y
+cuando asignamos un valor al parametro default, podemos referenciar
+los parametros previos, como en el siguiente listing
+
+LISTING 3.10 REFERENCING PREVIOUS DEFAULT PARAMENTERS
+
+
+function performAction(ninja, action = "skulking") {
+    message = ninja + " " + action;
+    return message
+}
+
+assert( performAction("Yoshi") === "Yoshi skulking",
+"Yoshi is skulking" )
+
+Aunque javascript nos permita hacer algo como esto, tenemos que tener
+cuidado, En nuestra opinion, esto no mejora la legibilida del codigo y
+debe ser evitada. Pero moderadamente 
