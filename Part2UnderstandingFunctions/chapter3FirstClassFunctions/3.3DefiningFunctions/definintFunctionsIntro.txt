@@ -1,0 +1,42 @@
+DEFINING FUNCTIONS
+
+Las funciones en Javascript son usualmente  definidas  utilizando
+una funcion literal, por ejemplo, un numeral literal crea un valor numeral,
+Recuerda que como objetos first-class, las funciones son valores que pueden
+ser uzados en el lenguage tal como otros valores, tales como strings o
+numeros.
+Javascript provee un par de maneras para definir funciones, que pueden ser dividos
+en cuatro grupos.
+
+    * Function Declarations y function expressions - Las dos mas comunes todavia
+    sutilmente diferentes maneras  de definir una funcion. Muchas veces la gente
+    no considera como separadas, pero como vamos a ver, hay que ser consientes
+    de sus diferencias, nos pueden ayudar a entendercuando nuestras funciones
+    estan avilitadas para una invocacion:
+
+    function myFun(){return 1;}
+
+    * Las funciones arrow (A menudo llamadas funciones lambda) -- Una reciente
+    adicion de ES6 al standard de Javascript que nos permite a definir funciones
+    sin menos desorden sintactico. Resuelven un problema comun con las funciones
+    callbacks, pero hablaremos de eso mas adelante
+
+    myArg => myArg*2;
+
+    * Function Constructors -- No usadas tan comunmente para definir funciones que
+    nos permita construir dinamicamente una nueva funcion de un string que tambien
+    puede ser generada. Este ejemplo dinamicamente crea una funcion con dos parametros
+    , a y b, que retorna la suma de esos dos parametros.
+
+    new Function('a', 'b', 'return a + b');
+
+    * Generator Functions-- Esta es una adicion de ES6 que nos permte crear funciones
+    que a diferencia de funciones normales, que pueden salir y reentrar despues en
+    la aplicacion y ejecucion, mientras mantine los valores de las variables a travez
+    de esta re entrada. Podemos definir versiones de generators de declaraciones
+    de funciones, expresiones de funciones, y funciones constructuras
+
+    function* myGen(){yeild 1;}
+
+    Es importante que usted entieda estas diferencias, porque el camino en el cual
+    las funciones 

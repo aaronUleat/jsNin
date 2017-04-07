@@ -1,0 +1,84 @@
+Cuando discutimos funciones, muchas veces usamos los terminos argumentos y parametros
+casi intercambiablemente, casi como si fueran lo mismo, Pero no lo son, vamos hacer mas
+formales
+    * Un paramentro es una variable que enumeramos como parte como parte de definicion de
+    una funcion.
+    * Un argumento es un valor que pasamos a la funcion cuando la invocamos.
+
+    FIGURE 3.7
+
+    function skulk(ninja) { //  (ninja) seria el parametro de la funcion
+        return performAction(ninja, "skulking") // (ninja, "skulking") serian los argumentos de la funcion
+    }
+
+    var performAction = function (person, action) { // (person, action) Son los parametros de la funcion
+        return person + " " + action;
+    };
+
+    var rule = daimyio => performAction(daimo, "ruling"); // daimyio => --- seria el parametro de la funcion
+    // (daimyiom, "ruling") serian los argumentos de la funcion
+
+    skulk("Hattori") // ("Hattori") son los argumentos de la funcion
+    rule("Oda Nobunaga"); // seria el argumento de la funcion
+
+Como usted puede ver, un parametro de una funcion es especificado con la definicion de una funcion, y
+todos los tipos de funciones pueden tener parametros
+
+    * La function declaration (el parametro ninja para la funcion skulk)
+    * De la function expression (person y action son los parametros de la funcion performAction function)
+    * En la arrow function (daimyo seria el parametro)
+
+Los argumentos, por otro lado, estan ligados con la invocacion de una funcion, ellos son valores
+pasados a una funcion al momento de su invocacion:
+    * El string Hattori es pasado com oun argumento de la funcion skulk
+    * El string Oda Nobunaga es pasado como un argumento de la funcion rule.
+    * El parametro ninja de la funcion skulk es pasado como un argumento en la funcion performAction
+
+
+Cuando una lista de argumentos es suministrada como parte de una invocacion de una funcion, estos argumentos
+son asginados a los parametros en la definicion de la funcion en el orden especificado. El primer argumento
+se asigna a los parametros en la definicion de la funcion, el segundo argumento al segundo parametro, etc.
+
+Si tenemos diferente numero de argumentos que parametros, no se genera ningun error. Javascript acepta esta
+situacion y trata de la siguiente manera. Si hay mas argumentos suplidos que parametros, el "exeso" de argumentos
+no se asignara a los nombres de los parametros. Por ejemplo ve ejemplo 3.8.
+La figura 3.8 nos muestra que si fueramos a llamar la funcion practice con practice("Yoshi", "sword", "shadow sword", "katana")
+el argumento Yoshi, sword, shadow sword, van hacer asignados alos parametros, ninja, weapon, and technique respectivamente.
+
+FIGURE 3.8
+
+practice("Yoshi", "sword", "shadow sword", "katana");
+
+// El argumento "Yoshi" es asignado al parametro ninja
+// El argumento sword es asignado al parametro weapon
+// El argumento shadow sword es asignado al parametro technique.
+// El argumento katana excede los parametros asignados
+
+function practice(ninja, weapon, technique){...}
+
+practice("Yoshi")
+// El argumento Yoshi es asignado la parametro ninja
+// Undefined es asignado al parametro weapon
+// Undefined es asignado al parametro technique
+
+Los argumentos asinados a los parametros de la funcion, en orden de especificar.
+El exceso de argumetos no es asignado a ninguna parametro.
+
+El argumento katana es un argumento excedido, y no va ser asignado a ningun nombre de parametro. En el siguiente
+capitulo, veremos que aunque algunos argumentos no se asignen a ningun parametro, aun tenemos un modo de
+accesarlos.
+Por otro lado, si tenemos mas parametros que argumentos, los parametros que no tienen argumentos correspondientes
+van a ser asignados con undefined. Por ejemplo, si hicieramos una llamada practice("Yoshi"), el parametro ninja
+va ser asignado al valor Yoshi, mientras los otros parametros weapon y technique van ser asignados a undefined.
+Tratar con argumentos de una funcion y parametros es tan viejo como Javascript, pero ahora exploremos
+dos nuevos features agregados en Javascript ES6: rest y default parametros.
+
+
+
+
+
+
+
+
+
+

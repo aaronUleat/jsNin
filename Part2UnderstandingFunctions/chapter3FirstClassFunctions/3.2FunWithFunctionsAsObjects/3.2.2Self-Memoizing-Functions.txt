@@ -1,0 +1,100 @@
+SELF-MEMOIZING FUNCTIONS
+
+Como notamos anteriormente, memoization es el proceso de
+construir una funcion que es capaz de recordar sus valores
+previos calculados. Donde quiera que una funcion calcule
+su resultado, guardamos el resultado junto a los argumentos
+de la funcion. De esta manera cuando otra invocacion ocurra
+por el mismo set de argumentos, podamos retornar el resultado
+que fue almacenado, en vez calcularlo de nuevo. Esto puede marcar
+y incrimentar el performance evitando unnecesarios y calculos complejos
+que ya fueron realizados. Memoization es particularmente util cuando
+se ejecuten calculos de animacion, buscando data que no cambia muy
+a menudo, o algun calculo matematico que consuma mas tiempo del necesario.
+Como un ejemplo, vamos a ver un algoritmo simplista (y ciertamente no muy
+eficiente) para calcular numeros primos. Aunque este es un ejemplo simple
+de un calculo complejo, esta tecnica es aplicable a otro calculo costoso
+(tal como derivar el MD5 hash para un string) esta es muy compleja para
+mostrarla aqui.
+Desde fuera, la funcion parece una funcion normal, pero
+Subrepticiamente construye una respuesta en el cache, in el que
+la funcion salva la respuesta de los calculos ejecutados. Vea el siguiente
+codigo:
+
+function isPrime(value) {
+    if(!isPrime.answers) {
+        isPrime.answers = {};
+    }
+    if(isPrime.answers[value] !== undefined) {
+        return isPrime.answers[value];
+    }
+
+    var prime = value !== 1; // 1 is not a prime
+
+    for(var i = 2; i < value; i++) {
+        if(value % i === 0) {
+            prime = false;
+            break;
+        }
+    }
+    return isPrime.answers[value] = prime;
+}
+
+assert(isPrime(5), "5 is prime ! ");
+assert(isPrime.answers[5], "The answers was cached! ");
+
+Dentro del la funcion isPrime, empezamos chequando si la propiedad
+answers que va ser usada como cache, is y si no esta en el cache
+entonces lo creamos
+
+if(!isPrime.answers) {
+    isPrime.answers = {};
+}
+
+La creacion de este objeto vacio va a ocurrir en la primera llamada
+a la funcion, despues de eso, el cache va a existir.
+Despues vamos a chequear si el resultado por el valor que se paso
+que ha sido pasado en el cache answers
+
+if(isPrime.answers[value] !== value) {
+    return isPrime.answers[value];
+}
+
+Dentro de este cache, vamos a guardar la respuesta calculada (true or false)
+utilizando el valor dek argumento como un key de la propiedad. Si encontramos
+una respuesta cached, la retornamos.
+Si no se encuentra un valor en el cache, vamos y realizamos el calculo que
+necesitamos para determinar si el valor es primo (el cual puede ser una
+operacion costosa para valores mas grandes) y almacenar el resultado en el
+cache.
+
+return isPrime.answers[value] = prime;
+
+Nuestro cache es una propiedad de la funcion misma, asi se mantiene viva mientras
+la funcion misma esta viva. Finalmente hacemos un test para verificar  que el
+memoization este funcionando
+
+assert(isPrime(5), "5 is prime!");
+assert(isPrime.answers[5], "The answer was cached!");
+
+Este enfoque tiene dos ventajas mayores
+    * En usuario disfruta el beneficio para funcion que es llamada preguntado por
+    el valor anterior calculado.
+    * Pasa de la misma manera destras de la escena, ni el usuario final no el autor
+    de la pagina necesita ejecutar ningun request especial o hacer ninguna extra
+    inicializacion en order de hacerlo funcionar.
+
+Pero no todo son rosas y violines, las desventajas necesitan ser medidas contra
+las ventajas.
+    * Cualquier tipo de ordenamiento de chaching va a sacrificar memoria en favor
+    de performance.
+    * Los puritas consideran que cachear es un asunto que deberia ser mezclado con
+    el negocio de la logica, una funcio o un metodo deberia hacer una cosa
+    y solamente una cosa bien. Pero no se preocupe, en el capitulo 8 se va abordar
+    esta queja.
+    * Es dificil cargar un test o medida que pueda medir el performance de un
+    algoritmo como el que acabamos de examinar, por que nuestro resultado depende
+    en los inputs previos de la funcion.
+Ahora que usted ha visto algunos delos los casos practicos de las funciones
+first-class, ahora vamos a ver las diferentes formas de definir una funcion
+
