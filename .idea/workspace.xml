@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40d1053d-0155-4d51-9ad5-181c41ed3dc7" name="Default" comment="" />
+    <list default="true" id="40d1053d-0155-4d51-9ad5-181c41ed3dc7" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/3.3.2ArrowFunctions.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/arrow.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/arrow.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.4ArgumentsAndFunctionParameters/introduction.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/3.3.1FunctionDeclarationsAndFunctionExpressions.txt" afterPath="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/3.3.1FunctionDeclarationsAndFunctionExpressions.txt" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +24,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="3.3.1FunctionDeclarationsAndFunctionExpressions.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/3.3.1FunctionDeclarationsAndFunctionExpressions.txt">
+      <file leaf-file-name="introduction.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.4ArgumentsAndFunctionParameters/introduction.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="721">
-              <caret line="80" column="28" lean-forward="false" selection-start-line="80" selection-start-column="28" selection-end-line="80" selection-end-column="28" />
+            <state relative-caret-position="513">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -35,21 +44,32 @@
       <list>
         <option value="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/defaningFunctionsIntro.txt" />
         <option value="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/3.3.1FunctionDeclarationsAndFunctionExpressions.txt" />
+        <option value="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/arrow.html" />
+        <option value="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/arrow.js" />
+        <option value="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/3.3.2ArrowFunctions.txt" />
+        <option value="$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.4ArgumentsAndFunctionParameters/introduction.txt" />
       </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>false</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>false</other-services-enabled>
+  </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1920" />
-    <option name="y" value="27" />
     <option name="width" value="1920" />
-    <option name="height" value="1053" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -118,7 +138,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="3.3DefiningFunctions" />
+              <option name="myItemId" value="3.4ArgumentsAndFunctionParameters" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -140,10 +160,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cashier__html__last" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="JavaScriptPreferStrict" value="false" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="ErlangApplicationRunConfiguration" factoryName="Erlang Application" show_console_on_std_err="false" show_console_on_std_out="false">
@@ -217,6 +240,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -243,6 +272,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="40d1053d-0155-4d51-9ad5-181c41ed3dc7" name="Default" comment="" />
@@ -251,24 +283,31 @@
       <option name="presentableId" value="Default" />
       <updated>1490027884987</updated>
       <workItem from="1490027886485" duration="689000" />
-      <workItem from="1490046756960" duration="8556000" />
+      <workItem from="1490046756960" duration="12645000" />
+      <workItem from="1490129213189" duration="9644000" />
+      <workItem from="1490199301309" duration="4391000" />
+      <workItem from="1490396298194" duration="7823000" />
+      <workItem from="1490559867151" duration="1771000" />
+      <workItem from="1490655388794" duration="56000" />
+      <workItem from="1490746863914" duration="39000" />
+      <workItem from="1490747284226" duration="61000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9245000" />
+    <option name="totallyTimeSpent" value="37119000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="27" width="1920" height="1053" extended-state="7" />
-    <editor active="false" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25320512" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27564102" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33040616" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3131635" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -292,11 +331,63 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.4ArgumentsAndFunctionParameters/introduction.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.4ArgumentsAndFunctionParameters/introduction.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.4ArgumentsAndFunctionParameters/introduction.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.4ArgumentsAndFunctionParameters/introduction.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/arrow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/arrow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="40" lean-forward="true" selection-start-line="0" selection-start-column="40" selection-end-line="0" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/3.3.1FunctionDeclarationsAndFunctionExpressions.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2160">
+          <caret line="80" column="28" lean-forward="false" selection-start-line="80" selection-start-column="28" selection-end-line="80" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/defaningFunctionsIntro.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="586">
           <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -307,8 +398,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/3.3.1FunctionDeclarationsAndFunctionExpressions.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="721">
-          <caret line="80" column="28" lean-forward="false" selection-start-line="80" selection-start-column="28" selection-end-line="80" selection-end-column="28" />
+        <state relative-caret-position="351">
+          <caret line="187" column="16" lean-forward="true" selection-start-line="187" selection-start-column="16" selection-end-line="187" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/arrow.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/arrow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.3DefiningFunctions/3.3.2ArrowFunctions.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="85" column="89" lean-forward="true" selection-start-line="85" selection-start-column="89" selection-end-line="85" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Part2UnderstandingFunctions/chapter3FirstClassFunctions/3.4ArgumentsAndFunctionParameters/introduction.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
