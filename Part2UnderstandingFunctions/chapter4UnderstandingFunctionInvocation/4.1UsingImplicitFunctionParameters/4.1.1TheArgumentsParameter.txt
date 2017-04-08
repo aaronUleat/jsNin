@@ -1,0 +1,126 @@
+The arguments parameter
+
+Los argumentos del parametro son una coleccion de todos los argumentos pasados
+a una funcion. Es util por que permite acceso a todos los argumentos de la
+funcion, sin importar si el pareo del parametro, es explicitamente definido. 
+Esto nos permite implementar function over loading, una caracteristica de 
+Javascript no soporta nativamente, y funciones variadic que aceptan un 
+variable numerica como argumento. Para ser honesto, con parametros rest,
+nos introduce en siguiente capitulo, la necesidad de los argumentos parametros
+ha sido reducida. pero todavia es importante entender como los argumentos 
+parametros funcionan, por que esta ligado a correr dentro cuando esta tratando
+con legacy code.
+
+Los objetos argumentos tienen un propiedad llamada length que indica el
+numero exacto de argumentos. El valor del argumento individual puede ser
+obtenido usando notacion de array. por ejemplo, arguments[2] va a traer
+el tercer parametro. 
+
+LISTING 4.1 USING THE ARGUMENTS PARAMETER
+
+// Declara una funcion con tres parametros,
+// a, b, c
+function whatever(a,b,c) {
+    // Hace un test por valores correctos
+    assert(a === 1, 'The value of a is 1');
+    assert(b === 2, 'The value of a is 2');
+    assert(c === 3, 'The value of a is 3');
+    
+    // En todos, la funcion es pasada con 5 argumentos
+    assert(arguments.length === 5,
+        "We've passed in 5 parameter");
+
+    // Chequea que los primeros argumentos concuerden
+    //los parametros
+    assert(arguments[0] === a,
+        "The first argument is assigned to a");
+    assert(arguments[1] === b,
+        "The second argument is assigned to b");
+    assert(arguments[2] === c,
+        "The third argument is assigned to c");
+    
+    // Chequea que el acceso a los argumentos puedan
+    // ser accesados por medio de el parametro argumento
+    assert(arguments[3] === 4,
+        "We can access the fourth argument");
+    var thirdArgument = arguments[3];
+    console.log(thirdArgument);
+    assert(arguments[4] === 5,
+        "We can access the fifth argument");
+}
+
+whatever(1,2,3,4,5); // Llamado de la funcion con 5 argumentos
+
+Aqui tenemos la funcion whatever que obtiene 5 argumentos, whatever(1,2,3,4,5),
+a pesar de que solo tiene solamente declarados: a,b,c
+
+function whatever(a,b,c) {
+    ...
+}
+
+Podemos accesar los primertos tres argumentos por sus respectivos
+parametros a,b y c:
+
+assert(a === 1, 'The value of a is 1');
+assert(b === 2, 'The value of a is 2');
+assert(c === 3, 'The value of a is 3');
+
+Tambien podemos chequear cuantos argumentos en total son pasados a la 
+funcion usando la propiedad arguments.length.
+EL parametro arguments tambien puede ser usado para accesar argumentos 
+individuales con notacion de array. Es importante notar que esto tambien
+incluye el exceso de argumentos que no estan asociadosw a un parametro
+
+    // Chequea que los primeros argumentos concuerden
+    //los parametros
+    assert(arguments[0] === a,
+        "The first argument is assigned to a");
+    assert(arguments[1] === b,
+        "The second argument is assigned to b");
+    assert(arguments[2] === c,
+        "The third argument is assigned to c");
+    
+    // Chequea que el acceso a los argumentos puedan
+    // ser accesados por medio de el parametro argumento
+    assert(arguments[3] === 4,
+        "We can access the fourth argument");
+    var thirdArgument = arguments[3];
+    console.log(thirdArgument);
+    assert(arguments[4] === 5,
+        "We can access the fifth argument");
+
+A lo largo de esta seccion, vamos a mostar el camino para evitar llamar
+el parametro arguments y el array. Talvez usted fue enganado al pensar
+que es un array; despues de todo, tiene un parametro length y sus entries
+pueden ser accesadas con notacion de array. Pero no es un array de Javascript,
+y si usted trata de usar metodos de array en arguments (por ejemplo, el sort
+metodo usado en le capitulo anterior) no va allar mas que decepcion. Solo 
+piense el parametro arguments como un array-like construct, y ser moderado en su uso.
+Como mencionamos anteriormente, el punto del el objeto arguments es que nos 
+permite acceso a todos los argumentos que fueron pasados a la funcion, sin
+importar si un argumento en particular es asociado con un parametro.
+Vamos a ver como implementariamos una funcion que pueda calcular la suma de un
+numero arbitatrio de argumentos.
+
+LISTING 4.2 USING THE ARGUMENTS OBJETO PARA EJECUTAR OPERACIONES
+EN TODOS LOS ARGUMENTOS DE LA FUNCION
+
+ function assert(value, description) {
+        var result = value ? "pass" : "fail";
+        console.log(result + ' - ' +  description); 
+};
+// Una funcion si ninguna parametro
+function sum() {
+    var sum = 0;
+    // Hace iteraciones para todos los argumentos
+    // pasados, y accesa a cada uno de ellos atravez
+    // de array notation
+    for( var i = 0; i < arguments.length; i++) {
+        sum += arguments[i];
+    }
+    return sum;
+}
+// Lla la funcion con cualquier numero de argumentos
+assert(sum(1,2) === 3, "We can add two numbers");
+assert(sum(1,2,3) === 6, "We can add three numbers");
+assert(sum(1,2,3,4) === 10, "We ca add four numbers");

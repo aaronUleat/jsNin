@@ -1,0 +1,33 @@
+Este capitulo cubrirar
+
+    * Dos esplicitos parametros de funcion: argumentos  y this.
+    * Las formas para invocar funciones.
+    * Tratar con problemas de contexto de funciones.
+
+En el capitulo anterior usted vio Javascript es un lenguaje de programacion
+con significante orientacion a funciones. Vamos a explorar la diferencia entre
+function call arguments y function parameters, y como los valores son 
+transferidos de una llamada de argumento a un parametro.
+Este capitulo continua similar a los anteriores, primero discutiendo algo
+que mantuvimos lejos en los capitulos anteriores, el inplicito paramentro
+'this' y argumentos. Estos son silenciosamente pasados a funciones y pueden ser
+accesados como cualquier otro nombre de parementro explicito dentro del cuerpo
+de la funcion.
+El parametro 'this' represetan el contexto de la funcion, el objeto en el cual
+nuestra funcion es invocada, mientras los argumentos parametros represetan
+todos los argumentos que son pasados dentro de una llamada de una funcion.
+Ambos parametros  son vitales en el codigo Javascript. El parametro 'this' 
+es uno de los ingredientes fundamentales del Object Oriented de Javascript, 
+y los argumentos parametros nos permiten a ser creativos con los argumentos
+que son aceptados por nuestras funciones. Por esta razon, vamos a explorar 
+algunas de las trampas relacionadas a estos implicitos argumentos.
+Despues vamos a continuar explorando formas de invocar funciones en Javascript.
+En la forma en la cual invocamos una funcion tiene una gran influencia en como
+la los parametros inplicitos de una funcion son determinados.
+Finalmente, vamos a concluir el capitulo aprendiendo acerca algunas cosas 
+relacionadas al contexto de la funcion, el parametro this.
+
+Do you know?
+    Por que el parametro this es conocido como el contexto de la funcion?
+    What's cual es la diferencia entre funcion y metodo?
+    What pasaria si una funcion constructura explicitamente retorna un objeto.
