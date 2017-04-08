@@ -1,0 +1,17 @@
+Este Capitulo cubre
+    * Dos implicitos parametros de funcion: arugmentos y this
+    * Formas de invocar funciones
+    * Traar con problemas de contexto de funciones.
+
+En el capitulo anterior, usted vio que Javascript es un lenguaje de programacion
+con caracteristicas de programacion funcional. Exploramos las diferencias entre
+una una llamada de funcion con argumentos y parametros, y como los valores son
+transferedios del llamado de argumentos a parametros de funcion.
+Este capitulo continua con un rasgo similar, discutiendo primero algo que mantuvimos
+o no se vio en el capitulo anterior: la implicidad de paramentros de una funcion
+'this' y argumentos. Estos son pasados silenciosamente a las funciones y pueden ser
+accesadas tal como otro explicito nombre de parametro de una funcion dentro del cuerpo
+de la funcion.
+
+El parametro this representa el contexto de la funcion, en el objeto en el cual nuestra
+funcion es invocada, mientras los parametros de los argumentos
