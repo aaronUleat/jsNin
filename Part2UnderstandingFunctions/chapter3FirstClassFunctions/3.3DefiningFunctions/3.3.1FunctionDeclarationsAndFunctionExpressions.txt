@@ -82,8 +82,124 @@ myFunc(function() {
     return function(){};
 });
 
+// funcion que se va a invocar inmediatamente
+
+(function namedFunctionExpression() {
+})();
++function(){}();
+-function(){}();
+!function(){}();
+~function(){}();
+
+Este ejemplo de codigo empieza con una  standard function declaration que contiene otra
+funcion interna
+
+function myFunctionDeclaration() {
+    function innerFunction(){};
+}
+
+Aqui se puede ver como las function declarations son separadas por statements de codigo
+Javascript, pero pueden contener dentro del body de otra funcion.
+En contraste estan las function expressions, que siempre son parte de otro statement.
+Estan colocadas en el nivel de expression, al lado derecho de una declaracion de variable
+(o asignacion)
+
+var myFunc = function(){};
+
+o como argumento de otra llamada de funcion, o como una funcion que devuelve un valor
+
+myFunc(function() {
+    return function() {};
+});
+
+Ademas de la posicion en el codigo en donde son colocadas, hay una diferencia mas
+entre las function declarations y function expressions: Por function declarations,
+el nombre de la funcion es mandatoria, en cambio en las function expressions es opcional.
+
+Las function declarations tienen que tener un nombre definido por que ellas se representan a
+si mismas. Por que uno de los requerimientos basicos de una funcion es que tiene que ser invocable
+tiene que haber alguna manera de referenciarlas, y la unica manera de hacer esto es por medio de
+un nombre.
+Las function expressions, por otro lado, son parte de otras expreciones de Javascript, que tenemos
+alternativas diferentes para llamarlas, Por ejemplo, si una function expression es asignada a una
+variable, podemos usar el nombre de la variable para llamarla.
+
+var doNothing = function() {}
+doNothing();
+
+O, si es un argumento de otra funcion, podemos invocar dentro de la funcion mediante un nombre de parametro.
+
+function doSomething(action) {
+    action();
+}
+
+FUNCIONES INMEDIATAS
+
+Las function expressions pueden ser colocadas en una posicion donde parezcan un poco raras a primera vista,
+tal como en la localizacion donde normalmente esperariamos un function identifier. Vamos a parar
+y ver de cerca como se construye.
+
+STANDARD FUNCTION CALL
+myFunctionName(3);
+Una expression que evalua una funcion, en este caso
+un identificador
+myFunctionName -> es el identificador.
 
 
+LLAMADO INMEDIATO A UN FUNCTION EXPRESSION.
+
+(function(){})(3);
+// Una expresion que evalua una funcion, en este
+// caso una function expression
+
+Cuando queremos hacer un llamado a una funcion, se usa una expresion que evalua
+a una funcion, seguido de un par de una funcion que se llama parantesis, que
+quizas contenga argumentos. En la funcion mas basica de una llamada, ponemos un
+identificador que evalua una funcion, en el lado izquierdo de la figura 3.5.
+Pero la expresion en la parte izquierda el llamado no tiene que ser un simple
+identificador; puede ser cualquier expresion que evalue a una funcion. Por ejemplo
+una manera simple de especificar una exprecion que evalue a una funcion, es una una
+function expression. En la parte derecha de la figura 3.5, primero creamos una funcion
+y despues inmediatamente la invocamos esa nueva funcion creada. Esto por cierto es llamado
+una immediately invoked function expression(IIFEE), o immediate function for short,
+y es un concepto importante en el desarrollo en javascript por nos permite imitar modulos
+en Javascript. Nos vamos a enfocar en la aplicacion de la funcion IIFE en el capitulo 11.
+
+
+PARENTESIS ALREDEDOR DE FUNCTION
+Una cosa que usted se deberia estar preguntando es la manera en la que inmediatamente hemos llamado
+nuestra function expression: el parantesis alrededor de la funcion. Para que necesitamos esto?
+La razon es puramente sintactica. El parser de Javascript debe estar habilitado para poder diferenciar
+entre function expressions y function declarations.
+Si dejamos fuera el parentesis alrededor de la function expression, y ponemos una llamda inmediata
+como separamos un statement function: function(){}(3), El parser de Javascript va a empezar a procesarlo
+y va a concluir, por que es un statement separado con la palabra key function, eso es lidear con function
+declaration. Por que cada function declaration tiene que tener un nombre(y aqui no especificamos uno), un
+error va ser desplegado. Para evitar esto, ponemos la function expression dentro de parentesis, senalando
+al Javascript Parser que esta lideando con una expresion, y no con un statement.
+
+Tambien hay otra alternativa, mas simple (pero extranamente menos usada) para lograr este objetivo
+(function(){}(3)). Al envolver la definicion inmediata de la funcion y lo llamamos con el parentesis,
+usted tambien le puede notificar al parser de Javascript que esta lideando con una expresion.
+
+Las ultimas 4 expresiones en el listing 3.5 son variaciones del mismo tema de funciones inmediatamente
+invocadas muchas veces encontradas en librerias de Javascript.
+
++function(){}();
+-function(){}();
+!function(){}();
+~function(){}();
+
+
+
+Esta vez, en vez de estar usando parentesis alrededor de una function expression para diferenciarla
+de una function declaration, podemos usar los unary operators: +, -, ! y ~. Hacemos esto para senalar
+al motor de Javascript que esta lideando con las expreciones y no statements.
+Note como los resultados de estar aplicando esos unary operators no son almacenados en cualquier sitio,
+de una perspectiva computacional, ellos realmente no importan, solo la llamada IIFEE importa.
+
+Ahora que hemos estudiado los ins y outs de las dos formas mas basicas de definir una funcion en
+Javascript (function declarations y function expressions), vamos a explorar una nueva adicion arrow functions
 
 
 

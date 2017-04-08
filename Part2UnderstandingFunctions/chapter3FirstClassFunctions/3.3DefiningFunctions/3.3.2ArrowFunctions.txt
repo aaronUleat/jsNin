@@ -1,0 +1,153 @@
+NOTE Las arrow functions son una adicion de ES6 al standard de Javascript.
+
+Por el motivo de que en nuestro Javascript usamos muchas funciones, tiene sentido
+agregar una manera mas simple que nos permita crear funciones de una manera mas corta,
+hace que nuestra vida como developers sea mas facil.
+
+De muchas maneras, las arrow functions son una simplificacion a la exprecion de una funcion.
+Vamos a revisar nuestro ejemplo de sorting de la primera seccion de este capitulo
+
+var values = [0,3,2,5,7,4,8,1];
+values.sort(function(value1, value2) {
+    return value1 - value2;
+});
+
+Este ejemplo usa un callback function expression que es enviado al metodo sort en el objeto
+array, Este callback va a ser invocado por el motor de Javascript para hacer un sort
+de los valores en el array de forma descendente.
+Ahora vamos a ver como hacer esto mismo con un arrow function.
+
+var values = [0,3,2,5,7,4,8,1];
+values.sort((value1, value2) => value1 - value2);
+
+No hay desorden causado por la palabra clave function, los corchetes, o el return statement.
+En una manera mas simple de que una function expression lo haria, la arrow function establece:
+ aqui hay una funcion que toma dos argumentos y retorna su diferencia.
+ Note la introduccion de un nuevo operador, =>, llamado fat-arrow, este es el core de definir
+ una arrow function.
+ Ahora vamos a deconstruir la sintaxis de una arrow function, de la manera mas posible.
+
+ param => expression
+
+ Este arrow function toma un parametro y retorna el valor de una expresion. Podemos usar esta
+ sintaxis como se muestra en el siguiente listing.
+
+ LISTING 3.6 COMPARING AN ARROW FUNCTION Y UNA FUNCTION EXPRESSION
+
+ var greet = name  => "Greetings " + name;
+ assert(greet("Oishi") === "Greetings Oishi", "Oishi is properly greeted");
+
+ var anotherGreet = function(name) {
+    return "Greetings " + name;
+ }
+
+ assert(anotherGreet("Oishi") === "Greetings Oishi", "Again, Oishi is properly greeted");
+
+ Toma un tiempo apreciar como la arrow function hace las cosas mas faciles. Esta es la manera
+ mas simple de un arrow function , pero en general, la function arrow, puede ser definida de
+ dos maneras, como se muestra en la figura 3.6.
+ Como usted puede ver, la definicio function arrow empieza con una coma opcional para separar
+ los parametros. Si no hay parametros, o si hay mas de dos parametros, debe ser puesto entre
+ partesis. Pero si tenemos solamente un parametro, los parentis son opcionales. Esta lista de
+ parametros es seguida por un mandatorio fat arrow, que nos dice y el motor de Javascript
+ cuando esta lideando con el arrow function.
+ Despues del arrow function, tenemos dos opciones. Si es una funcion simple, ponemos una exprexion
+ ahi hay ( operaciones matematicas, otra invocacion de funcion, cualquiera) y el resultado
+ de la invocacion de la funcion seria como un valor de esa expresion.
+ Por ejemplo, nuestra primer ejemplo de arrow function tiene el siguiente arrow function.
+
+ var greet = name => "Greetings " + name;
+
+ (param1, param2) => expression
+                    {
+                        myStatement1;
+                        myStatement2;
+                    }
+
+El valor retornado de la funcion es una concanetacion del string "Greetings "
+con el valor del nombre del parametro.
+En otros casos, cuando nuestra funcion arrow no estan simple y requiere
+mas codigo, podemos incluir un bloque de codigo despues del arrow operator
+Por ejemplo:
+
+var greet = name => {
+    var helloString = 'Greetings ';
+    return helloString + name;
+}
+
+En este caso, el valor retornado de la funcion arrow se comporta como una
+funcion standard. Si no hay return statement, el resultado de la invocacion
+de la funcion va ser undefined, el resultado si lo hay, el resultado sera el
+valor retornado de la expresion.
+Vamos a volver los arrow functions en multiples ocaciones. Dentro de otras cosas,
+vamos a presentar caracteristicas adicionales que nos van a ayudar a evitar bugs
+que pueden ocurrir con mas funciones standard.
+Las funciones arrow, como otras funciones, pueden recivir argumentos en orden de usarlas
+para ejecutar los tasks. Vamos a ver que pasa con los valores que pasamos en una funcion.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
