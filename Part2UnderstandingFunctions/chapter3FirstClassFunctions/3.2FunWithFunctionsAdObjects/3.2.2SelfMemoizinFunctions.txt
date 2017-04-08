@@ -1,4 +1,5 @@
 SELF-MEMOIZING FUNCTIONS
+
 Como notamos anteriormente, memoization (no es una palabra mal escrita) es el 
 proceso de construir una funcion que es capaz de recordar sus previos
 valores calculados. Es un cascaron que cuando quiera una funcion calcula su resultado

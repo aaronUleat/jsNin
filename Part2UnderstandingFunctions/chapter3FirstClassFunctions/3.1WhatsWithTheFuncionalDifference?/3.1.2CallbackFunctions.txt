@@ -1,41 +1,22 @@
 CALLBACK FUNCTIONS
 
-Cuando preparamos una funciones llamada en algun momento posterior, si el browser en
-la fase de event-handling o por otro codigo, estamos preparando un callback. El
-termino establece como hecho que vamos a establecer una funcion que otro codigo
-la va a llamar "call back" en el momento apropiado un punto de ejecucion.
-Los callbacks son una parte escencial para utilizar Javascript efectivamente, y
-estamos dispuestos en apostar que usted ya sabe como sabe utilizarlos en mucho de su
-codigo - ya sea ejecutando el codigo en un boton al ser cliqueado, recibiendo data
-del servidor, o animando partes de la UI.
-En esta seccion, estamos cerca de ver como manejar callbacks para manejar
-eventos o para facilmente ordenar una coleccion - ejemplos en el mundo real como
-los callbacks son usados. pero es un poco complejo, entonces antes de entrar en
-esto, vamos a demostrar el concepto de callback completamente desnudo y examinar
-en la forma mas simple. Vamos a empezar con un ejemplo iluminativo de un
-completo inutil, una funcion que acepta una referencia de otras funciones como
-un parametro y llama una funcion como un callback
+Cuando preparamos una funciones llamada en algun momento posterior, si el browser en la fase de event-handling o por otro codigo, estamos preparando un callback. El termino establece como hecho que vamos a establecer una funcion que otro codigo la va a llamar "call back" en el momento apropiado un punto de ejecucion.
+Los callbacks son una parte escencial para utilizar Javascript efectivamente, y estamos dispuestos en apostar que usted ya sabe como sabe utilizarlos en mucho de su codigo - ya sea ejecutando el codigo en un boton al ser cliqueado, recibiendo data del servidor, o animando partes de la UI.
+En esta seccion, estamos cerca de ver como manejar callbacks para manejar eventos o para facilmente ordenar una coleccion - ejemplos en el mundo real como los callbacks son usados. pero es un poco complejo, entonces antes de entrar en esto, vamos a demostrar el concepto de callback completamente desnudo y examinar en la forma mas simple. Vamos a empezar con un ejemplo iluminativo de un completo inutil, una funcion que acepta una referencia de otras funciones como un parametro y llama una funcion como un callback
 
 function useless(ninjaCallback) {
     return ninjaCallback();
 }
 
-Esta funcion inutil, nos demuestra la abilidad de pasar una funcion como un argumento a otra 
-funcion, y despues invoca esa funcion a travez del parametro pasado.
+Esta funcion inutil, nos demuestra la abilidad de pasar una funcion como un argumento a otra funcion, y despues invoca esa funcion a travez del parametro pasado.
 Esto lo podemos testear con el siguiente codigo inutil
 LISTING 3.1 Un simple de ejemplo callback
-
-assert(condition, message);
-
-function report(message) {
-    console.log(message);
-}
 
 var text = "Domo arigato";
 report("Before defining funcionts");
 
 
-// Define una funcion que toma un callback
+// Define una funcion que toma un callback 
 // function y invocarlos inmediatamente
 
 function useless(ninjaCallback) {
@@ -53,127 +34,7 @@ function getText() {
 
 report("Before making all the calls");
 
-assert(useless(getText) === text,
+assert(useless(getText) === text, 
         "The useless function works! " + text);
 report("After the calls have been made");
-
-En esta lista usamos una funcion personalizada llamada report() para la emision
-de mensajes como nuestro codigo ha sido ejecutado, de esta manera podemos
-trackear la ejecucion del programa. Tambien usamos la funcion assert para
-testear la funcion. La funcion assert usualmente toma dos argumentos. El primero
-es una exprecion que su premisa es arsertada, en este caso, queremos establecer
-si el resultado invocado  de la funcion useless con el argumento getText retorna
-un valor que es igual al valor de la variable text(useless(getText) === text).
-Si el primer argumento se evalua como true, la asertacion pasa, de otra manera
-es considerado una falla. El segundo argumento es el mensaje de asociacion
-que usualmente registra con un apropiado pass/fail indicador. en el Appendix C
-discutimos de como hacer testing en general, y tambien nuestra pequena implemetacion
-de la funcion assert y la funcion report.
-
-Cuando corremos el codigo, terminamos con el resultado mostrado en la figura
-3.1. Como usted puede ver, llamando a la funcion useless con nuestra getText
-callback function como un argumento retorna un el valor esperado.
-Tambien podemos ver de como exactamente este simple callback ejemplo ejecuta
-En la figura 3.2, nos muestra que pasamos la funcion getText a la funcion
-useless como un argumento. Esto significa que dentro del body de la funcion
-useless, la funcion getText puede ser referenciada a travez del parametro callback.
-Despues haciendo llamada callback(), causamos la ejecucion de la funcion getText
-la cual pasamos como argumento, es llamada en la funcion useless
-
-var text = "Domo arigato";
-
-function useless(ninjaCallback) {
-	return ninjaCallback();
-}
-
-function getText() {
-	return text;
-}
-// Llamando a la funcion useless(getText) va a ejecutar
-// la funcion useless, la cual ejecutara, en su momento
-// la ejecucion de la funcion getText
-console.assert(useless(getText) === text,
-			"The useless function work " + text);
-
-El flow de ejecucion cuando se hace el llamado a la funcion useless(getText).
-La funcion es llamada con getText como un argumento. En el cuerpo de la funcion 
-useless es una llamada la funcion pasada, que en este caso dispara la ejecucion
-de la funcion getText (hemos llamado a la funcion getText).
-
-
-
-Esto es facil, por que javascript es funcional en su naturaleza vamos lidiar con funciones
-de primera clase objetos. Podemos incluso llevar todo un paso mas adelante, al reescribir 
-nuestro coidgo de la siguiente manera
-
-var text = "Domo Arigato";
-
-function useless(ninjaCallback) {
-	return ninjaCallback();
-}
-// Se define una funcion callback directamente como argumento
-assert(useless(function() {return text;}) === text,
-	"The useless function works! "+ text);
-
-Uno de los mas importantes features de javascript es la avilidad de crear 
-funciones en el codigo de todos modos una exprecion puede aparecer donde sea.
-En adicion para hacer el codigo mas compactoy mas facil de entender (poniendo
-definiciones de funciones cerca donde ellas son usadas), Esta caracteristica
-tambien puede eliminar la necesidad de contaminar el namespace global con
-nombres innecesarios cuando una funcion no va ser referenciaada de multiples lugares
-dentro del codigo.
-
-En el siguiente codigo de un callback, vamos a llamar nuestro propio callback,
-Pero los callbacks tambien pueden ser llamado por el browser. Piense en el
-capitulo 2 el cual tiene un ejemplo con el siguiente snippet:
-
-document.body.addEventListener("mousemove", function() {
-	var second = document.getElementById("second");
-	addMessasge(second, "Event: mousemove");
-});
-
-Esa tambien es una funciones callback, una que define como un event-handler
-para el mousemove evento, y va a ser llamado por el browser cuando ese vento
-ocurra
-
-NOTA: Esta seccion introduce callback functions que otro codigo mas tarde llamara
-a un punto apropiado de ejecucion. You ha visto un ejemplo en el cual nuestro 
-codigo inmediatamente llama al callback proveido (el ejemplo de la funcion
-useless), tambien como un ejemplo en el cual el browser hace el llamado (el ejemplo
-del mousemove event), siempre que un evento particular pase. Es importante
-notar eso, diferente a, a como otra gente cree esa callback debe ser llamada asincronicamente
- y por eso mismo el primer ejemplo no es solo un callback. Mencionamos que esto
- solo es en caso tropieze sobre una discucion.
-
- SORTING WITH A COMPARATOR
-Tan pronto como coleccionemos la data, las posibilidades de que vayamos a necesisar
-un ordenamiento. Vamos a decir que tenemos un array en orden desordenado: 0,3,5,7,8,1.
-Ese orden talvez este bien, pero las probabilideades, es que tarde un temprano, vamos 
-a tener que arreglarlo de nuevo. Usualmente, implementar algoritmos de ordenamiento
-no es algo muy trivial en las tareas de programacion, tenemos que seleccionar un algoritmo
-, implementarlo, adaptarlo a nuestra necesidad (para que todo los items sean ordenados
-en algun orden particular), y ser cuidadoso de no de introducir bugs. Fuera de esta tarea, 
-la unica aplicacion especifica es la clasificacion ordenada. Afortunadamente, todos los 
-arrays en Javascript tiene acceso a ordenamientos que requiren a definir algoritmos de comparacion
-y decirle al algoritmo como tienen que ser ordenados.
-Aqui es donde los callabcks figuran. En vez de dejar al algoritmo de sort que decida que valores
-van antes que otros valores. Vamos a proveer una funcion que ejecute una comparacion.
-Vamos a darle al algoritmo accso a la funcion callback, Y el algoritmo va a llamar al callback retorna
-lo esperado para retonar un numero positivo si el orden del valor pasado deveria ser reservado, si es un
-numero negativo o no y cero si el valor es igual; substrayendo los valores comparados, el deseo es 
-retornar al array de ordenamiento
-
-var values = [0,3,2,5,7,8,1,6];
-
-
-No hay necesidad en pensar en programacion de bajo nivel a la or de hacer
-un algoritmo de ordenamiento (o incluso que algoritmo de ordenamiento se debe usar).
-Nosotros enviamos el callback que el motor de Javascript que deberia llamar cada vez
-que se necesite comparar dos valores.
-El enfoque funcional nos permite crear funciones como entidades autonomas,
-como tratarias otro tipo de objeto, y que tipo de parametro deberia aceptar,
-tal como otro tipo de objeto. Es donde ese funcion de primera clase entra en
-juego.
-
-
 
