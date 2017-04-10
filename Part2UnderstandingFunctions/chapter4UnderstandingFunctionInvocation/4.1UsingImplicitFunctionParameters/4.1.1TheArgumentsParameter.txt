@@ -120,7 +120,164 @@ function sum() {
     }
     return sum;
 }
+
 // Lla la funcion con cualquier numero de argumentos
 assert(sum(1,2) === 3, "We can add two numbers");
 assert(sum(1,2,3) === 6, "We can add three numbers");
 assert(sum(1,2,3,4) === 10, "We ca add four numbers");
+
+Primero vamos a definir una funcion suma que explicitamente liste
+cualquier parametro . Sin importar el this, aun asi podemos accesar todas los
+argumentos de la funcion a travez del objeto arguments. Iteramos atravez todos
+los argumentos y calculamos la suma.
+Ahroa viene el precio. POdemos llamar la funcion con cualquier numero de argumentos,
+y vemos un par de casos apra ver si funciona. Esta es el verdadero poder del objeto
+arguments. Nos permite escribir funciones mas versatiles y flexibles, que facilmente
+pueden lidear con situaciones diferentes.
+
+NOTA: Mencionamos temprano que en muchos casos podemos usar el resto de parametros\
+en vez del parametro argumento. El resto de parametros es un array real, lo que
+significa que podemos usar todos nuestros metodos favoritos para arrays. Esto da
+cierta ventaja sobre el objeto arguments. Como ejercicio, vamos a reescribir el listing
+4.2 para utilizar el resto de parametros en vez de el objeto arguments.
+Ahora que entendemos como el objeto arguments funciona, vamos a explorar mas hacerca de
+esto.
+
+EL OBJETO ARGUMENTS COMO UN ALIAS DE UN PARAMETRO DE FUNCION
+
+LISTING 4.2
+
+
+// El parametro person tiene el valor de gardener
+// enviando como el primer argumento
+function assert(value, description) {
+    var result = value ? "pass" : "fail";
+    console.log(result + ' - ' +  description);
+};
+
+function infiltrate(person) {
+
+    assert(person === 'gardener',
+        'The person is a gardener');
+
+    assert(arguments[0] === 'gardener',
+        'The first argument is a gardener');
+
+    // Cambiando el objeto arguments tambien cambia
+    // el pareo del parametro
+
+    arguments[0] = 'ninja';
+
+    assert(person === 'ninja',
+    "The person is a ninja now");
+
+    assert(arguments[0] === 'ninja',
+        "The first argument is a ninja");
+
+    // El alias funciona en ambas formas
+    person = 'gardener';
+
+    assert(person === 'gardener',
+    "The person is a gardener once more");
+
+    assert(arguments[0] === 'gardener',
+    "The first argument is a gardener again");
+}
+
+infiltrate('gardener');
+
+Usted puede ver como el objeto arguments es un alias para los parametros de la
+funcion. Definimos una funcioon, 'infiltrate', que toma un solo parametro, 'person',
+y lo invocamos con el argumento gardener. Podemos accesar al valor gardener a travez
+del parametro de la funcion 'person' y atravez de le objeto argument
+
+assert(person === 'gardener', 'The person is a gardener');
+assert(arguments[0] === 'gardener', 'The first argument is a gardener');
+
+Como el objeto arguments es un alias para el parametro de la funcion, si cambiamos el
+objeto arguments, el cambio tambien va ser reflejado en el pareo con el parametro:
+
+arguments[0] = 'ninja';
+
+
+assert(person === 'ninja', 'The person is a ninja now');
+assert(arguments[0] === 'ninja', 'The first argument is a ninja');
+
+Lo mismo ocurre en la otra direccion. Si cambiamos un parametro, el cambio
+puede ser observado en ambos el parametro y el objeto arguments:
+
+person = 'gardener';
+
+assert(person === 'gardener', 'The person is a gardener once more' );
+assert(arguments[0] === 'gardener', 'El primero argumento es un gardener de nuevo');
+
+EVITANDO ALIAS
+
+El concepto de aliansas a parametros a travez del objeto arguments puede ser
+confuso, asi que Javascript provee una forma de no optar por este concepto
+usando el modo estricto.
+
+STRICT MODE
+El mode estricto es una adicion en ES5 que cambian el comportamiento del motor de
+Javascript para que los errores sean enviados en vez de silenciados. El comportamiento
+de algunas caracteristicas del lenguaje cambian, y algunas caracteristicas no seguras
+son suspendidas. Una de las cosas en el modo estricto es que desabilita los alias por
+medio del objeto arguments.
+
+como siempre vamos a ver un ejemplo
+
+LISTING 4.4  USANDO EL MODO ESTRICTO PARA EVITAR ALIAS POR MEDIO DE EL OBJETO ARGUMENTS
+
+"use strict";
+
+function assert(value, description) {
+    var result = value ? "pass" : "fail";
+    console.log(result + ' - ' +  description);
+};
+
+
+function infiltrate(person) {
+    assert(person === 'gardener', 'The person is a gardener');
+    assert(arguments[0] === 'gardener', 'The first argument is a gardener');
+
+    arguments[0] = 'ninja';
+
+    assert(arguments[0] === 'ninja', 'The first argument is now a ninja');
+    assert(person === 'gardener', 'The person is still a gardener');
+}
+
+infiltrate('gardener');
+
+Aqui empezamos al poner el modo estricto en la primera lina de codigo. Esto le dice
+al motor de javascript que queremos ejecutar el modo estricto. En este ejemplo, el
+modo estricto cambia la semantica de nuestro programa de una forma que el parametro
+persona y el primer argumento del objeto arguments empiezan con el mismo valor
+
+assert(person === 'gardener', 'The person is a gardener');
+assert(arguments[0] === 'gardener', 'The first argument is a gardener');
+
+Pero diferente a en modo no estricto, en esta epoca el objeto arguments no hace
+alias con los parametros. Si cambiamos el valor del primer argumento,
+arguments[0] = 'ninja', el primer argumento es cambiado, pero el parametro persona
+no cambia.
+
+assert(arguments[0] === 'ninja', 'El primer argumento es ahora un ninja');
+assert(person === 'gardener', 'La persona sigue siendo un gardener');
+
+Vamos a ver el objeto arguments despues en este libro, pero por ahora, vamos a
+enfocarnos en otro parametro implicito: el parametro 'this', que en algunas formas
+es mas interesantes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

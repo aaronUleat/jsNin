@@ -1,0 +1,20 @@
+EL PRIMER PARAMETRO: INTRODUCIENDO EL CONTEXTO DE LA FUNCION
+
+Cuando una funcion es invocada, en adicion a los parametros que representan
+explicitamente los argumentos provee en el llamado de la funcion, un parametro
+implicito llamado 'this', es pasado a la funcion. El parametro 'this' es un ingrediente
+vital para la Orientacion de Objetos en Javascript, refiere a un objeto que asocia con
+la invocacion de la funcion. La razon para esto es que muchas veces, es denomidado como
+el contexto de la funcion.
+El contexto de la funcion es una nocion de aquellos que vienen de lenguajes orientados
+a objetos tales como java talvez piensen que ellos entienden. En tales lenguajes, 'this'
+es usualmente apunta a una instancia de la clase dentro del cual el metodo es definido.
+Pero tenga cuidado, como veremos pronto, en javascript, al invocar una funcion como un
+metodo solo hay una forma que esa funcion pueda ser invocada. Y resulta, que el parametro
+'this' como apunta (en java o c#) definido solo en como y en donde la funcion es definida;
+tambien puede ser influenciada en como la funcion es invocada.
+Por que entender la exacata naturaleza del parametro 'this' es uno de los pilares para
+la programacion orientada objetos en javascript, pronto estaremos viendo varias maneras
+de invocar funciones. Usted vera que una de las diferencias entre ellas, es como como el parametro
+'this' es determinado. Y despues vamos a ver como el contexto de la funcion en capitulos mas adelante.
+Ahora veamos de una manera deatallada como las funciones son invocadas.
