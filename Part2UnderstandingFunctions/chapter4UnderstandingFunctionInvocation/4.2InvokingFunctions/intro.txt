@@ -1,1 +1,58 @@
 INVOKING FUNCTIONS
+
+Hemos llamado funciones javascript, pero se ha puesto a pensar en verdad
+que pasa cuando una funciones es llamada? Como resulta, la manera en como la funcion
+es invocada tiene gran impacto en como el codigo de adentro funciona, primeramente en como
+el parametro 'this', el contexto de la funcion, es establecido. Esta diferencia es muchas mas
+importante como se vio al principio. Vamos a examinar dentro de esta seccion y a explotarlo
+a lo largo del resto de este libro para ayudar a elevar nuestro codigo al nivel de un ninja.
+Podemos invocar una funcion de cuantro maneras, con sus propios matices:
+    * Como una funcion - skulk(), en la cual la funciones es invocada de una manera directa
+
+    * Como un metodo -- ninja.skulk(), que enlaza la invocacion a un objeto, que permite
+    la programcion orientada a objetos.
+
+    * Como un constructor -- new Ninja(), en el cual un nuevo objeto es traido a vida.
+
+    * Via una funcion aplicar o llamar metodos -- skulk.call(ninja) or skulk.apply(ninja)
+
+Aqui algunos ejemplos
+
+function skulk(namne) {};
+
+function Ninja(name) {};
+
+skulk('Hatori');
+
+(function(who) {return who})('Hatori');
+
+var ninja = {
+    skulk: function(){}
+}
+
+ninja.skulk('Hatori');
+
+ninja = new Ninja('Hatori');
+
+skulk.call(ninja, 'Hatori');
+
+skulk.apply(ninja, ['Hattori']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+Cuando una funcion es invocada, en adicion al parametro que representa los
+argumentos explicitos proveidos en la llamada de la funcion, un parametro implicito
+llamado 'this'. El parametro 'this', es un ingrediente vital para la programcion
+orientada a objetos en Javascript, se refiere a un objeto que esta asociado con
+la invocacion de la funcion. Por esta razon muchas es llamada como 'contexto de la funcion'
+El contexto de la funcion es una nocion de lo que biene de lenguales orientados a objetos
+como Java y piensan que lo entienden. En tales lenguajes, 'this' usualmente apunta a una
+instancia de la clase dentro del cual el metodo es definido.

@@ -1,0 +1,80 @@
+INVOCATION AS A METHOD
+
+Cuando una funcion es asignada a una propiedad de un objeto y la invocacion ocurra al referenciar
+la funcion usando esa propiedad, despues la funcion es invocada como un metodo del objeto.
+Aqui hay un ejemplo
+
+var ninja = {};
+ninja.skulk = function(){};
+ninja.skulk();
+
+Okay; y eso que? La funcion es llama  a un metodo en este caso, pero que lo hace interesante o
+util? Bueno, si usted biene de un enterno de Programcion Orientada a Objetos, usted recordara
+que el objeto en el cual el metodo pertenece esta disponible dentro del cuerpo del metodo
+como 'this'. Lo mismo pasa aqui. Cuando se invoca la funcion como un metodo de un objeto,
+ese objeto se vuelve el contexto de la funcion y esta avilitado dentro de la funcion via el
+parametro this. Este es uno de los primeros medios en el cual Javascript permite la
+programcion Orietanda a Objetos. (Los constructores son otro, y lo vamos a ver pronto).
+Vamos a considerar un codigo para probar en el siguiente listing para ilustrar la diferencia
+y similitudes entre invocacion como funcion y invocacion como metodo.
+
+LISTING 4.6 DIFFERENCE BETWEEN FUNCTION AND METHOD INVOCATIONS
+
+function assert(value, description) {
+	var result = value ? "pass" : "fail";
+	console.log(result + ' - ' +  description);
+};
+
+// Retorna el contexto de la funcion que va a permitir
+// examinar el contexto desde afuera
+function whatsMyContext() {
+	return this;
+}
+// Invocando como una funcion aplica el contexto
+// al objeto window
+assert(whatsMyContext() === window,
+"Function call on window");
+console.log(whatsMyContext())
+
+// getMyThis obtiene una referencia al contexto
+// de la funcion whatsMyContext funcion.
+
+var getMyThis = whatsMyContext;
+
+// Invoca a la funcion, usando la variable getMyThis,
+// inclusive si usamos una variable, la funcion sigue siendo
+// invocada como una funcion, y el contexto de la funcion
+// es el objeto window.
+
+assert(getMyThis() === window,
+"Another function call in window");
+console.log(whatsMyContext())
+
+// Un objeto ninja1 es creado con una propiedad getMyThis
+// que referencia la funcion whatsMyContext
+var ninja1 = {
+	getMyThis: whatsMyContext
+};
+
+// Invocando la funcion  a travez de getMyThis hace una llamada como un metodo
+// del objeto ninja1. El contexto de la funcion es ahora ninja1. Eso es Orientacion
+// a objetos
+
+assert(ninja1.getMyThis() === ninja1,
+"Trabajando con ninja1");
+console.log(getMyThis());
+
+// Otro objeto ninja2, que tambien tiene una propiedad getMyThis
+// referenciando whatsMyContext
+
+var ninja2 = {
+	getMyThis: whatsMyContext
+};
+
+// Invocando la funcion como un metodo de ninja2
+// muestra que el contexto de la funcion ahora es
+// ninja 2
+
+assert(ninja2.getMyThis() === ninja2,
+"Working with ninja2")
+console.log(getMyThis());
