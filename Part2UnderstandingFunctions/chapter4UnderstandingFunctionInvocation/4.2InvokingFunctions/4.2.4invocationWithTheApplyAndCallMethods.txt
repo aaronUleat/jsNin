@@ -1,0 +1,15 @@
+INVOCACION CON EL 'APPLY' Y 'CALL' METODO
+
+Hasta ahora, hemos visto que una de las mayores diferencias entre los tipos de invocacion de
+funciones es lo que los objetos lo que termina el contexto de la funcion referenciando por
+el parametro implicito 'this' parametro que se pasa a la funcion ejecutada. Para metodos, es lo
+que posee el objeto; para top-level funciones, puede ser window o undefined (dependiendo del modo
+estricto que se utilize); para los constructores, es un nueva instacia del objeto.
+Pero que pasa si queremos hacer el contexto de la funcion cualquiera que sea? que pasa si queremos
+aplicarlo explicitamente? que pasa si, para que queremos hacer tal cosa?
+Para dislumbrar para que nos importa esta habilidad, vamos a a ver un ejemplo practico, que
+sorpresivamente nos ilustra un bug que normalmente relacionado con en el event handling. Por ahora
+considere que cuando un event handler es llamado, el contexto de la funcion es aplicado al objeto
+al evento que fue ligado. (no se preocupe, parace ser incierto, usted va a aprender en mas detalle
+en el capitulo 13).
+

@@ -78,3 +78,83 @@ var ninja2 = {
 assert(ninja2.getMyThis() === ninja2,
 "Working with ninja2")
 console.log(getMyThis());
+
+Este test establece una funcion whatsMyContext el que vamos a usar por el resto
+del listing. La unica cosa que esta funcion hace es retornar el contexto de su
+funcion para que lo podamos ver, desde afuera de la funcion, el contexto de la
+funcion para la invocacion es (De otra manera, hemos tenido un momento malo aprendiendo).
+
+function whatsMyContext() {
+    return this;
+}
+
+Cuando llamamos una funcion directamente por el nomber, este es un caso invocando la funcion como
+una funcion, esperamos que el contexto de la funcion sea el contexto global (window), por que estamos
+en un modo no estricto. Acertamos si esto es cierto:
+
+assert(whatsMyContext() === window, ...);
+
+Despues creamos una referencia de la funcion whatsMyContext en una variable llamada getMyThis:
+var getMyThis = whatsMyContext. Esto no crea una segunda instancia de la funcion; solo crea una
+referencia a la misma funcion (usted sabe, first-class object y todo).
+Cuando invocamos a la funcion via la variable -- algo que podemos hacer por que el operador para
+invocar la funcion puede ser aplicado a cualquier exprecion que evalue a una funcion -- una vez mas
+estamos invocando a una funcion como un funcion. Asi que esperamos que la funcion este bajo el contexto
+de window
+
+assert(getMyThis === window, "Another function call in window");
+
+Ahora lo vamos a complicar un poco y vamos a definir un objeto en una variable ninja1 con una propiedad
+llamada getMyThis que recive una referencia a la funcion whatsMyContext. Al hacer esto, decimos que hemos
+creado un metodo llamado getMyThis en el objeto. No decimos que whatsMyContext se al vuelto un metodo de
+ninja1; no ha pasado tal cosa. Usted ya vio que whatsMyContext es una funcion independiente que puede ser
+invocada de muchas maneras.
+
+var ninja1 = {
+    getMyThis: whatsMyContext
+}
+
+De acuerdo a lo que se escribio antes, cuando invocamos la funcion via un metodo referenciado, esperamos
+que el contexto de la funcion sea un metodo del objeto en este caso (ninja1) y hacertamos de la siguiente
+manera:
+
+assert(ninja1.getMyThis() === ninja1, "Working with 1st ninja");
+
+NOTA: Invocar funciones como metodos es crucial para Programacion Orientada a Objetos en Javascript. Hacer
+esto nos permite usar 'this' dentro de cualquier metodo para referenciar al metodo 'owning' el objeto
+un concepto fundamental en la programacion orientada a objetos.
+
+Para manejar este punto, vamos a continuar probando al crear otro objeto, ninja2, tambien con una propiedad
+llamada getMyThis que referencia a la funcino whatsMyContext. Sobre invocar esta funcion a travez del objeto
+ninja2, asertamos correctamente que el context de la funcion es el objeto ninja2:
+
+var ninja2 = {
+    getMyThis: whatsMyContext
+}
+
+
+assert(ninja2.getMythis() === ninja2, "Working with the ninja2 object");
+
+Aun cuando la misma funciont -- whatsMyContext -- es usada a lo largo de este ejemplo, el contexto de la
+funcion retunado por this cambia dependiendo en como whatsMyContext es invocado. Por ejemplo la misma funcion
+exacta es compartida por los dos ninja1 y ninja2, aun cuando es ejecutada, la funcion tiene que accesar, y
+ejecutar la operacion, el objeto en el cual es llamado. No necesitamos crear copias separadas de la funcion
+para ejecutar el mismo proceso en objetos diferentes. Este es el mismo principio de la Progrmacion Orientada
+a Objetos.
+Aunque es una capacidad poderosa, la manera en la cual es usado en este ejemplo tiene limitaciones. Primeramente,
+cuando creamos los dos objetos ninja, vamos a poder compartir la misma funcion para poder usados como un metodo
+en cualquierda de los dos, pero tambien tenemos que usar un poco de codigo repetido para establecer un objeto
+separado y sus metodos.
+Pero no es algo para desceperarse-- Javascript proeee un mecanimos para crear objetos desde un mismo patron
+mas facil en este ejemplo. Vamos a explorar estas capacidades en el cap 7. Pero por ahora, vamos a considerar
+una parte de ese mecanimos que se relaciona a una invocacion de una funcion: el constructor.
+
+
+
+
+
+
+
+
+
+
