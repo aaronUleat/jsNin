@@ -1,0 +1,61 @@
+USANDO EL ARROW FUNCTION PARA OBTENER EL CONTEXTO DE LA FUNCION
+
+Ademas de permitir crear funciones de una manera mas elegante que las funciones
+standard declarations and expression functions, la funcion arrow en el capitulo
+anterior tiene una caracteristica que la hace particularmente buena como funcion
+callback: Las funciones arrow no tienen su propio valor this. En vez de eso recuerdan
+el valor de el parametro this al momento de su definicion. Vamos a revisar nuestro
+problema con nuestra click callback funcion en el siguiente listing.
+
+LISTING 4.13 USING ARROW FUNCTIONS TO WORK AROUND CALLBACK FUNCTION CONTEXT
+
+// Una funcion constructora que crea objetos que retienen su estado
+// sin importar el button. Con esto, rastreamos si el button ha sido
+// cliqueado o no.
+function Button() {
+    this.clicked = false;
+    // Se declara una funcion arrow, que vamos a usar como un click
+    // handler. Por que es un metodo del objeto, usamos esto dentro,
+    // la funcion para referenciar el objeto
+    this.click = () => {
+        this.clicked = true;
+        // Dentro del metodo, probamos que el estado del button sea
+        // correctamente cambiado despues del click.
+        assert(button.clicked, "The button has been clicked");
+    }
+    console.log(this.clicked);
+}
+
+var button = new Button();
+var elem = document.getElementById('test');
+elem.addEventListener('click', button.click);
+
+El unico cambio con respecto al listing 4.10, es que el listing 4.13 usa el arrow function
+
+this.click = () => {
+    this.clicked = true;
+    assert(button.clicked, "The button has been clicked");
+}
+
+Ahora si corremos el codigo, vamos a obtener el output mostrado en el Figure 4.6.
+Como usted puede ver, ahora todo esta bien. El objeto button mantiene el rastro del estado
+clicked. Lo que ha pasado es que nuestro click handler fue creado dentro del constructor
+Button como un arrow function:
+
+function Button() {
+    this.clicked = false;
+    this.click = () => {
+        this.clicked = true;
+        assert(button.clicked, "The button has been clicked");
+    }
+}
+
+FIGURE 4.6 Las arrow functions no tienen su propio contexto. En vez de eso, el contexto es
+heredado de la funcion en la cual son definidos. El parametro 'this' en nuestra arrow function
+callback se refiere al objeto button.
+
+Como ya hemos mensionado. las funciones arrows no obtiene su propio 'this' parametro implicito
+cuando hacemos el llamdo, en vez de eso recuerdan el valor del parametro 'this' en el momento
+que son creados. En nuestro caso, el click arrow function fue creado dentro una funcion constructora
+donde el parametro 'this' es nuevamente construido, entonces donde sea que (o el browser) llama a la
+funcion click, el valor del parametro 'this' va ser siempre ligado al nuevo button object construido

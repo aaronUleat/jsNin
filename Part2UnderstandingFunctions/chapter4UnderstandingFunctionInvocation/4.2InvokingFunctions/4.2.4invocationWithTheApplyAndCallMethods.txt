@@ -11,5 +11,258 @@ Para dislumbrar para que nos importa esta habilidad, vamos a a ver un ejemplo pr
 sorpresivamente nos ilustra un bug que normalmente relacionado con en el event handling. Por ahora
 considere que cuando un event handler es llamado, el contexto de la funcion es aplicado al objeto
 al evento que fue ligado. (no se preocupe, parace ser incierto, usted va a aprender en mas detalle
-en el capitulo 13).
+en el capitulo 13). Vea el siguiente listing.
+
+// Un constructor que crea objetos que retienen el estado con respecto
+// a nuestro button. Con eso trackeamos si el boton fue cliqueado
+
+
+// Declara el metodo que vamos a usar como click handler. Por que es un
+// metodo del objeto, usamos esto dentro la funcion para obtener
+// referencia al objeto
+function Button() {
+    this.clicked = false;
+    this.click = function () {
+        this.clicked = true;
+        // Dentro del metodo, vamos a probar que el estado del button ha sido
+        // coorrectamente cambiado despues de hacer click
+        assert(button.clicked, "The button has been clicked");
+    };
+}
+
+// Crea una instancia que va rastrear si el button ha sido
+// cliqueado
+var button = new Button();
+// Establece el click hander en el button
+var elem = document.getElementById('test');
+elem.addEventListener('click', button.click);
+
+En este ejemplo, tenemos un button, <button id="test"> Click me </button>, y queremos
+saber si fue clickeado. Para retener el estado de la informacion, usamos una funcion
+constructora para crear un objeto de apoyo llamado button, en el cual vamos a
+guardar el estado del click
+
+function Button() {
+    this.clicked = false;
+    this.click = function() {
+        this.clicked = true;
+        assert(button.clicked, "The button has been clicked")
+    }
+}
+
+var button = new Button();
+
+En ese objeto, tambien definimos un metodo click que va a servir como un event handler que
+dispara cuando el boton es cliqueado. El metodo establece la propiedad clicked en true y
+despues prueba que el estado sea guardado correctamente  en el objeto de apoyo (nosotros
+intencionalmente usamos el identificador button  en ves de 'this' -- despues de todo
+deberia referirse a lo mismo, o deberia?). Finalmente, establecimos el metodo button.click
+como un click handler para el button:
+
+var elem = document.getElementById("test");
+elem.addEventListener('click', button.click);
+
+
+Cuando cargamos el ejemplo dentro del browser y hacemos click en el button, vemos que el
+display de la figura 4.2 que algo esta mal; el texto tachado indica que la prueba ha fallado.
+El codigo en el listing 4.10 falla por que el contexto de la funcion click no se esta
+refiriendo al objeto button como intentamos hacer.
+Recordando en el capitulos anteriores, si llamamos la funcion via button.click(), el contexto
+tendria que haber sido el button, por que la funcion va a invocar como un metodo en el objeto
+button. Pero este ejemplo, en systema de event-handling del browser define el contexto de la
+invocacion al element que hace target en el evento, lo que causa que el contexto sea el
+elemento <button>, no el objeto button. Entonces fijamos nuestro estado click en el objeto
+incorrecto.
+Esto es sorpresivamente un problema muy comun, y mas adelante en este capitulo, vamos a ver
+tecnicas para evadirlo por completo. Por ahora, vamos a explorar como abordarlo al examinar
+como explicitamente como fijamos el contexto de la funcion usando el apply y call method.
+
+USANDO LOS METODOS APPLY Y CALL METODOS
+
+Javascript provee un media para invocar una funcion y para que explicitamente especifiquemos
+cualquier objeto que queramos como el contexto de la funcion. Hacemos esto atravez de uno o
+dos metodos que existen para cada funcion: apply y call.
+Si, dijimos metodos de funciones. Como objetos first-class (creados, por cierto, por el built-in
+del constructor function), Las funciones pueden tener propiedades tal como cualquier otro
+tipo de objeto, incluyendo metodos.
+Para invocar una funcion usando el apply method, pasamos dos parametros a apply: El objeto que va
+ser usado para el contexto de la funcion, y un array dce valores para ser usados como argumentos
+de invocacion. El metodo call es usado de similar manera, excepto que los argumentos son pasados
+directamente en el argument list en vez como un array.
+El siguiente listin muestra dos de estos dos metodos en accion.
+
+
+LISTING 4.11 USING THE APPLY AND CALL METHODS TO SUPPLY THE FUNCION CONTEXT
+
+function assert(value, description) {
+    var result = value ? "pass" : "fail";
+    console.log(result + ' - ' +  description);
+};
+// La funcion 'juggle' los argumentos y pone los resultados sobre
+// cualquier objetoen el contexto de la funcikn
+function juggle() {
+    var result = 0;
+    for(var n = 0; n < arguments.length; n++) {
+        result += arguments[n];
+    }
+    this.result = result;
+}
+// Estos objetos estan incialmente vacios, y van a servir
+// como nuestros sujetos de prueba
+var ninja1 = {};
+var ninja2 = {};
+
+//  Usa el metodo apply, pasando el ninja1 y un array de argumentos
+juggle.apply(ninja1, [1,2,3,4]);
+
+// Usa el metodo call, pasando a ninja2 una lista de argumentos
+juggle.call(ninja2, 5,6,7,8);
+
+// Las pruebas muestran como el resultado de juggle es puesto en
+// los objetos pasados a los metodos.
+
+assert(ninja1.result === 10, "Jugle via apply");
+assert(ninja2.result === 26, "Juggle via call");
+
+En este ejemplo, establecemos un funcion llamada juggle, en la cual definimos juggling como
+agregar todo en argumentos y guardarlos en una propiedad llamada result en el contexto de la
+funcion, (referido con el keyword 'this') Esa puede ser un definicion un poco de vaga de
+juggling, pero va a permitir determinar si los argumentos pasados a la funcion son correctos
+y cual objeto termina en el contexto de la funcion.
+Despues establecemos dos objetos, ninja1 y ninja2, que utilizamos en el contexto de la funcion,
+pasando la primera funcion al metodo apply, a lo largo un array de argumentos, y pasando al
+segunda funcion el metodo call, a lo largo de una list de otros argumentos:
+
+juggle.apply(ninja1, [1,2,3,4]);
+juggle.call(ninja2, 5,6,7,8);
+
+Note que la unica diferencia entre apply y call es como los argumentos son pasados, en el caso de
+apply usamos un array de argumentos, y en el caso de call, hacemos un lista de argumentos, despues
+del contexto de la funcion.
+
+FIGURE 4.3: Como el primer argumento, las dos call y apply metodos toman el objeto que se va usar
+como el contexto de la funcion. La diferencia es los siguientes argumentos.
+Apply toma solo un argumento adicional, y un array de valores como argumentos; call toma cualquier
+numero de argumentos, que van hacer usados como argumentos de la funcion;
+
+Despues de haber suministrado nuestro contexto de la funcion y argumentos, continuamos probando.
+Primero, comprobamos que ninja1, que fue llamado por medio de apply, recivio como propiedad
+result ese es el resultado de agregar todos los argumentos como valores (1,2,3,4) en el array
+pasado. Despues hacemos lo mismo para ninja2, que fue llamado via call, donde comprobamos el
+resultado por los argumentos 5,6,7 y 8:
+
+assert(ninja1.result === 10, "juggled via apply");
+assert(ninja2.result === 26, "juggled via call");
+
+La Figure 4.4 provee una mirada mas cercana a lo que esta en el listing 4.11.
+Estos dos metodos, call y apply, pueden ser utiles cuando es conveniente usurpar
+lo que normalmente vaya ser el contexto de la funcion con un objeto de nuestra
+preferencia -- algo que puede ser particularmente util cuando invocamos callback
+functions.
+
+FORZANDO EL CONTEXTO DE FUNCION EN CALLBACKS
+
+Vamos a considerar un ejemplo concreto de forzar el contexto de la funcion ha ser un objeto de
+nuestra preferencia. Vamos usar una funcion simple para ejecutar una operacion en cada entrada
+al array.
+
+FIGURE 4.4: Caracteristicas Manuales para el contexto de la funcion utilizando los metodos call y
+apply del listing 4.11. resulta en estas combinaciones de contexto de funciones (el parametro this)
+y argumentos.
+
+En programacion imperativa es comun pasar un array a un metodo y usar un for loop para iterar
+sobre el array, ejecutando la operacion en cada entrada.
+
+function(collection) {
+    for(var n = 0; n < collection.length; n++) {
+        /* do something to collection[n] */
+    }
+}
+
+En contraste, el enfoque funcional es crear una funcion que opere en un solo elemento
+y pasar cada entrada a la funcion:
+
+function(item) {
+    /* do something to item */
+}
+
+La diferencia yace en pensar a un nivel donde las funciones son los bloques constructores
+del programa. Usted talvez piense que eso es discutible, y que todo lo que esta haciendo
+es moviendo el foor loop hacia fuera un nivel, pero no hemos maquillado este ejemplo aun.
+Para facilicitar un estilo mas funcional, todos los objetos array tienen acceso a la funcion
+forEach una funcion que invoca un callback en cada elemento dentro de un array. Esto es amenudo
+mas breve y concisa y este estilo is preferido sobre el tradicional for loop, para aquellos
+familiarizados con la programcion funcional. Sus beneficios de organizacion se van a volver mas
+evidentes (cough, code reuse, cough) antes de darle covertura a closures en el capitulo 5. Tal
+iteracion a la funcion puede pasar el elemento al corriente al contexto del callback de la funcion
+
+LISTING 4.12 BUILDING A FOREACH FUNCTION TO DEMOSTRATE SETTINGS A FUNCTION CONTEXT
+// Nuestra funcion para iterar acepta la coleccion  a ser iterada
+// sobre y un callback function
+function forEach(list, callback) {
+    for (var n = 0; n < list.length; n++) {
+        // El callback es invocado tal como la iteracion al item
+        // al corriente es el contexto de la funcion
+        callback.call(list[n], n);
+
+    }
+}
+// Nuestro sujeto de prueba
+var weapons = [
+    {type: 'shuriken'},
+    {type: 'katana'},
+    {type: 'nunchucks'},
+];
+
+// Llama la funcion para iterar y asegurarse que el contexto de la funcion
+// sea correcto para cada invocacion
+
+forEach(weapons, function(index) {
+    assert(this === weapons[index], "Got the expected value of " + weapons[index].type);
+});
+La funcion de iteracion que espera el objeto array para ser iterado sobre el primero argumento,
+y una funcion callback para cada entry.
+
+function forEach(list, callback) {
+    for(var n = 0; n < list.length; n++) {
+        callback.call(list[n], n);
+    }
+}
+
+Usamos el metodo call de la funcion callback, pasando el primer parametro a la iteracion al corriente
+y pasando el loop index como el segundo parametro. Esto deberia causar a la entrada al corriente
+a volverse el contexto de la funcion, y el index a ser pasado como un un solo parametro al callback.
+Ahora para probar esto. Vamos a establecer un simple array llamado weapons. Despues llamamos a la funcion
+forEach, pasando el array a probar y un callback dentro del cual vamos a problar la entrada esperada,
+establece como el contexto de la funcion por cada invocacion del callback:
+
+forEach(weapons, function(index)) {
+    assert(this === weapons[index], "Got the expected value of " + weapons[index].type);
+}
+
+El Figure 4.5 muestra que nuestra funcion funciona esplendidamente.
+En una implementacion de produccion de tal funcion, va a ver mas trabajo para hacer.
+Por ejemplo, que pasa si el primer argumento no es un array? que pasa si el segundo
+no es una funcion? Como va a permitir  al autor de la pagina  a terminar el loop
+en el algun momento? Como ejercicio, puede argumentar la funcion ha manejar estas
+situaciones. Otro ejercicio que usted puede realizar  con esto es mejorar la funcion
+para que el page author pueda pasar un numero arbitrario de argumentos para el callback
+en adicion de la iteracion del index.
+Dado que el metodo 'call' hace casi que lo mismo, aqui hay algo que talvez usted se este
+preguntando en este momento: Como decidir cual de las dos usar? la respuesta de alto
+nivel es la misma para todas esas preguntas: Usamos cualquiera mejore el codigo y lo haga
+mas claro. Una respuesta mas practica es usar la que mejor convenga por los argumentos
+que tengamos disponibles. Si tenemos un monton de valores no relacionados en variables
+o literales, la funcion 'call' nos permite listarlos directamente en una lista de argumentos.
+Pero si tenemos argumentos en valores en un array, o es mejor colectarlos como un array, 'apply'
+deberia ser la mejor opcion;
+
+
+
+
+
+
+
+
+
 
