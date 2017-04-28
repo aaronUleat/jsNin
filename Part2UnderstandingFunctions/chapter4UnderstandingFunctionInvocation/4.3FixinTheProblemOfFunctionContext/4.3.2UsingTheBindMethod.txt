@@ -1,0 +1,52 @@
+USING THE BIND METHOD
+En este capitulo, usted ya conocio dos metodos que cada funcion tiene acceso, call y apply
+y usted ha visto como se usarlas para mayor control sobre el contexto y argumentos
+de nuestras invocacion de funciones.
+En adicion a estos metodos, cada funcion tiene acceso al metodo bind que, in corto,
+crea un nueva funcion. Esta funcion tiene el mismo body, pero su contexto siempre esta
+ligado(bound) a cierto objeto, sin importar en la manera que se invoque.
+Vamos a revisar nuestro pequeno problema con nuestro button-click handlers una vez mas
+
+LISTING 4.15 BINDING A SPECIFIC CONTEXT TO AN EVENT HANDLER
+
+var button = {
+	clicked: false,
+	other: true,
+	click: function () {
+		this.clicked = true;
+		assert(button.clicked, "The button has been clicked");
+	},
+	other: function() {
+		this.other = false
+	}
+};
+
+var elem = document.getElementById('test');
+// Usa el bind function para crear una nueva funcion bound para
+// el objeto button
+elem.addEventListener('click', button.click.bind(button) );
+
+var boundFunction = button.click.bind(button);
+var otherFunction = button.other.bind(button);
+assert(boundFunction != button.click, "Calling bind creates a completly new function");
+
+El secreto de la salsa aqui es agregar el metodo bind();
+
+elem.addEventListener("click", button.click.bind(button));
+
+El metodo bind esta disponible para todas las funciones, y esta disenado para crear y retornar
+una nueva funcion que esta ligada al objeto que se pase (en este caso, el objeto button),
+El valor de 'this' es siempre establecido a ese objeto, sin importar de la manera que
+de la manera como se invoque el bound method. Aparte de eso, la funcion bound se comporta la funcion
+que la origina, por que tiene su mismo codigo en su body.
+Siempre que el button sea cliqueado, esa funcion bound va ser invocado con le objeto button como un
+argumento  a la funcion bind.
+Note que llamando al metodo bind no modifica la funcion original. Crea una funcion completamente nueva
+un hecho asertado al final del ejemplo.
+
+var boundFunction = button.click.bind(button);
+assert(boundFunction != button.click, "Calling bind crea una completa nueva funcion");
+
+Con esto , vamos a terminar nuestra explorarcion del contexto de la funcion. Descanse por ahora, por que
+en el siguiente capitulo, vamos a lidear con uno de los mas importantes conceptos en Javascript:
+clousures.
