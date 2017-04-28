@@ -21,7 +21,7 @@ el evento loop encuentra un evento click que debe procesar. Una vez que el event
 haya terminado de ejecutarse, no hay nuevos eventos en el queue, y el evento loop sigue 
 buscando, esperando por nuevos eventos a manejar. Este loop va a continuar ejecutandose 
 hasta que el usuario cierre la aplicacion web.
-Aahora que tenemos sentido general de los pasos a seguir cuando se esta en la fase de 
+Ahora que tenemos sentido general de los pasos a seguir cuando se esta en la fase de
 event-handling, vamos a ver como esta ejecucion influencia el DOM. En la figura 2.10, 
 el handler mousemove selecciona el segundo ID al usar el addMEssage function, 
 agrega una nuevo list item element (1) con el texto "Event: mousemove". 
