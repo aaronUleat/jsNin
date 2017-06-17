@@ -1,0 +1,160 @@
+UNDERSTANDING CLOUSURES
+
+Un clousure permite accesar y manipular variables que son externas a 
+esa funcion. Los clousures permite a las funciones accesar a todas las
+variables tambien a otras funciones, que estan en el scope cuando la
+funcion es definida.
+
+NOTA: Usted probablemente es familiarizado con el concepto de scopes,
+pero solo por si acaso, un scope se refiere a la visibilidad de 
+indentificadores en ciertas partes del programa. Un scope es un aparte
+del programa en el cual cierto nombre es bound a alguna variable en 
+especifico.
+
+Esto talvez sea intituitivo hasta que usted recuerde que una funcion 
+declarada puede ser llamada en cualquier momento despues, incluso despues
+del scope en el cual fue declarado se ha ido lejos. Este concepto 
+probablemente sera mejor explicado con codigo. Pero antes de llegar un 
+ejemplo concreto que nos va a ayudar a desarrollar animaciones mas
+elegantes en codigo o para definir propiedades privadas en un objeto,
+vamos a empezar por algo pequeno, con el siguiente listing.
+
+LISTING 5.1 A simple closure
+
+var outerValue = "ninja";
+function outerFunction() {
+    assert(outerValue === "ninja", "I can see the ninja.");
+}
+
+outerFunction();
+
+En este ejemplo de codigo, declaramos una variable outerValue y una funcion
+outerFunction en el mismo scope -- en este caso, el scope global. Despues
+llamamos a la funcion outerFunction.
+
+Como usted puede ver en el figure 5.1 la funcion nos permite a ver y accesar
+el valor outerValue. Usted talvez ha escrito un codigo parecido muchas veces
+sin darse cuenta que lo que estaba haciendo era un clousure
+No lo impresiona? Eso no es sorprendente por que los dos tanto con la variable
+outerVariable y outerFunction son declaradas en el scope global, ese scope
+(el cual es un clousure) nunca se va a ir (siempre y cuando su aplicacion este
+corriendo) No es sorprendente que la funcion que la funcion pueda accesar a la
+variable por que todavia estan en el scope global. 
+Aunque el clousure exista, sus beneficios aun nos son claros. Vamos a verlo
+en el siguiente listing. 
+
+LISTING 5.2 ANOTHER CLOUSURE EXAMPLE
+function assert(value, description) {
+    var result = value ? "pass" : "fail";
+    console.log(result + ' - ' +  description);
+};
+
+var outerValue = "samurai";
+// Esta es una variable vacia que vamos a usar mas tarde
+var later;
+
+function outerFunction() {
+    // Declara un value dentro de la funcion. El scope de la variable esta limitado a
+    // la funcion y no puede ser accesado desde fuera de la funcion. 
+    var innerValue = "ninja";
+    // Se declara una funcion interna dentro del scope de outerFunction. El value
+    // innerValue es en el scope cuando se crea esta funcion  
+    function innerFunction() {
+        assert(outerValue === "samurai", "I can see the samurai");
+        assert(innerValue === "ninja", "I can see the ninja");
+    }
+    // Guarda una referencia del innerFunction en la variable global later.
+    // Por que despues la variable later en el scope global
+    later = innerFunction;
+}
+// Invoca al outerFunction, lo que causa la la funcion innerFunction sea creada
+// y es referenciada es asignada a la variable later.
+outerFunction();
+// Invoca a la funcion innerFunction a travez de la variable later. No la podemos
+// invocar directamente por que su scope(a lo largo con el valor innerValue)
+// esta limitado dentro de la funcion outerFunction
+later();
+
+Vamos a sobre analizar el codigo innerFunction y veamos si podemos predecir
+que podria suceder.
+    * El primer assert ciertamente paso, el outerValue esta en el scope global
+      y es visible a todo. Pero que pasa con el segundo assert.
+    * Estamos ejecutando innerFunction despues de outerFunction ha sido 
+      ejecutado via el truco de copiar una referencia a la variable global
+      later.
+    * Cuando el innerFunction se ejecuta, el scope dentro de la funcion outer
+      se ha ido y no esta visible en el punto en el cual estamos invocando
+      la funcion a travez de la funcion la variable global 'later'.
+    * Entonces podemos esperar que el assert falle, como innerValue 
+
+
+Pero cuando corremos el test, vemos que en el figure 5.2.
+
+Como puede ser esto? Que magia permite al la variable innerValue continuar
+viva cuando ejecutamos la funcion innerFunction, muchos despues el scope
+
+Como puede pasar esto? Que magia permite a la variable innerVariable
+mantenerse viva, cuando ejecutamos a la innerFunction, mucho despues 
+del scope donde se crea la variable ya se ha ido? La respuesta ha esto
+son los clousures.
+Cuando declaramos una innerFunction dentro del outerFunction, no solamente
+la declaracion de la funcion es definida, tambien es creado un clousure,
+este clousure engloba la defincion de la funcion tambien, y todas las 
+variables dentro de ese scope en el momento de la definicion de la funcion.
+Cuando innerFunction eventualmente se ejecute, inclusive si es ejecutada
+despues del scope en el cual ha sido declarado ya se ha ido, tiene acceso
+al scope original en el cual fue declarado a travez del clousure, como se
+muestra en el figure 5.3.
+De eso se tratan los clousures. Ellos crean una "burbuja estable" de la 
+funcion y de las variables en el scope en el punto de la definicion de la
+funcion, para que la funcion tenga todo lo que se necesita para ejecutarse.
+Esta burbuja, que contiene a la funcion y a sus variables, se matiene
+alrededor a lo largo que la funcion se mantenga.
+Aunque toda esta estructura, no es visible (no hay un objeto clousure, 
+sosteniendo toda esta informacion, que usted puede inspeccionar), 
+guardando y referenciando informacion de esta manera con un costo directo.
+Es importante recordar que cada funcion que accesa informacion via a un 
+clousure, tiene una bola y una cadena con un attach al clousure, donde 
+se mantiene esta informacion.
+Entonces aunque un clousure sea increiblemente util, no quiere decir que 
+no vaya a tener su costo. Toda esa informacion necesita ser mantenida en 
+memoria, hasta que sea claro para el motor de Javascript, que ya no va a
+ser necesaria, (y que esta a salvo para llevarla al basurero) o hasta que
+la pagina vuelva a cargar.
+No se preocupe, esto no es lo unico que vamos a decir de los clousures.
+Pero antes de seguir experimentando los mecanismos que permite funcionar
+a los clousures, vamos a ver sus usos practicos.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
