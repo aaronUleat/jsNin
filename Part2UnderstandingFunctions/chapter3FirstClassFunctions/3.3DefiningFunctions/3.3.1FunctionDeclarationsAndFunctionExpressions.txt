@@ -91,6 +91,10 @@ myFunc(function() {
 !function(){}();
 ~function(){}();
 
+document.getElementById("refuse");
+
+function myElement(getElement)
+
 Este ejemplo de codigo empieza con una  standard function declaration que contiene otra
 funcion interna
 
