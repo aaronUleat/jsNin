@@ -1,0 +1,30 @@
+TRACKING CODE EXECUTION WITH EXECUTION CONTEXT
+
+En Javascript la unidad fundamental de ejecucion es una funcion. Usamos
+funciones todo el tiempo, para calcular algo, para hacer ejecucion de
+efectos como hacer cambios en la UI, para utilizar codigo reutilizable
+o para hacer nuestro codigo mas entendible. Para poder lograr este 
+proposito, una funcion, puede llamar a otra funcion, que podria llamar a
+otra funcion, etc. Y cuando una funcion haga lo que tenga que hacer, la
+ejecucion de nuestro programa tiene que devolverse a la posicion de donde
+la funcion fue llamada. Pero usted alguna vez se pregunto como el Engine
+de Javascript le da seguimiento a todas estas funciones de ejecucion y 
+retorna posiciones?
+Como se menciono en el capitulo 2, hay dos tipos de codigo Javascript, el
+global, el codigo que esta fuera de las funciones y el codigo de funciones,
+que seria el codigo contenido en una funcion. Cuando nuestro codigo ha sido
+ejecutado por el Engine de Javascript, cada statement es ejecutado en cierto
+contexto de ejecucion.
+Y tal como tenemos dos tipos de codigo en Javascript, el global y el de 
+funciones, tenemos dos tipos de contextos de ejecucion: El contexto global
+de ejecucion y el contexto de ejecucion de una funcion. Aqui esta la diferencia
+significativa: 
+Solo hay un contexto de ejecucion global, creado cuando nuestro programa en 
+Javascript Inicia, sin importar que una nuevo contexto de ejecucion de funcion
+sea creado en cada invocacion de una funcion.
+
+NOTA: Usted talvez recuerde esto del capitulo 4 donde el contexto de la 
+funcion es el objeto en el cual nuestra funcion es invocada, la cual puede
+ser accesada atravez de la palabra clave "this". Un contexto de ejecucion,
+aunque con nombre similar, es una cosa completamente diferente. Es un 
+concepto que el engine de Javascript que el motor de Javascript 
