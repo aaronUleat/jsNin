@@ -46,7 +46,82 @@ assert(ninja2.getFeints() === 0, "El ninja dos tiene sus propios feints");
 Aqui creamos una funcion, Ninja, que sirve como un constructor. Hicimos una
 introduccion de como hacer un constructor en el capitulo 3 (y lo vamos a ver
 de una manera mas amplea en el capitulo 7).
-Por ahora recuerde
+Por ahora recuerde que cuando se usa la palabra new en una funcion, una nueva 
+instancia de sa funcion es creada, y la funcion es llamada en el contexto de
+ese nuevo objeto, que va a servir como constructor de ese objeto. Entonces
+'this' dentro de la funcion ese refiere a la instacia de ese objeto. 
+Dentro del constructor, definimos una variable que guarde el estado, feints. 
+Las reglas de scoping en Javascript para la variable 'this' limita su 
+accesibilidad dentro del constructor. Para dar acceso al valor de la variable
+del codigo que esta fuera del scope, vamos a definir un metodo para accesar:
+getFints, el cual puede ser usado para leer la variable privada. (Metodos
+accesor frecuentemente son llamados getters);
+
+function Ninja() {
+    var feints = 0;
+    this.getFeints = function() {
+        return feints;
+    }
+    this.feint = function() {
+        feints++;
+    }
+}
+
+
+Un metodo de implementacion, 'feint', es creado despues para darnos control 
+sobre el valor de la variable. En una aplicacion del mundo real, esto seria
+un metodo de negocio, pero en este ejemplo simplemente incrementa la variable
+feints.
+Despues de que el constructor haya hecho su trabajo, podemos llamar al metodo
+feint en el nuevo objeto creado ninja1;
+
+var ninja1= new Ninja();
+ninja1.feint();
+
+Nuestro test muestra que podemos usar nuestro metodo que accesa para obtener
+el valor de la variable privada, como si fuera capaz de hacer cambios no
+controlados al valor de la variable, tal como si fuera una variable privada.
+Esto va ser mostrado en el listin 5.4.
+
+Usando clousures nos permite que el estado de ninja se mantenido dentro del 
+metodo, sin dejar que sea accesada directamente por un metodo de usuario
+-- por q la variable esta avilitada en el metodo por medio de clousures,
+pero no para el codigo que esta fuera del constructor.
+
+Esto nos introduce dentro del mundo de programcion orientada a objetos en
+javascript que lo vamos a explorar en gran detalle en el capitulo 7.
+Ahora vamos a enfocarnos en otro caso comun para usar clousres.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
