@@ -1,0 +1,22 @@
+KEEPING TRACK OF IDENTIFIERS WITH LEXICAL ENVIROMENTS
+
+Un "Ambiente Lexico" es un motor constructor dentro de Javascript usado para mantener rastro de mapear
+de los identificadores para especificar variables. Por ejemplo, considere el siguiente codigo.
+
+var ninja = "Hattori";
+console.log(ninja);
+
+El "Ambiente Lexico" es consultado cuando la variable ninja es accesada en el statement console.log
+
+NOTE:  "Los Ambientes Lexicos" son una implementacion interna del mecanismo de Scoping en Javascript
+y la gente coloquialmente se refiere a ellos como scopes.
+
+Usualmente, un "ambiente lexico" esta asociado con una estructura especifica del codigo en Javascript.
+Puede ser asociado con una funcion, un bloque de codigo, o la parte catch de un statement try-catch
+Cada una de estas estructuras (functions, blocks, and catch) pueden tener su propio mapeo identificador.
+
+NOTA: En pre-ES6 version de Javascript, un "ambiente lexico" puede ser asociado con unicamente en una
+funcion. Las variables pueden ser asociadas con el scope de una funcion. Esto causa mucha confusion.
+Por que Javascript es un lenguage C-like, personas que vienen de otros lenguages c-like tales como
+(tal como C++, C#, Java) naturalmente esperando conceptos de bajo nivel(low-level) tales como la existencia
+de bloques de scope, para ser iguales. Con ES6, esto ha sido arreglado.
