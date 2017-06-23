@@ -1,4 +1,4 @@
-CODE NESTING.
+CODE NESTING
 
 "Ambientes Lexicos" estan basados fuertemente en codigo anidado, el cual permite a una estructura de codigo
 a ser contenida dentro de otra. El figure 5.8 muestra varios tipos de code nesting.
@@ -34,3 +34,4 @@ puede accesar variables adicionales del codigo global.
 No hay nada especial acerca de este tipo de acceso de variables; todo lo que tenemos problablemente es
 algo que hemos hecho muchas veces. Pero como hace el motor de javascript mantiene el rastro de todas
 las variables, y que es accesible desde donde? Esto es cuando el "ambiente lexico" entra en el juego.
+

@@ -1,0 +1,63 @@
+CODE NESTING AND LEXICAL ENVIROMENTS
+En adicion a mantener rastro del las variables locales, las function declarations, y los parametros de funciones,
+cada ambiente lexico tiene que mantener rastro de el ambiente lexico de su padre. Esto es necesario por que tenemos
+que tener acceso a las variables definidas en las estructuras de afuera; Si un identificadior no puede ser encontrado
+en el ambiente al corriente, el ambiente de afuera es buscado. Esto se detiene cuando el pareo de la variable es
+encontrado, o con un error de ferencia si ya hemos alcanzado el ambiente global y no hay signos de buscar a ∪n
+indetificador. El figure 5.9 muestra un ejemplo; usted puede ver como el identificador "Intro", "action" y ninja
+son resueltos cuando se ejecuta la funcion "report".
+En este ejemplo, la funcion "report" es llamada por medio de la funcion "skulk", que es llamada por medio del codigo
+global. Cada contexto de ejecucion tiene un ambiente lexico asociado que dentro contiene el mapeo de todos los
+identificadores definidos directamente en ese contexto.
+Por ejemplo, el ambiente global mantiene el mapeo de los identificadores ninja y skulk, el ambiente skulk mantiene
+el mapeo para los identificadores action y report, y el ambiente de report mapeo al identificador intro (la parte
+derecha del figure 5.9).
+
+En particular contexto de ejecucion, ademas de accesar a identificaores definidos directamente en el pareo de el
+ambiente lexico, nuestros programas con frecuencia accesan otras variables definidas en ambientes de afuera. Por
+ejemplo, en el cuerpo de la funcion "report", accesamos a la variable action de afuera de la funcion "skulk",
+tambien tiene una variable global "ninja". Para hacer esto, tenemos de alguna manera mantener rastreo de estos
+ambientes exteriores. Javascript hace esto, tomando ventaja de los objetos funciones first-class.
+
+Siempre que una funcion es creada, una referencia al ambiente global en el cual la funcion fue creada es almacenado
+internamente (lo que significa que usted no puede accesar o manipularo directamente) [[Environment]]; con brackets
+dobles es la notacion que se usamos para marcar estas propiedades internas. En nuestro caso, la funcion skulk va a
+mantener una referencia a al ambiente global, por que es donde los ambintes en los cuales las funciones fueron creadas.
+
+<script>
+    var ninja = "Muneyoshi";
+    function skulk() {
+        var action = "Skulking";
+
+        function report() {
+            var intro = "Aha!";
+            assert(intro    === "Aha!", "Local");
+            assert(action   === "")
+        }
+    }
+</script>
+
+
+NOTA: Esto le puede parecer raro a primera vista. Por que no solo atrevasamos el todo el stack de contexto de
+ejecucion y buscar el pareo de ambientes para identificar los mapeos? Tecnicamente, esto servira en nuestro
+ejemplo. Pero recuerde, una funcion de javascript puede ser pasada alrededor como cualquier otro objeto, entonces
+la posicion de la definicion de la funcion y la posicion de donde la funcion es llamada generalmente no estan
+relacionadas. (recuerde los clousures).
+
+Siempre que una funcion es llamda, un nuevo contexto de ejecucion es creado y empujado sobre la ejecucion del contexto
+stack. En adicion, un nuevo ambiente lexico es asociado y craedo. Ahora viene la parte crucial: Para el ambiente
+exterior del nuevo ambiente lexico creado, El motor de Javascript pone el ambiente referenciado por la funcion
+llamada interna propiedad [[Enviroment]], el ambiente en el cual la funcion llamada ahora fue creada.
+En Nuestro caso, cuando la funcion skulk es llamda, el ambiente exterior del nuevo skulk ambiente se vuelve el ambiente
+global (por que es el ambiente en el cual la funcion skulk fue creada). Similarmente cuando se llama la funcion report,
+el ambiente exterior del nuevo ambiente report es establecido el ambiente de skulk.
+Ahora tomemos una vista a la funcion report:
+
+function report() {
+    var intro = "Aha!";
+    assert(intro === "Aha!, "Local");
+    assert(action === "Skulking", "Outer");
+    assert(ninja === "Muneyoshi", "Global" );
+}
+
+Cuando hacemos el primer assert ha sido evaluado, tenemos que resolver el indentificador "intro"
