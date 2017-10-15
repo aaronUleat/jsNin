@@ -1,0 +1,6 @@
+### EJECUTANDO PARA TRABAJAR LOS CLOUSURES.
+Ahora que tenemos un entendimiento mas elevado de los clousures, veamos
+como los ponemos a trabajar, en una aplicacion Javascript. Por ahora,
+Vamos a enfocarnos en los aspectos practicos, y beneficios. Mas adelante
+en este capitulo, vamos a revisitar los ejemplos para ver exactamente, que
+es lo que esta pasando en realidad.

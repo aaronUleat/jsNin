@@ -1,5 +1,4 @@
-TRACKING CODE EXECUTION WITH EXECUTION CONTEXT
-
+### TRACKING CODE EXECUTION WITH EXECUTION CONTEXT
 En Javascript la unidad fundamental de ejecucion es una funcion. Usamos
 funciones todo el tiempo, para calcular algo, para hacer ejecucion de
 efectos como hacer cambios en la UI, para utilizar codigo reutilizable
@@ -10,17 +9,21 @@ ejecucion de nuestro programa tiene que devolverse a la posicion de donde
 la funcion fue llamada. Pero usted alguna vez se pregunto como el Engine
 de Javascript le da seguimiento a todas estas funciones de ejecucion y 
 retorna posiciones?
+
 Como se menciono en el capitulo 2, hay dos tipos de codigo Javascript, el
 global, el codigo que esta fuera de las funciones y el codigo de funciones,
 que seria el codigo contenido en una funcion. Cuando nuestro codigo ha sido
 ejecutado por el Engine de Javascript, cada statement es ejecutado en cierto
 contexto de ejecucion.
+
 Y tal como tenemos dos tipos de codigo en Javascript, el global y el de 
 funciones, tenemos dos tipos de contextos de ejecucion: El contexto global
 de ejecucion y el contexto de ejecucion de una funcion. Aqui esta la diferencia
 significativa: 
 
-
+Solo hay un contexto de ejecucion global, creado cuando nuestro programa en 
+Javascript Inicia, sin importar que una nuevo contexto de ejecucion de funcion
+sea creado en cada invocacion de una funcion.
 
 NOTA: Usted talvez recuerde esto del capitulo 4 donde el contexto de la 
 funcion es el objeto en el cual nuestra funcion es invocada, la cual puede
@@ -40,7 +43,7 @@ ambos, el que se esta ejecutando y los que estan esperando pacientemente ser eje
 La manera mas facil de hacer esto es por medio de un stack, llamado el contexto de ejecucion
 stack (o muchas veces llamado call stack);
 
-
+```
 // Una funcion que llama a otra funcion
 function skulk(ninja) {
 	report(ninja + " skulking");
@@ -52,7 +55,7 @@ function report(message) {
 // dos llamadosde funciones del codigo global
 skulk("Kuma");
 skulk("Yoshi");
-
+```
 Este codigo es sin perder tiempo, definimos una funcion "skulk", la cual llama
 a la funcion "report", La cual devuelve un mensaje. Despues, por medio del codigo
 global, hacemos dos llamados diferentes a la funcion skulk: skulk("Kuma") y
@@ -61,77 +64,27 @@ de ejecucion, como se muestra en el figure 5.6.
 
 Cuando ejecutamos el codigo en el ejemplo, el contexto de ejecucion se comparte de la
 siguiente manera:
-    1)  El Contexto de ejecucion stack empieza con el contexto global que es solo creado
-        por el Programa de javascript (uno por pagina en el caso de las paginas web). El
-        contexto global de ejecucion es el contexto activo de ejecucion cuando se ejecuta
-        codigo global.
-    2)  En el codigo global, el programa primero define dos funciones: skulk y report, y
-        despues llama el skulk function con skulk("Kuma"). Por que solo una pieza de
-        codigo puede ser ejecutada a la vez, El motor de Javascript pausa la ejecucion
-        del codigo global, y va y ejecuta la funcion skulk() con "Kuma" como argumento.
-        Esto es hecho al crear un nuevo contexto de ejecucion y empujandolo hacia arriba
-        del stack.
-    3)  El skulk function, llama a la funcion report con el argumento de "Kuma skulking".
-        De nuevo, por el motivo de que solo una pieza de codigo puede ser ejecutada, el
-        contexto de la funcion skulk es pausado, y un nuevo contexto de ejecucion de la
-        funcion report es creado, con el argumento "Kuma skulking", es creada y lo pone
-        arriba en el stack.
-    4)  Despues de que la funcion report genere el mensaje al usar la funcion built-in
-        console.log y termina la ejecucion, tenemos que irnos atras a la funcion skulk(),
-        saltando el contexto de la funcion "report" del stack. El contexto de la funcion
-        skulk es reactivado y la ejecucion del la funcion skulk continua.
-    5)  Una cosa similar pasa cuando la funcion skulk finaliza su ejecucion: el contexto
-        de ejecucion de la funcion skulk es removida del stack, y el contexto global de
-        ejecucion, que ha estado esperando todo este tiempo, es restaurado como el contexto
-        activo de ejecucion. La ejecucion del codigo global de Javascript ha sido restaurado.
 
-Todo este proceso es repetido de manera similar esperando por el segundo llamado, de la funcion
-skulk, ahora con el argumento "Yoshi". Dos nuevos contextos de ejecucion de funcion son creados
-y empujados en el stack, skulk("Yoshi") y report("Yoshi skulking"), cuando las respectivas
-funciones sean llamadas. Este contexto de ejecucion salta del stack cuando el programa returne
-de la funcion que haga match.
-A pesar de que la ejecucion del contexto stack es un concepto interno de Javascript, usted puede
-explorar en cualquier debugger de Javascript, cuando es referida a una llamada como un call stack.
-La figura 5.7 muestra el call stack en el Chrome Debugger.
-
-NOTA:  El apendix C nos da un maneras mas cercana del debugging tools avilitado en varios browsers.
-
-Ademas de seguir un rastro de la posicion en la ejecucion de la aplicacion, el contexto de la
-ejecucion es vital para identificar la resolucion, el proceso de averiguar cual variable
-se refiere a cierto indentificador. El contexto de ejecucion por medio de esta via el
-ambiente lexico
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+1.  El Contexto de ejecucion stack empieza con el contexto global que es solo creado
+    por el Programa de javascript (uno por pagina en el caso de las paginas web). El
+    contexto global de ejecucion es el contexto activo de ejecucion cuando se ejecuta
+    codigo global.
+2.  En el codigo global, el programa primero define dos funciones: skulk y report, y
+    despues llama el skulk function con skulk("Kuma"). Por que solo una pieza de
+    codigo puede ser ejecutada a la vez, El motor de Javascript pausa la ejecucion
+    del codigo global, y va y ejecuta la funcion skulk() con "Kuma" como argumento.
+    Esto es hecho al crear un nuevo contexto de ejecucion y empujandolo hacia arriba
+    del stack.
+3.  El skulk function, llama a la funcion report con el argumento de "Kuma skulking".
+    De nuevo, por el motivo de que solo una pieza de codigo puede ser ejecutada, el
+    contexto de la funcion skulk es pausado, y un nuevo contexto de ejecucion de la
+    funcion report es creado, con el argumento "Kuma skulking", es creada y lo pone
+    arriba en el stack.
+4.  Despues de que la funcion report genere el mensaje al usar la funcion built-in
+    console.log y termina la ejecucion, tenemos que irnos atras a la funcion skulk(),
+    saltando el contexto de la funcion "report" del stack. El contexto de la funcion
+    skulk es reactivado y la ejecucion del la funcion skulk continua.
+5.  Una cosa similar pasa cuando la funcion skulk finaliza su ejecucion: el contexto
+    de ejecucion de la funcion skulk es removida del stack, y el contexto global de
+    ejecucion, que ha estado esperando todo este tiempo, es restaurado como el contexto
+    activo de ejecucion. La ejecucion del codigo global de Javascript ha sido restaurado.
