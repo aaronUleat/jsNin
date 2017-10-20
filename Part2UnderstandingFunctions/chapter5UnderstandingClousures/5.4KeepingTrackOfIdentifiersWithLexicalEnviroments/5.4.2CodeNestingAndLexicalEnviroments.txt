@@ -60,4 +60,14 @@ function report() {
     assert(ninja === "Muneyoshi", "Global" );
 }
 
-Cuando hacemos el primer assert ha sido evaluado, tenemos que resolver el indentificador "intro"
+Cuando hacemos el primer assert ha sido evaluado, tenemos que resolver el indentificador "intro". Para hacer esto
+, el engine de Javascript empieza por chequear el ambiente de ejecucion al corriente, el ambiente report. Por que
+el ambiente reporte contiene una referencia intro, el identificardor es resuelto.
+Despues, la segunda declaracion assert resuelve la accion identifier. De nuevo, el ambiente que esta corriendo al
+momento de contexto de ejecucion es chequeado. Pero el ambiente 'report' no contiene una referencia para la accion
+identifier, entonces el motor de Javadcript no ha chequeado el ambiente exterior del ambiente report: el ambiente
+skulk. Por suerte, el ambiente skulk contiene una referencia al identificador de accion, y el identificador es
+resuelto. Un proceso es similar seguido cuando trata de resolver el identificardor ninja (un pequeno indicio: el
+identificador puede ser encontrado en el ambiente global.)
+Ahora que usted puede entender los fundamentos de la resolucion de un identificador, vamos a ver varias maneras
+en que una variable puede ser declarada.
