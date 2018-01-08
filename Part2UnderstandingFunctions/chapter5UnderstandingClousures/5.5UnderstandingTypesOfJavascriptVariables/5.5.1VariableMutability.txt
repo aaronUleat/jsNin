@@ -1,4 +1,0 @@
-VARIABLE MUTABILITY
-Si fueramos a divdir una declaracion por mutabilidad, ponemos un const de un lado y var y let en otro lado.
-Todas las variables  definidas con const son immutables, lo que significa que su valor puede ser seteado solo
-una vez.

@@ -1,3 +1,4 @@
+### Understanding Types of Javascript variables
 En javascript, podemos usar tres palabras clavez para definir variables: var, let y const. Ellas difieren en dos
 aspectos: mutabilidad y sus relaciones hacia el ambiente lexico.
 
