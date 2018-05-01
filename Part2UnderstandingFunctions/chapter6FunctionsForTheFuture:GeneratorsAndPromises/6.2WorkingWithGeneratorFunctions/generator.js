@@ -14,3 +14,5 @@ for (let weapon of WeaponGenerator())
 {
     assert(weapon !== undefined, weapon);
 }
+
+
